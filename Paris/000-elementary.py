@@ -1,6 +1,6 @@
 # https://py.checkio.org/station/library/
 
-# 20170731
+# 20171114
 # FIZZ BUZZ https://py.checkio.org/mission/fizz-buzz/
 # "Fizz buzz" is a word game we will use to teach the robots about division. Let's learn computers.
 #
@@ -20,7 +20,8 @@
 # fizzBuzz(5) == "Buzz"
 # fizzBuzz(7) == "7"
 
-
+def fizzBuzz(num):
+    return "Fizz Buzz" if num % 3 == 0 and num % 5 == 0 else "Fizz" if num % 3 == 0 else "Buzz" if num % 5 == 0 else str(num)
 
 
 # 20170731

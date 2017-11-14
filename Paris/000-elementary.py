@@ -43,6 +43,9 @@ def fizzBuzz(num):
 # evenLast([6]) == 36
 # evenLast([]) == 0
 
+def evenLast(parameter):
+    return "Huuray!!!"
+
 
 
 # 20170731

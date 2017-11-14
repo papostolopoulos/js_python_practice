@@ -1,5 +1,3 @@
-// https://js.checkio.org/station/library/
-
 /*20170731
 FIZZ BUZZ https://js.checkio.org/mission/fizz-buzz/
 "Fizz buzz" is a word game we will use to teach the robots about division. Let's learn computers.
@@ -21,8 +19,15 @@ fizzBuzz(5) == "Buzz"
 fizzBuzz(7) == "7"
 */
 
+function fizzBuzz(num) {
+  let result = num % 3 === 0 && num % 5 === 0 ? "Fizz Buzz" : num % 3 === 0 ? "Fizz" : num % 5 === 0 ? "Buzz" : num.toString();
+  return result;
+}
 
-
+//20171111
+function fizzBuzz(num) {
+  return num % 3 === 0 && num % 5 === 0 ? "Fizz Buzz" : num % 3 === 0 ? "Fizz" : num % 5 === 0 ? "Buzz" : num.toString();
+}
 
 /*20170731
 EVEN THE LAST https://js.checkio.org/mission/even-last/
@@ -43,7 +48,20 @@ evenLast([1, 3, 5]) == 30
 evenLast([6]) == 36
 evenLast([]) == 0 */
 
+function evenLast(array) {
+  if (array.length === 0) return 0;
 
+  let sumOfEvenIndexes = 0;
+  for (var i = 0; i < array.length; i++) {
+    i % 2 === 0 ? sumOfEvenIndexes += array[i] : null;
+  }
+  return sumOfEvenIndexes * array[array.length - 1];
+}
+
+//solution from the internet
+function evenLast(data) {
+    return data.filter((item, i) => i % 2 == 0).reduce((prev, cur) => prev + cur, 0) * data[data.length - 1] || 0;
+}
 
 /*20170731
 SECRET MESSAGE https://js.checkio.org/mission/secret-message/
@@ -73,8 +91,19 @@ findMessage("How are you? Eh, ok. Low or Lower? Ohhh.") == "HELLO"
 findMessage("hello world!") == ""
 */
 
+function findMessage(string) {
+  let secretMessage = "";
+  let alphabetCapitals = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  for (let value of string) {
+    alphabetCapitals.indexOf(value) !== -1 ? secretMessage += value : null;
+  }
+  return secretMessage;
+}
 
-
+//solution from the internet
+function findMessage(data) {
+    return data.replace(/[^A-Z]/g, '');
+}
 
 /*20170801
 THREE WORDS https://js.checkio.org/mission/three-words/
@@ -99,8 +128,22 @@ threeWords("bla bla bla bla") == True
 threeWords("Hi") == False
 */
 
+function threeWords(string) {
+  let splitString = string.toLowerCase().split(' ');
+  let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  let counter = 0;
 
+  for (let value of splitString) {
+    alphabet.indexOf(value.slice(0,1)) !== -1 ? counter += 1 : counter = 0;
+    if (counter >= 3) return true;
+  }
+  return false;
+}
 
+//online solution
+function threeWords(data) {
+    return /\D+\s\D+\s\D+/.test(data);
+}
 
 /* 20170801
 INDEX POWER https://js.checkio.org/mission/index-power/
@@ -125,8 +168,19 @@ indexPower([1, 2], 3) == -1
 
 */
 
+function indexPower(arr, num) {
+  if (num > arr.length - 1) return -1;
+  return Math.pow(arr[num], num);
+}
 
+function indexPower(arr, num) {
+  return num > arr.length - 1 ? -1 : Math.pow(arr[num], num);
+}
 
+//from the internet
+function indexPower(array, n){
+    return Math.pow(array[n],n) || -1;
+}
 
 /*20170802
 THE MOST NUMBERS https://js.checkio.org/mission/most-numbers/
@@ -153,8 +207,20 @@ mostNumbers(10.2, -2.2, 0, 1.1, 0.5) == 12.4
 mostNumbers() == 0
 */
 
+function mostNumbers(args) {
+  let max = -Infinity;
+  let min = +Infinity;
+  if (arguments.length === 0) return 0;
+  for (var i = 0; i < arguments.length; i++) {
+    if (min > arguments[i]) min = arguments[i];
+    if (max < arguments[i]) max = arguments[i];
+  }
+  return max - min;
+}
 
-
+function mostNumbers(args) {
+  return arguments.length === 0 ? 0 : Math.max(...arguments) - Math.min(...arguments);
+}
 
 /*20170803
 DIGITS MULTIPLICATION https://js.checkio.org/mission/digits-multiplication/
@@ -170,7 +236,28 @@ digitsMultip(999) == 729
 digitsMultip(1000) == 1
 digitsMultip(1111) == 1
 
+*/
+function digitsMultip(num) {
+  let numToArr = num.toString().split('');
+  console.log(numToArr);
+  return numToArr
+  .filter((ele) => {
+    return Number(ele) !== 0
+  })
+  .reduce((product, value) => {
+    return product * Number(value);
+  }, 1);
+}
 
+function digitsMultip(num) {
+  let numToArr = num.toString().split('');
+  let result = 1;
+
+  for (let value of numToArr) {
+    if (Number(value) !== 0) result *= value;
+  }
+  return result;
+}
 
 
 /*20170803
@@ -192,8 +279,16 @@ countInversion([1, 2, 5, 3, 4, 7, 6]) == 3
 countInversion([0, 1, 2, 3]) == 0
 */
 
-
-
+function countInversion(array) {
+  let counter = 0;
+  while (array.length > 1) {
+    let compare = array.shift();
+    for (let value of array) {
+      if (value < compare) counter += 1;
+    }
+  }
+  return counter;
+}
 
 /*20170803
 COMMON WORDS https://js.checkio.org/mission/common-words/
@@ -215,7 +310,31 @@ commonWords("one,two,three", "four,five,six") == ""
 commonWords("one,two,three", "four,five,one,two,six,three") == "one,three,two"
 */
 
+function commonWords(str1, str2) {
+  let str1Arr = str1.split(',');
+  let str2Arr = str2.split(',');
+  let result = [];
+  for (let value of str1Arr){
+    if (str2Arr.indexOf(value) !== -1) result.push(value);
+  }
+  return result.sort().join(',');
+}
 
+function commonWords(str1, str2) {
+  let str1Arr = str1.split(',');
+  let str2Arr = str2.split(',');
+  let result = [];
+  for (let value of str1Arr){
+    if (str2Arr.includes(value)) result.push(value);
+  }
+  return result.sort().join(',');
+}
+
+
+//solution from the internet
+function commonWords(first, second) {
+    return first.split(","). filter(x => second.split(",").includes(x)).sort().join(",");
+}
 
 
 /*20170807
@@ -245,9 +364,9 @@ absoluteSorting((1, 2, 3, 0)) == [0, 1, 2, 3]
 absoluteSorting((-1, -2, -3, 0)) == [0, -1, -2, -3]
 */
 
-
-
-
+function absoluteSorting(array) {
+  return array.sort((a, b) =>  Math.abs(a) - Math.abs(b));
+}
 
 /*20170807
 NUMBER BASE https://js.checkio.org/mission/number-radix/
@@ -279,3 +398,35 @@ re.match("\A[A-Z0-9]\Z", str_number)
 0 < len(str_number) ≤ 10
 2 ≤ radix ≤ 36
 */
+
+//Incomplete solution
+function numberRadix(str, num) {
+  return isNaN(parseInt(str, num)) ? -1 : parseInt(str, num);
+}
+
+
+/*
+The following solution is working after I added the if statement based on the following paragraph from MDN (for parseInt()):
+If parseInt encounters a character that is not a numeral in the specified radix,
+it ignores it and all succeeding characters and returns the integer value
+parsed up to that point.
+parseInt truncates numbers to integer values. Leading and trailing spaces are allowed.
+*/
+function numberRadix(str, num) {
+  for (var i = 0; i < str.length; i++) {
+    if (isNaN(parseInt(str[i], num))) return -1;
+  }
+  return isNaN(parseInt(str, num)) ? -1 : parseInt(str, num);
+}
+
+//online solution - In the return line, the guy returns the ps_int result IF
+// ps_int === true (if NaN it will return false) and
+// if the first parameter (str_number) equals the result of ps_int inverter to
+// a string ps_int.toString(radix)
+
+function numberRadix(str_number, radix){
+    const ps_int = parseInt(str_number, radix);
+    const ts_int = ps_int.toString(radix);
+​
+    return ps_int && str_number.toLowerCase() === ts_int ? ps_int : -1;
+}

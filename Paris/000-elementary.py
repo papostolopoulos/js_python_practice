@@ -48,7 +48,74 @@ def say_hi(name, int):
 # correct_sentence("Greetings, friends.") == "Greetings, friends."
 
 def correct_sentence(str):
-    
+    return str[0].upper() + str[1:]
+
+
+# FIRST WORD https://py.checkio.org/mission/first-word/
+# You are given a string where you have to find its first word.
+#
+# When solving a task pay attention to the following points:
+#
+# There can be dots and commas in a string.
+# A string can start with a letter or, for example, a dot or space.
+# A word can contain an apostrophe and it's a part of a word.
+# The whole text can be represented with one word and that's it.
+# Input: A string.
+#
+# Output: A string.
+#
+# Example:
+#
+# first_word("Hello world") == "Hello"
+# first_word("greetings, friends") == "greetings"
+#
+# How it is used: the first word is a command in a command line
+#
+# Precondition: the text can contain a-z A-Z , . '
+
+
+
+
+
+# SECOND INDEX https://py.checkio.org/mission/second-index/
+# You are given two strings and you have to find an index of the second occurrence of the second string in the first one.
+#
+# Let's go through the first example where you need to find the second occurrence of "s" in a word "sims". It’s easy to find its first occurrence with a function index or find which will point out that "s" is the first symbol in a word "sims" and therefore the index of the first occurrence is 0. But we have to find the second "s" which is 4th in a row and that means that the index of the second occurrence (and the answer to a question) is 2.
+#
+# Input: Two strings.
+#
+# Output: Int or None
+#
+# Example:
+#
+# second_index("sims", "s") == 3
+# second_index("find the river", "e") == 12
+# second_index("hi", " ") is None
+
+
+
+
+# BETWEEN MARKERS https://py.checkio.org/mission/between-markers/
+# You are given a string and two markers (the initial and final).
+# You have to find a substring enclosed between these two markers. But there are a few important conditions:
+#
+# The initial and final markers are always different.
+# The text must be found only between the first instances of the marker.
+# If there is no initial marker then the beginning should be considered as the beginning of a string.
+# If there is no final marker then the ending should be considered as the ending of a string.
+# If the initial and final markers are missing then simply return the whole string.
+# If the final marker is standing in front of the initial one then return an empty string.
+# Input: Three arguments. All of them are strings. The second and third arguments are the initial and final markers.
+#
+# Output: A string.
+#
+# Example:
+#
+# between_markers('What is >apple<', '>', '<') == 'apple'
+# between_markers('No[/b] hi', '[b]', '[/b]') == 'No'
+#
+# How it is used: for parsing texts
+# Precondition: can't be more than one marker
 
 
 # 20171114

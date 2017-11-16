@@ -58,6 +58,15 @@ function evenLast(array) {
   return sumOfEvenIndexes * array[array.length - 1];
 }
 
+//20171115
+function evenLast(arr){
+  if(arr.length === 0) return 0;
+
+  return arr.reduce((accumulator, currentValue, currentIndex) => {
+    return currentIndex % 2 === 0 ? accumulator + currentValue : accumulator
+  }, 0) * arr[arr.length - 1];
+}
+
 //solution from the internet
 function evenLast(data) {
     return data.filter((item, i) => i % 2 == 0).reduce((prev, cur) => prev + cur, 0) * data[data.length - 1] || 0;

@@ -24,7 +24,7 @@ def fizzBuzz(num):
     return "Fizz Buzz" if num % 3 == 0 and num % 5 == 0 else "Fizz" if num % 3 == 0 else "Buzz" if num % 5 == 0 else str(num)
 
 
-# 20170731
+# 20171115
 # EVEN THE LAST https://py.checkio.org/mission/even-last/
 # You are given an array of integers. You should find the sum of the elements with even indexes
 # (0th, 2nd, 4th...) then multiply this summed number and the final element of the array together.
@@ -43,9 +43,22 @@ def fizzBuzz(num):
 # evenLast([6]) == 36
 # evenLast([]) == 0
 
-def evenLast(parameter):
-    return "Huuray!!!"
+def evenLast(lst):
+    lst_sum = 0
+    if len(lst) == 0:
+        return lst_sum
 
+    for x in range(0, len(lst)):
+        if x % 2 == 0:
+            lst_sum += lst[x]
+
+    return lst_sum * lst[len(lst) - 1]
+
+
+#  from the internet
+def checkio(array):
+    if len(array) == 0: return 0
+    return sum(array[0::2]) * array[-1]
 
 
 # 20170731

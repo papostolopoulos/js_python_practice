@@ -1,3 +1,48 @@
+// https://js.checkio.org/station/library/
+
+/* 20171116
+SAY HI https://py.checkio.org/mission/say-history/ (NOT IN THE LIST OF JS EXERCISES)
+In this mission you should write a function that introduce a percone with a given parameters in attributes.
+
+Input: Two arguments. String and positive integer.
+Output: String.
+
+Example:
+say_hi("Alex", 32) == "Hi. My name is Alex and I'm 32 years old"
+say_hi("Frank", 68) == "Hi. My name is Frank and I'm 68 years old"
+*/
+
+//commas do not work in return. only in console.log. Solution with +
+function sayHi(name, int) {
+  return("Hi, My name is " + name + " and I'm " + int.toString() + " years old")
+}
+
+//Solution with backticks ``
+function sayHi(name, int) {
+  return(`Hi, My name is ${name}, and I'm, ${int.toString()} years old`);
+}
+
+/* 20171126
+CORRECT SENTENCE https://py.checkio.org/mission/correct-sentence/ (NOT IN THE LIST OF JS EXERCISES)
+For the input of your function will be given one sentence.
+You have to return its fixed copy in a way so it’s always starts with a capital letter and ends with a dot.
+
+Pay attention to the fact that not all of the fixes is necessary.
+If a sentence already ends with a dot then adding another one will be a mistake.
+
+Input: A string.
+Output: A string.
+
+Example:
+correct_sentence("greetings, friends") == "Greetings, friends."
+correct_sentence("Greetings, friends") == "Greetings, friends."
+correct_sentence("Greetings, friends.") == "Greetings, friends."
+*/
+
+function correctSentence(str){
+  return str[str.length - 1] !== "." ? str[0].toUpperCase() + str.slice(1).toLowerCase() + "." : str[0].toUpperCase() + str.slice(1).toLowerCase()
+}
+
 /*20170731
 FIZZ BUZZ https://js.checkio.org/mission/fizz-buzz/
 "Fizz buzz" is a word game we will use to teach the robots about division. Let's learn computers.

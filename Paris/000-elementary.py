@@ -1,5 +1,56 @@
 # https://py.checkio.org/station/library/
 
+# 20171116
+# SAY HI https://py.checkio.org/mission/say-history/ (NOT IN THE LIST OF JS EXERCISES)
+# In this mission you should write a function that introduce a percone with a given parameters in attributes.
+#
+# Input: Two arguments. String and positive integer.
+# Output: String.
+#
+# Example:
+# say_hi("Alex", 32) == "Hi. My name is Alex and I'm 32 years old"
+# say_hi("Frank", 68) == "Hi. My name is Frank and I'm 68 years old"
+
+# solution with plusses
+def say_hi(name, int):
+    return("Hi. My name is " + name + " and I'm " + str(int) + " years old")
+
+# solutiion with the % operator
+def say_hi(name, int):
+    return "Hi. My name is %s and I'm %s years old" % (name, str(int))
+
+# solution with the .join() method
+def say_hi(name, int):
+    piece_1 = "Hi. My name is "
+    piece_2 = " and I'm "
+    piece_3 = " years old."
+    result = " ".join([piece_1, name, piece_2, str(int), piece_3])
+    return result
+
+# Solution using the {} operator
+def say_hi(name, int):
+    return "Hi. My name is {} and I'm {} years old" .format(name, int)
+
+# 20171126
+# CORRECT SENTENCE https://py.checkio.org/mission/correct-sentence/
+# For the input of your function will be given one sentence.
+# You have to return its fixed copy in a way so it’s always starts with a capital letter and ends with a dot.
+#
+# Pay attention to the fact that not all of the fixes is necessary.
+# If a sentence already ends with a dot then adding another one will be a mistake.
+#
+# Input: A string.
+# Output: A string.
+#
+# Example:
+# correct_sentence("greetings, friends") == "Greetings, friends."
+# correct_sentence("Greetings, friends") == "Greetings, friends."
+# correct_sentence("Greetings, friends.") == "Greetings, friends."
+
+def correct_sentence(str):
+    
+
+
 # 20171114
 # FIZZ BUZZ https://py.checkio.org/mission/fizz-buzz/
 # "Fizz buzz" is a word game we will use to teach the robots about division. Let's learn computers.

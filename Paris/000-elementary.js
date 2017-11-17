@@ -69,9 +69,14 @@ Precondition: the text can contain a-z A-Z , . '
 
 function firstWord(str){
   let punctuations = [",", ".", " "]
+
+  while (punctuations.indexOf(str[0]) !== -1) str = str.slice(1);
+
   for(let i = 0; i < str.length; i++){
     if (punctuations.indexOf(str[i]) !== -1) return str.slice(0, i);
   }
+
+  return str;
 }
 
 

@@ -15,6 +15,7 @@
 def say_hi(name, int):
     return("Hi. My name is " + name + " and I'm " + str(int) + " years old")
 
+
 # solutiion with the % operator
 def say_hi(name, int):
     return "Hi. My name is %s and I'm %s years old" % (name, str(int))
@@ -31,7 +32,8 @@ def say_hi(name, int):
 def say_hi(name, int):
     return "Hi. My name is {} and I'm {} years old" .format(name, int)
 
-# 20171126
+
+# 20171116
 # CORRECT SENTENCE https://py.checkio.org/mission/correct-sentence/
 # For the input of your function will be given one sentence.
 # You have to return its fixed copy in a way so it’s always starts with a capital letter and ends with a dot.
@@ -48,7 +50,7 @@ def say_hi(name, int):
 # correct_sentence("Greetings, friends.") == "Greetings, friends."
 
 def correct_sentence(str):
-    return str[0].upper() + str[1:]
+    return str[0].upper() + str[1:] + "." if str[-1] != "." else str[0].upper() + str[1:]
 
 
 # FIRST WORD https://py.checkio.org/mission/first-word/
@@ -68,14 +70,28 @@ def correct_sentence(str):
 #
 # first_word("Hello world") == "Hello"
 # first_word("greetings, friends") == "greetings"
+# first_word(" a word ")
+# first_word("... and so on ...")
 #
 # How it is used: the first word is a command in a command line
-#
 # Precondition: the text can contain a-z A-Z , . '
 
+def first_word(str):
+    punctuations = ",. "
+    while punctuations.find(str[0]) != -1:
+        str = str[1:]
 
+    for x in range(0, len(str) - 1):
+        if punctuations.find(str[x]) == -1 and punctuations.find(str[x + 1]) != -1:
+            return str[:x + 1]
 
+    return str
 
+# from the internet
+import re
+
+def first_word(text: str) -> str:
+    return re.search("[a-zA-Z']+", text).group()
 
 # SECOND INDEX https://py.checkio.org/mission/second-index/
 # You are given two strings and you have to find an index of the second occurrence of the second string in the first one.

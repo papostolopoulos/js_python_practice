@@ -43,7 +43,7 @@ function correctSentence(str){
   return str[str.length - 1] !== "." ? str[0].toUpperCase() + str.slice(1).toLowerCase() + "." : str[0].toUpperCase() + str.slice(1).toLowerCase()
 }
 
-/*
+/* 20171116
 FIRST WORD https://py.checkio.org/mission/first-word/
 You are given a string where you have to find its first word.
 
@@ -66,6 +66,13 @@ How it is used: the first word is a command in a command line
 
 Precondition: the text can contain a-z A-Z , . '
 */
+
+function firstWord(str){
+  let punctuations = [",", ".", " "]
+  for(let i = 0; i < str.length; i++){
+    if (punctuations.indexOf(str[i]) !== -1) return str.slice(0, i);
+  }
+}
 
 
 

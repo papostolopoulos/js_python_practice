@@ -108,7 +108,10 @@ def first_word(text: str) -> str:
 # second_index("find the river", "e") == 12
 # second_index("hi", " ") is None
 
-
+def second_index(str, symbol):
+    if str.count(symbol) <= 1: return None
+    # if symbol not in str: return None
+    return(str.index(symbol, str.index(symbol) + 1))
 
 
 # BETWEEN MARKERS https://py.checkio.org/mission/between-markers/

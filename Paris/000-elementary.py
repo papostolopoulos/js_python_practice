@@ -53,6 +53,7 @@ def correct_sentence(str):
     return str[0].upper() + str[1:] + "." if str[-1] != "." else str[0].upper() + str[1:]
 
 
+# 20171117
 # FIRST WORD https://py.checkio.org/mission/first-word/
 # You are given a string where you have to find its first word.
 #
@@ -93,6 +94,7 @@ import re
 def first_word(text: str) -> str:
     return re.search("[a-zA-Z']+", text).group()
 
+# 20171128
 # SECOND INDEX https://py.checkio.org/mission/second-index/
 # You are given two strings and you have to find an index of the second occurrence of the second string in the first one.
 #
@@ -114,6 +116,7 @@ def second_index(str, symbol):
     return(str.index(symbol, str.index(symbol) + 1))
 
 
+# 20171119
 # BETWEEN MARKERS https://py.checkio.org/mission/between-markers/
 # You are given a string and two markers (the initial and final).
 # You have to find a substring enclosed between these two markers. But there are a few important conditions:
@@ -132,9 +135,17 @@ def second_index(str, symbol):
 #
 # between_markers('What is >apple<', '>', '<') == 'apple'
 # between_markers('No[/b] hi', '[b]', '[/b]') == 'No'
+# between_markers("No <hi>",">","<") == ""
 #
 # How it is used: for parsing texts
 # Precondition: can't be more than one marker
+
+def between_markers(str, init, final):
+    if str.count(init) > 0 and str.count(final) > 0:
+        if str.index(final) < str.index(init): return ""
+    startStr = str.split(final)[0]
+    endStr = startStr.split(init)
+    return endStr[- 1]
 
 
 # 20171114

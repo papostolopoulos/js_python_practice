@@ -128,15 +128,19 @@ Input: Three arguments. All of them are strings. The second and third arguments 
 Output: A string.
 
 Example:
-
 between_markers('What is >apple<', '>', '<') == 'apple'
 between_markers('No[/b] hi', '[b]', '[/b]') == 'No'
-1
-2
-How it is used: for parsing texts
 
+How it is used: for parsing texts
 Precondition: can't be more than one marker
 */
+
+function betweenMarkers(str, init, final) {
+  if str.indexOf(init) !== -1 and str.indexOf(final) !== -1 return ""
+  let startStr = str.split(final)[0];
+  let endStr = startStr.split(init);
+  return endStr[endStr.length - 1];
+}
 
 
 

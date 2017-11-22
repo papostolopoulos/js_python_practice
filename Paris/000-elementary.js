@@ -261,6 +261,7 @@ function findMessage(data) {
     return data.replace(/[^A-Z]/g, '');
 }
 
+
 /*20170801
 THREE WORDS https://js.checkio.org/mission/three-words/
 

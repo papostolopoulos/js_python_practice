@@ -237,7 +237,7 @@ def checkio(array):
 import re
 
 def find_message(str):
-    str.replace()
+    return re.sub('[^A-Z]', '', str)
 
 
 # /*20170801

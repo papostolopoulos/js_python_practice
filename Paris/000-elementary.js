@@ -256,6 +256,10 @@ function findMessage(string) {
   return secretMessage;
 }
 
+function findMessage(string) {
+  return string.replace(/[^A-Z]/g, "");
+}
+
 //solution from the internet
 function findMessage(data) {
     return data.replace(/[^A-Z]/g, '');

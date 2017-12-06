@@ -17,9 +17,6 @@ def prime(int):
         num += 1
     return True
 
-
-
-
 print "-------Prime?-------"
 print prime(2) # true
 print prime(16) # false

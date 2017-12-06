@@ -209,7 +209,7 @@ def checkio(array):
     return sum(array[0::2]) * array[-1]
 
 
-# 20170731
+# 20171205
 # SECRET MESSAGE https://py.checkio.org/mission/secret-message/
 # "Where does a wise man hide a leaf? In the forest.
 # But what does he do if there is no forest? ... He grows a forest to hide it in."

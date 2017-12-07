@@ -84,6 +84,7 @@ function firstWord(str){
   return str.remove(/[. ,]/g, " ").trim().split(" ")[0]
 }
 
+
 /*
 SECOND INDEX https://py.checkio.org/mission/second-index/
 You are given two strings and you have to find an index of the second occurrence

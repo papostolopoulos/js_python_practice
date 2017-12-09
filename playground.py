@@ -1,24 +1,33 @@
-# Prime?
-# Define a boolean method, #prime?(int), that accepts an integer as an
-# argument. Your method should return true / false, based on whether or not
-# n is prime. Remember, a number is prime if it has no divisors other than
-# 1 and itself.
+import math
 
-# ex: 15's divisors are: 1, 3, 5, 15 ==> 15 is not prime!
-# ex: 20's divisors are: 1, 2, 4, 5, 10, 20 ==> 20 is not prime!
-# ex: 17's divisors are: 1, 17 ==> 17 is prime!
+def countingTiles(r):
+    # Make a square box covering a quarter of the circle
+    tile_size = 1
+    tile_length_1d = int(math.ceil(r / tile_size))
+    print("tile_length_1d", tile_length_1d)
+    # How many tiles do you need?
+    num_complete_tiles = 0
+    num_partial_tiles = 0
+    for i in range(tile_length_1d):
+        for j in range(tile_length_1d):
+            # Does corner of tile intersect circle?
+            intersect_len = ((i * tile_size)**2 + (j * tile_size)**2)**0.5
+            # Does *far* corner intersect (ie. is the whole tile in the circle)
+            far_intersect_len = (((i+1) * tile_size)**2 + ((j+1) * tile_size)**2)**0.5
+            print(intersect_len, far_intersect_len)
+            print("intersect_len > r:", intersect_len > r)
+            print("far_intersect_len < r:", far_intersect_len < r)
+            if intersect_len > r:
+                # Don't need tile, continue
+                continue
+            elif far_intersect_len > r:
+                # Partial tile
+                num_partial_tiles += 1
+            else:
+                # Keep tile. Maybe you want to store this or something
+                # instead of just adding 1 to count?
+                num_complete_tiles += 1
+            # Multiple by 4 for symmetry
+    return [num_complete_tiles * 4, num_partial_tiles * 4]
 
-def prime(int):
-    num = 2
-    while num < int:
-        if(int % num == 0):
-            return False
-
-        num += 1
-    return True
-
-print "-------Prime?-------"
-print prime(2) # true
-print prime(16) # false
-print prime(17) # true
-print prime(101) # true
+countingTiles(2)

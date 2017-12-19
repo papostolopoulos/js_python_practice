@@ -209,7 +209,7 @@ def checkio(array):
     return sum(array[0::2]) * array[-1]
 
 
-# 20170731
+# 20171205
 # SECRET MESSAGE https://py.checkio.org/mission/secret-message/
 # "Where does a wise man hide a leaf? In the forest.
 # But what does he do if there is no forest? ... He grows a forest to hide it in."
@@ -228,15 +228,16 @@ def checkio(array):
 # if we collect all of the capital letters, we get the message "HELLO".
 #
 # Input: A text as a string (unicode).
-#
 # Output: The secret message as a string or an empty string.
 #
 # Example:
-#
-# findMessage("How are you? Eh, ok. Low or Lower? Ohhh.") == "HELLO"
-# findMessage("hello world!") == ""
+# find_message("How are you? Eh, ok. Low or Lower? Ohhh.") == "HELLO"
+# find_message("hello world!") == ""
 
+import re
 
+def find_message(str):
+    return re.sub('[^A-Z]', '', str)
 
 
 # /*20170801

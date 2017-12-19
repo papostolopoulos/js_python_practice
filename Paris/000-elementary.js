@@ -79,6 +79,12 @@ function firstWord(str){
   return str;
 }
 
+// 20171206
+function firstWord(str){
+  return str.remove(/[. ,]/g, " ").trim().split(" ")[0]
+}
+
+
 /*
 SECOND INDEX https://py.checkio.org/mission/second-index/
 You are given two strings and you have to find an index of the second occurrence
@@ -136,7 +142,7 @@ Precondition: can't be more than one marker
 */
 
 function betweenMarkers(str, init, final) {
-  if str.indexOf(init) !== -1 and str.indexOf(final) !== -1 return ""
+  if str.indexOf(init) !== -1 and str.indexOf(final) !== -1 return "";
   let startStr = str.split(final)[0];
   let endStr = startStr.split(init);
   return endStr[endStr.length - 1];
@@ -256,10 +262,15 @@ function findMessage(string) {
   return secretMessage;
 }
 
+function findMessage(string) {
+  return string.replace(/[^A-Z]/g, "");
+}
+
 //solution from the internet
 function findMessage(data) {
     return data.replace(/[^A-Z]/g, '');
 }
+
 
 /*20170801
 THREE WORDS https://js.checkio.org/mission/three-words/

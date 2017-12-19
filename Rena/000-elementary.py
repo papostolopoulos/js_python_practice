@@ -1,3 +1,4 @@
+# coding: utf-8 
 # https://py.checkio.org/station/library/
 
 # SAY HI https://py.checkio.org/mission/say-history/ (NOT IN THE LIST OF JS EXERCISES)
@@ -10,8 +11,23 @@
 # say_hi("Alex", 32) == "Hi. My name is Alex and I'm 32 years old"
 # say_hi("Frank", 68) == "Hi. My name is Frank and I'm 68 years old"
 
+# def sayHi (name, age):
+# 	print "Hi. my name is %s and I'm %s old." % (name, age)
+	
+# sayHi("Alex", 32)
 
 
+# def sayHello(name, age):
+# 	print "Hello, my name is " + name + " and I'm " + str(age) + " years old."
+
+# sayHello('Jenny', 27)
+
+
+# # alternative Python code method:
+# def goodBye(name, age):
+# 	print "Goodbye {1} {0}" .format(name, age)
+
+# goodBye('Howard', 40)
 
 
 # CORRECT SENTENCE https://py.checkio.org/mission/correct-sentence/
@@ -29,6 +45,33 @@
 # correct_sentence("Greetings, friends") == "Greetings, friends."
 # correct_sentence("Greetings, friends.") == "Greetings, friends."
 
+
+# def correct_sentence(string):
+
+# 	my_string = string[0].upper() + string[1:]
+
+# # if you have a return, then you must use print when invoking.
+# 	if my_string[-1] == '.':
+# 		return my_string  
+# 	else:
+# 		return my_string + '.'
+
+# print correct_sentence("greetings, friends")
+
+
+
+# def correct_sentence(string):
+
+# 	my_string = string[0].upper() + string[1:]
+
+# 	if my_string[-1] != ".":
+# 		return my_string + '.'
+
+# 	else:
+# 		return my_string
+
+# ask = raw_input('What is your name?')
+# print correct_sentence(ask)
 
 
 
@@ -55,6 +98,22 @@
 #
 # Precondition: the text can contain a-z A-Z , . '
 
+# def first_word(str):
+
+# 	my_word = str[0].upper() + str[1:]
+# 	data = my_word.split()
+
+# 	print "----- ", data
+
+# 	if data == 'abcdefg':
+# 		print "if statement"
+# 		return my_word
+# 	else:
+# 		print "else statement"
+# 		return my_word
+
+# ask = raw_input('make a statement:')
+# print first_word(ask)
 
 
 
@@ -74,6 +133,33 @@
 # second_index("find the river", "e") == 12
 # second_index("hi", " ") is None
 
+
+# this is a function, passing two variables
+def second_index(str, str_val):
+# print the string
+	print str
+# assign the array to the new varialbe (i.e. phrase)
+	phrase = str.split()
+# print variable
+	print phrase
+# count the length of the array
+	count = len(phrase)
+#print the length of elements in the array
+	print count
+
+# this is a forloop
+	for i in phrase:
+# the counter is tallying the iterations of the forloop.
+# the -1 is subtracting each time a forloop iterates.
+		count = count - 1
+# printing each element
+		print i
+# printing the number of characters
+		print len(i)
+
+	print count
+
+second_index('Hello World Rena', 'o')
 
 
 

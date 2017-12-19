@@ -13,6 +13,23 @@ say_hi("Frank", 68) == "Hi. My name is Frank and I'm 68 years old"
 */
 
 
+function person (name, age){
+	return "Hi. My name is " + name + " and I'm " + age.toString() + " years old." 
+}
+person('Alex', 32);
+
+//Another version of ES05:
+function sayHi(name, age){
+  return "Hi. My name is", name, "and I'm", age.toString(), "years old."
+}
+sayHi('Mary', 45);
+
+// ES06 version:
+function sayHi(name, age){
+  return `Hi. My name is ${name} and I'm ${age.toString()} years old.`
+}
+sayHi('David', 27);
+
 /*
 CORRECT SENTENCE https://py.checkio.org/mission/correct-sentence/
 For the input of your function will be given one sentence.
@@ -30,6 +47,44 @@ correct_sentence("Greetings, friends") == "Greetings, friends."
 correct_sentence("Greetings, friends.") == "Greetings, friends."
 */
 
+// what is 1st letter is already capitalized?
+
+// function correct_sentence(string){
+
+// 	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
+// 	var remainingString = string.slice(1) //the remaining elements of same string.
+
+// 	if(string.indexOf(".") !== string.length-1){ //check if dot exists
+// 		return upperLtr + remainingString + '.'; //to remove dot from string
+// 	}
+
+// 	else{
+// 		return upperLtr + remainingString;//to add dot to string
+// 	}
+// };
+
+// correct_sentence('hello Jenny');
+// correct_sentence('Greeting friends. And goodnight');
+// correct_sentence('good-bye Howard.');
+
+
+//alternative option:
+
+// function correct_sentence(string){
+
+// 	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
+// 	var remainingString = string.slice(1) //the remaining elements of same string.
+
+// // console.log(string.search('.'));
+
+// 	if(string.[string.length-1] === '.'){ //check if dot exists
+// 		return upperLtr + remainingString;
+// };
+
+// correct_sentence('hello Jenny');
+// correct_sentence('Greeting friends. And goodnight');
+// correct_sentence('good-bye Howard.');
+
 
 /*
 FIRST WORD https://py.checkio.org/mission/first-word/
@@ -41,9 +96,9 @@ There can be dots and commas in a string.
 A string can start with a letter or, for example, a dot or space.
 A word can contain an apostrophe and it's a part of a word.
 The whole text can be represented with one word and that's it.
-Input: A string.
+Input: A string is long sentence.
 
-Output: A string.
+Output: A .
 
 Example:
 
@@ -56,6 +111,146 @@ Precondition: the text can contain a-z A-Z , . '
 */
 
 
+
+//another example using slice():
+// function firstWord(str){
+// 	var word = str.split(' ')
+
+// 	if(word[0][word[0].length - 1] !== ','){
+// 		return word[0];
+// 	}
+// 	else {
+// 		return word[0].slice(0, -1);
+// 	}
+// }
+
+// firstWord("today, is sunny.");
+
+
+// another example:
+function firstWord(string){
+
+	str5 = "";
+
+	for(var i = 0; i < string.length; i++){
+		if(string[i] === "." || string[i] === ","){
+			str5 += " "
+		}
+		else{
+			str5 += string[i];
+		}
+	}
+		return str5.trim().split(' ')[0];
+}
+firstWord('Hello, I am David.');
+
+
+
+
+//another example, using replace():
+function firstWord(str){
+	var word = str.split(' ')
+
+	if(word[0].includes(',')){
+		//use .replace() with Regular Expression. You select first element 
+		//and second element is what will be replaced.
+		return word[0].replace(/[. ,]+/g,' ');
+	}
+	else {
+		return word[0];
+	}
+}
+firstWord("today.,, is sunny.");
+
+
+
+//another example: FAST WAY
+
+function firstWord(str){
+	//replace period and comma with empty space.
+	return str.replace(/[. ,]+/g, " ").trim().split(' ')[0];
+}
+
+firstWord("  ....bsdsfa, , , I am here.");
+
+
+//another example: SLOW WAY
+
+function firstWord(str){
+	var one = str.replace(/[. ,]+/g, " ");
+	console.log(one);
+	var two = one.trim();
+	console.log(two);
+	var three = two.split(' ');
+	console.log(three);
+	var four = three[0];
+	return four;
+}
+
+firstWord("  ....bsdsfa, , , I am here.");
+
+
+//another example using call back function:
+var str1 = "Hello world";
+var str2 = "greetings, friends";
+var str3 = "... I am smart.";
+var str4 = "... people are not smart.";
+var str5 = " abc...de ";
+
+str1.split('').filter(word).join('').trim().split(' ')[0];
+
+function word(string){
+	if(string !== "." && string !== ","){
+		return string;
+	}
+}
+
+
+
+//example using .filter():
+var str1 = "Hello world";
+var str2 = "greetings, friends";
+var str3 = "... I am smart.";
+var str4 = ".Hi, how are you? ";
+var str5 = " abc...de ";
+
+function firstWord(str){
+
+	var strArray = str.split(' ');
+
+	for(var i=0; i < strArray.length; i++){
+
+		console.log(strArray[i]);
+
+		strArray.filter(function(el){
+			if(strArray !== ','){
+
+			}
+
+		})
+	}
+
+}
+firstWord(str3);
+
+
+//exercise from workchat - ES06:
+//define function, input is string.
+function firstWord(str){
+	//the array contains characters that I do not want.
+  let punctuations = [",", ".", " "]
+//.indexOf refers to the position of element in string.
+//the value of str[0] is 0.
+  while (punctuations.indexOf(str[0]) !== -1) str = str.slice(1);
+//iterating over the length of string.
+  for(let i = 0; i < str.length; i++){
+    if (punctuations.indexOf(str[i]) !== -1) return str.slice(0, i);
+  }
+
+  return str;
+}
+
+firstWord("... Debbie, am, not confused as much.");
 
 
 /*
@@ -74,6 +269,36 @@ second_index("sims", "s") == 3
 second_index("find the river", "e") == 12
 second_index("hi", " ") is None
 */
+
+//the string and second position/value in the string.
+function secondIndex(str, strValue){
+	var newString = str.indexOf(strValue);
+
+	return str.indexOf(strValue, newString + 1);
+
+// 	for(var i = 0; i < str.length; i++){
+// 		console.log("Hello World");
+// 		// return newString[i] == 2;
+// 		return newString;
+// 	}
+// }
+
+secondIndex("Benjamin Buttons", "t");
+
+
+//another example:
+function secondIndex(str, strValue){
+	var newString = str.indexOf(strValue);
+
+	for(var i = 0; i < str.length; i++){
+		console.log("Hello World");
+		if (newString[i] == 2){
+			return newString;
+		}
+	}
+}
+
+secondIndex("Benjamin Buttons", "t")
 
 
 /*

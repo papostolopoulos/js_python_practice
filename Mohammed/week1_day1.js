@@ -96,6 +96,14 @@ hello("fsfvf"); //"Hello, fsfvf."
 Input: A String. Assume no punctuation.
 Output: A String. A yelled version of the input.*/
 
+function yell(str) {
+  var uppercase = str.toUpperCase();
+  return `${uppercase}!!!`;
+}
+
+function yell(str) {
+  return `${str.toUpperCase()}!!!`;
+}
 
 yell("I want to go to the store"); //"I WANT TO GO TO THE STORE!!!"
 yell("Time to program"); //"TIME TO PROGRAM!!!"

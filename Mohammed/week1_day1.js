@@ -117,7 +117,9 @@ Output: A String. A whispered version of the input.
 "...hey anthony..."
 > whisper("YEA! that was fun")
 "...yea! that was fun..." */
-
+function whisper(str) {
+  return `...${str.toLowerCase()}...`;
+}
 
 whisper("Hey Anthony"); //"...hey anthony..."
 whisper("YEA! that was fun"); //"...yea! that was fun..."
@@ -135,6 +137,12 @@ true
 > isSubstring("Jump for joy", "joys")
 false */
 
+function isSubstring( searchString, subString) {
+
+  return searchString.toLowerCase().includes(subString);
+}
+
+
 isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
 
@@ -149,8 +157,9 @@ Output: A String. The input string string echo-ized.
 "HEY ... hey ... hey"
 > echo("JUMp")
 "JUMP ... JUMp ... jump" */
-
-
+function echo(str){
+  return `${str.toUpperCase()}...${str}...${str.toLowerCase()}`
+}
 
 /* Boolean
 isEven
@@ -163,7 +172,9 @@ true
 > isEven(5)
 false */
 
-
+function isEven(num) {
+   return num % 2 === 0;
+}
 
 isEven(2); //true
 isEven(5); //false
@@ -177,8 +188,11 @@ isEven(5); //false
 // isEven(5) => false
 // isEven(-55) => false
 
+function isEven(num) {
+  return num % 3 !== 0 && num % 5!== 0
 
-
+}
+ 
 isEven(2) //=> true
 isEven(5) //=> false
 isEven(-55) //=> false

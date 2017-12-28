@@ -70,20 +70,20 @@ correct_sentence("Greetings, friends.") == "Greetings, friends."
 
 //alternative option:
 
-// function correct_sentence(string){
+function correct_sentence(string){
 
-// 	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
-// 	var remainingString = string.slice(1) //the remaining elements of same string.
+	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
+	var remainingString = string.slice(1) //the remaining elements of same string.
 
-// // console.log(string.search('.'));
+// console.log(string.search('.'));
 
-// 	if(string.[string.length-1] === '.'){ //check if dot exists
-// 		return upperLtr + remainingString;
-// };
+	if(string.[string.length-1] === '.'){ //check if dot exists
+		return upperLtr + remainingString;
+};
 
-// correct_sentence('hello Jenny');
-// correct_sentence('Greeting friends. And goodnight');
-// correct_sentence('good-bye Howard.');
+correct_sentence('hello Jenny');
+correct_sentence('Greeting friends. And goodnight');
+correct_sentence('good-bye Howard.');
 
 
 /*
@@ -113,18 +113,18 @@ Precondition: the text can contain a-z A-Z , . '
 
 
 //another example using slice():
-// function firstWord(str){
-// 	var word = str.split(' ')
+function firstWord(str){
+	var word = str.split(' ')
 
-// 	if(word[0][word[0].length - 1] !== ','){
-// 		return word[0];
-// 	}
-// 	else {
-// 		return word[0].slice(0, -1);
-// 	}
-// }
+	if(word[0][word[0].length - 1] !== ','){
+		return word[0];
+	}
+	else {
+		return word[0].slice(0, -1);
+	}
+}
 
-// firstWord("today, is sunny.");
+firstWord("today, is sunny.");
 
 
 // another example:

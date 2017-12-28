@@ -1688,15 +1688,35 @@ isOdd(2);
 isOdd(5);
 isOdd(-17);
 
+
+function isOdd(num){
+  if(num % 2 === 1){
+    return true;
+  }
+  else{
+    return false;
+  }
+};
+
+isOdd(2);
+
+
 /* plusFive
 Input: A Number.
 Output: A Number. The sum of the input and 5.*/
 
 
-
 plusFive(0); //5
 plusFive(-2); //3
 plusFive(21); //26
+
+
+function plusFive(num){
+  return num + 5;
+}
+
+plusFive(0);
+
 
 /* threeOrSeven
 Input: A Number.
@@ -1707,6 +1727,21 @@ threeOrSeven(3); //true
 threeOrSeven(42); //true
 threeOrSeven(8); //false
 
+
+function threeOrSeven(num){
+//I think I am writing this incorrectly? I tried " === 0" instead of 1, 
+//but still have issues getting correct output. What am I doing wrong?
+  if(num % 3 === 1 || num % 7 === 1){ 
+    return true;
+  }
+  else{
+    return false;
+  }
+};
+
+threeOrSeven(42);
+
+
 /* Order of Operations
 Evaluate each expression. Check your answer in the console.
 1 + 1 * 5
@@ -1714,6 +1749,12 @@ Evaluate each expression. Check your answer in the console.
 1 + 2 - 5 / 6 - 1
 5 * 5 % 13
 5/(-1 * (5 - (-10))) */
+
+1 + 1 * 5 // answer: 10
+(1 + 1) * 5 // answer: 10
+1 + 2 - 5 / 6 - 1 // answer: 1.16666
+5 * 5 % 13 // answer: 12
+5/(-1 * (5 - (-10))) // answer: -0.33333
 
 
 
@@ -1727,6 +1768,13 @@ hello("child"); //"Hello, child."
 hello("Anthony"); //"Hello, Anthony."
 hello("fsfvf"); //"Hello, fsfvf."
 
+function hello(word){
+  return "Hello, " + word + ".";
+}
+
+hello("Anthony");
+
+
 /* yell
 Input: A String. Assume no punctuation.
 Output: A String. A yelled version of the input.*/
@@ -1734,6 +1782,13 @@ Output: A String. A yelled version of the input.*/
 
 yell("I want to go to the store"); //"I WANT TO GO TO THE STORE!!!"
 yell("Time to program"); //"TIME TO PROGRAM!!!"
+
+
+function yell(str){
+  return str.toUpperCase() + "!!!";
+}
+
+yell("Time to program");
 
 
 /* whisper
@@ -1748,6 +1803,13 @@ Output: A String. A whispered version of the input.
 
 whisper("Hey Anthony"); //"...hey anthony..."
 whisper("YEA! that was fun"); //"...yea! that was fun..."
+
+function whisper(str){
+  return "..." + str.toLowerCase() + "..."
+}
+
+whisper("YEA! that was fun"); 
+
 
 /* isSubstring
 Input
@@ -1766,6 +1828,16 @@ isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
 
 
+function searchString(str){
+  // I think I need to use a nested or call-back function, correct?
+  //I am LOST...here...
+  for(var i =0; i < str.length; i++){
+    if ????
+  }
+
+}
+
+
 /* echo
 Input: A String.
 Output: A String. The input string string echo-ized.
@@ -1777,7 +1849,21 @@ Output: A String. The input string string echo-ized.
 > echo("JUMp")
 "JUMP ... JUMp ... jump" */
 
+function echo(word){
+  var upperWord = word.toUpperCase();
 
+  var upperLtr = word.charAt(0).toUpperCase();
+  var remainingString = word.slice(1);
+  var upperString = upperLtr + remainingString;
+
+  var lowerWord = word.toLowerCase();
+
+  var stringEcho = upperWord + "..." + upperString + "..." + lowerWord;
+
+  return stringEcho;
+}
+
+echo("JUMp")
 
 /* Boolean
 isEven
@@ -1790,10 +1876,21 @@ true
 > isEven(5)
 false */
 
-
-
 isEven(2); //true
 isEven(5); //false
+
+
+function isEven(num){
+  if(num % 2 === 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+};
+
+isEven(5);
+
 
 // Write a function isEven(num) which takes as the argument a number.
 // It returns a boolean, true if num is even, and false otherwise.
@@ -1804,8 +1901,28 @@ isEven(5); //false
 // isEven(5) => false
 // isEven(-55) => false
 
-
-
 isEven(2) //=> true
 isEven(5) //=> false
 isEven(-55) //=> false
+
+
+//This one is very confusing! I am trying to understand what it's asking,
+//but having difficulty.  I think I got 1/2 correct?
+function isEven(num){
+  if(num % 2 === 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+  function isOdd(el){
+    if(num % 3 === 0){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+}
+
+isEven(-55)

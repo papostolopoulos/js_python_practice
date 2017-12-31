@@ -192,7 +192,26 @@ function isEven(num) {
   return num % 3 !== 0 && num % 5!== 0
 
 }
- 
+
 isEven(2) //=> true
 isEven(5) //=> false
 isEven(-55) //=> false
+
+/*----------- COMMENTS FROM PARIS------------
+isEven problems are identical and they are asking for the same thing.
+You need to keep in mind that the functions that you built have a "return" keyword so they return a value
+which can be
+A Number
+A String
+An Array
+An object
+A boolean
+Null
+undefined
+
+In the case of isOdd, you are returning a boolean value.
+How can you use this boolean value to return the exact oposite for isEven()?
+For example, if you return "false" from isOdd, you need to return the oposite
+for isEven through the isOdd invocation.
+/*
+. 

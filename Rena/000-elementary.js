@@ -49,23 +49,23 @@ correct_sentence("Greetings, friends.") == "Greetings, friends."
 
 // what is 1st letter is already capitalized?
 
-// function correct_sentence(string){
+function correct_sentence(string){
 
-// 	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
-// 	var remainingString = string.slice(1) //the remaining elements of same string.
+	var upperLtr = string.charAt(0).toUpperCase(); //capitalizes 1st letter in string.
+	var remainingString = string.slice(1) //the remaining elements of same string.
 
-// 	if(string.indexOf(".") !== string.length-1){ //check if dot exists
-// 		return upperLtr + remainingString + '.'; //to remove dot from string
-// 	}
+	if(string.indexOf(".") !== string.length-1){ //check if dot exists
+		return upperLtr + remainingString + '.'; //to remove dot from string
+	}
 
-// 	else{
-// 		return upperLtr + remainingString;//to add dot to string
-// 	}
-// };
+	else{
+		return upperLtr + remainingString;//to add dot to string
+	}
+};
 
-// correct_sentence('hello Jenny');
-// correct_sentence('Greeting friends. And goodnight');
-// correct_sentence('good-bye Howard.');
+correct_sentence('hello Jenny');
+correct_sentence('Greeting friends. And goodnight');
+correct_sentence('good-bye Howard.');
 
 
 //alternative option:
@@ -164,7 +164,7 @@ firstWord("today.,, is sunny.");
 
 
 
-//another example: FAST WAY
+//another example: ES06 / FAST WAY
 
 function firstWord(str){
 	//replace period and comma with empty space.
@@ -199,12 +199,17 @@ var str5 = " abc...de ";
 
 str1.split('').filter(word).join('').trim().split(' ')[0];
 
-function word(string){
-	if(string !== "." && string !== ","){
-		return string;
-	}
-}
 
+// //Need to re-evaluate this potential answer:
+// function word(string){
+// 	if(string !== "." && string !== ","){
+// 		return string;
+// 	}
+// 	else{
+// 		return ???
+// 	}
+// }
+// word('Hello, I am ... not here.');
 
 
 //example using .filter():

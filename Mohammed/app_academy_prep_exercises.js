@@ -1682,17 +1682,39 @@ Otherwise, false. Assume number is a positive integer.*/
 isOdd
 Input: A Number.
 Output: A Boolean. true if the number is odd, otherwise false*/
+function isOdd(n){
+  if (n % 2 != 0 ){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
+function isOdd(n) {
+  if (n % 2 !== 0){
+    return true;
+  }
+  return false;
+}
 
-isOdd(2);
-isOdd(5);
-isOdd(-17);
+function isOdd(n) {
+  return n % 2 !== 0;
+}
+
+isOdd(2); // flase
+isOdd(5); // true
+isOdd(-17); // true
+
 
 /* plusFive
 Input: A Number.
-Output: A Number. The sum of the input and 5.*/
+Output: A Number. The sum of the input and 5 */
 
+function plusFive(n) {
+  return n + 5;
 
+}
 
 plusFive(0); //5
 plusFive(-2); //3
@@ -1702,6 +1724,10 @@ plusFive(21); //26
 Input: A Number.
 Output: A Boolean. true if the number is divisible by 3 or 7*/
 
+function threeOrSeven(n) {
+  return n % 3 === 0 || n % 7 === 0;
+
+}
 
 threeOrSeven(3); //true
 threeOrSeven(42); //true
@@ -1722,6 +1748,20 @@ hello
 Input: A String.
 Output: A String saying "Hello" to the input value.*/
 
+function hello(string) {
+  var greeting = "Hello, "
+ return greeting + string
+}
+
+//usage of the plus symbol
+function hello(str) {
+  return "Hello, " + str;
+}
+
+//usage of backticks
+function hello(str) {
+  return `Hello, ${str}`;
+}
 
 hello("child"); //"Hello, child."
 hello("Anthony"); //"Hello, Anthony."

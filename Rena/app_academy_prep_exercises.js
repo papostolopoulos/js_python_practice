@@ -1729,8 +1729,6 @@ threeOrSeven(8); //false
 
 
 function threeOrSeven(num){
-//I think I am writing this incorrectly? I tried " === 0" instead of 1, 
-//but still have issues getting correct output. What am I doing wrong?
   if(num % 3 === 1 || num % 7 === 1){ 
     return true;
   }
@@ -1750,6 +1748,7 @@ Evaluate each expression. Check your answer in the console.
 5 * 5 % 13
 5/(-1 * (5 - (-10))) */
 
+//This is complete and I checked in console area:
 1 + 1 * 5 // answer: 10
 (1 + 1) * 5 // answer: 10
 1 + 2 - 5 / 6 - 1 // answer: 1.16666
@@ -1789,7 +1788,7 @@ function yell(str){
 }
 
 yell("Time to program");
-
+yell("I want to go to the store");
 
 /* whisper
 Input: A String. Assume no punctuation.
@@ -1809,7 +1808,7 @@ function whisper(str){
 }
 
 whisper("YEA! that was fun"); 
-
+whisper("Hey Anthony"); 
 
 /* isSubstring
 Input
@@ -1863,7 +1862,9 @@ function echo(word){
   return stringEcho;
 }
 
-echo("JUMp")
+echo("JUMp");
+echo("hey");
+echo("Mom!");
 
 /* Boolean
 isEven
@@ -1908,6 +1909,7 @@ isEven(-55) //=> false
 
 //This one is very confusing! I am trying to understand what it's asking,
 //but having difficulty.  I think I got 1/2 correct?
+
 function isEven(num){
   if(num % 2 === 0){
     return true;
@@ -1915,14 +1917,16 @@ function isEven(num){
   else{
     return false;
   }
-  function isOdd(el){
-    if(num % 3 === 0){
+};
+
+function isOdd(el){
+    if(el % 2 === 0){
       return true;
     }
     else{
       return false;
     }
-  }
-}
+  };
 
-isEven(-55)
+isEven(-55);
+isOdd(5);

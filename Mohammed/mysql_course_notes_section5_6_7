@@ -1,0 +1,190 @@
+Section 5 notes....
+--------------------
+
+--Section 5, Lecture 69
+Various Simple SELECT statements:
+SELECT * FROM cats;
+SELECT name FROM cats;
+SELECT age FROM cats;
+SELECT cat_id FROM cats;
+SELECT name, age FROM cats;
+SELECT cat_id, name, age FROM cats;
+SELECT age, breed, name, cat_id FROM cats;
+SELECT cat_id, name, age, breed FROM cats;
+------------------------------------------
+--Section 5, Lecture 71
+CODE: Introduction to WHERE
+Select by age:
+SELECT * FROM cats WHERE age=4;
+Select by name:
+SELECT * FROM cats WHERE name='Egg';
+Notice how it deals with case:
+SELECT * FROM cats WHERE name='egG';
+-----------------------------------------
+--Section 5, Lecture 76
+CODE: Introduction to Aliases
+
+SELECT cat_id AS id, name FROM cats;
+SELECT name AS 'cat name', breed AS 'kitty breed' FROM cats;
+DESC cats;
+---------------------------------------------------------------
+--Section 5, Lecture 78
+CODE: Updating Data
+Change tabby cats to shorthair:
+UPDATE cats SET breed='Shorthair' WHERE breed='Tabby';
+Another update:
+UPDATE cats SET age=14 WHERE name='Misty';
+---------------------------------------------------------------
+--Section 5, Lecture 83
+CODE: DELETING DATA
+DELETE FROM cats WHERE name='Egg';
+SELECT * FROM cats;
+SELECT * FROM cats WHERE name='egg';
+DELETE FROM cats WHERE name='egg';
+SELECT * FROM cats;
+DELETE FROM cats;
+------------------------------------------------------------
+CODE: Working With CONCAT
+--Section 7, Lecture 103
+SELECT author_fname, author_lname FROM books;
+CONCAT(x,y,z) // from slides
+CONCAT(column, anotherColumn) // from slides
+CONCAT(author_fname, author_lname)
+CONCAT(column, 'text', anotherColumn, 'more text')
+CONCAT(author_fname, ' ', author_lname)
+CONCAT(author_fname, author_lname); // invalid syntax
+SELECT CONCAT('Hello', 'World');
+SELECT CONCAT('Hello', '...', 'World');
+SELECT
+  CONCAT(author_fname, ' ', author_lname)
+FROM books;
+SELECT
+  CONCAT(author_fname, ' ', author_lname)
+  AS 'full name'
+FROM books;
+SELECT author_fname AS first, author_lname AS last,
+  CONCAT(author_fname, ' ', author_lname) AS full
+FROM books;
+SELECT author_fname AS first, author_lname AS last,
+  CONCAT(author_fname, ', ', author_lname) AS full
+FROM books;
+SELECT CONCAT(title, '-', author_fname, '-', author_lname) FROM books;
+SELECT
+    CONCAT_WS(' - ', title, author_fname, author_lname)
+FROM books;
+-----------------------------------------------------------------------
+--CODE: Introducing SUBSTRING
+--Section 7, Lecture 105
+SELECT SUBSTRING('Hello World', 1, 4);
+SELECT SUBSTRING('Hello World', 7);
+SELECT SUBSTRING('Hello World', 3, 8);
+SELECT SUBSTRING('Hello World', 3);
+SELECT SUBSTRING('Hello World', -3);
+SELECT SUBSTRING('Hello World', -7);
+SELECT title FROM books;
+SELECT SUBSTRING("Where I'm Calling From: Selected Stories", 1, 10);
+SELECT SUBSTRING(title, 1, 10) FROM books;
+SELECT SUBSTRING(title, 1, 10) AS 'short title' FROM books;
+SELECT SUBSTR(title, 1, 10) AS 'short title' FROM books;
+SELECT CONCAT
+    (
+        SUBSTRING(title, 1, 10),
+        '...'
+    )
+FROM books;
+source book_code.sql
+SELECT CONCAT
+    (
+        SUBSTRING(title, 1, 10),
+        '...'
+    ) AS 'short title'
+FROM books;
+source book_code.sql
+-------------------------------------------------------------------------
+--introducing REPLACE
+--Section 7, Lecture 107
+SELECT REPLACE('Hello World', 'Hell', '%$#@');
+SELECT REPLACE('Hello World', 'l', '7');
+SELECT REPLACE('Hello World', 'o', '0');
+SELECT REPLACE('HellO World', 'o', '*');
+SELECT
+  REPLACE('cheese bread coffee milk', ' ', ' and ');
+SELECT REPLACE(title, 'e ', '3') FROM books;
+-- SELECT
+--    CONCAT
+--    (
+--        SUBSTRING(title, 1, 10),
+--        '...'
+--    ) AS 'short title'
+-- FROM books;
+SELECT
+    SUBSTRING(REPLACE(title, 'e', '3'), 1, 10)
+FROM books;
+SELECT
+    SUBSTRING(REPLACE(title, 'e', '3'), 1, 10) AS 'weird string'
+FROM books;
+*Note: Use cmd + /  (mac) or ctrl + /  (pc) to comment out SQL in c9.
+-------------------------------------------------------------------------
+--Using REVERSE
+--Section 7, Lecture 109
+SELECT REVERSE('Hello World');
+SELECT REVERSE('meow meow');
+SELECT REVERSE(author_fname) FROM books;
+SELECT CONCAT('woof', REVERSE('woof'));
+SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+-----------------------------------------------------------------------
+- Working with CHAR LENGTH
+- Section 7, Lecture 111
+Working with CHAR LENGTH
+Section 7, Lecture 111
+SELECT CHAR_LENGTH('Hello World');
+SELECT author_lname, CHAR_LENGTH(author_lname) AS 'length' FROM books;
+SELECT CONCAT(author_lname, ' is ', CHAR_LENGTH(author_lname), ' characters long')
+FROM books;
+
+Resource: sql-format.com
+-----------------------------------------------------------------------
+--Changing Case with UPPER and LOWER
+--Section 7, Lecture 113
+SELECT UPPER('Hello World');
+SELECT LOWER('Hello World');
+SELECT UPPER(title) FROM books;
+SELECT CONCAT('MY FAVORITE BOOK IS ', UPPER(title)) FROM books;
+SELECT CONCAT('MY FAVORITE BOOK IS ', LOWER(title)) FROM books;
+-----------------------------------------------------------------------
+SELECT
+CONCAT(SUBSTRING(title, 1, 10), '...') as 'short title',
+CONCAT(author_lname, ',', author_fname) as 'author',
+CONCAT(stock_quantity, 'in stock') as 'quantity'
+FROM books;
+---------------------------------------------------------------------
+--String Function Challenges Solution
+--Section 7, Lecture 116
+SELECT REVERSE(UPPER('Why does my cat look at me with such hatred?'));
+SELECT UPPER(REVERSE('Why does my cat look at me with such hatred?'));
+I-like-cats
+SELECT REPLACE(CONCAT('I', ' ', 'like', ' ', 'cats'), ' ', '-');
+SELECT REPLACE(title, ' ', '->') AS title FROM books;
+SELECT
+   author_lname AS forwards,
+   REVERSE(author_lname) AS backwards
+FROM books;
+SELECT
+   UPPER
+   (
+      CONCAT(author_fname, ' ', author_lname)
+   ) AS 'full name in caps'
+FROM books;
+SELECT
+   CONCAT(title, ' was released in ', released_year) AS blurb
+FROM books;
+SELECT
+   title,
+   CHAR_LENGTH(title) AS 'character count'
+FROM books;
+SELECT
+   CONCAT(SUBSTRING(title, 1, 10), '...') AS 'short title',
+   CONCAT(author_lname, ',', author_fname) AS author,
+   CONCAT(stock_quantity, ' in stock') AS quantity
+FROM books;
+------------------------------------------------------------------------

@@ -139,9 +139,12 @@ false */
 
 function isSubstring( searchString, subString) {
 
-  return searchString.toLowerCase().includes(subString);
+  return searchString.toLowerCase().includes(subString                                                                                                                                      );
 }
+// or longer answer
+function isSubstring( searchString, subString) {
 
+}
 
 isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
@@ -160,6 +163,8 @@ Output: A String. The input string string echo-ized.
 function echo(str){
   return `${str.toUpperCase()}...${str}...${str.toLowerCase()}`
 }
+
+
 
 /* Boolean
 isEven
@@ -214,4 +219,4 @@ How can you use this boolean value to return the exact oposite for isEven()?
 For example, if you return "false" from isOdd, you need to return the oposite
 for isEven through the isOdd invocation.
 /*
-. 
+.

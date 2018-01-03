@@ -45,6 +45,9 @@ function fizzBuzz(num) {
 Define a function isFactorOf(number, factor) that returns true if factor is a factor of number. Otherwise, false.
 
 
+
+
+
 isFactorOf(6,2); //true
 isFactorOf(-6, 2); //true
 isFactorOf(5,0); //false

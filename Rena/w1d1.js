@@ -166,6 +166,21 @@ function isSubstring(searchString, subString){
   return false;
 }
 
+
+function isSubstring(searchString, subString){
+  for(var i = 0; i < searchString.length; i++){
+    console.log("We are in the for loop for i =", i);
+    var sentence = searchString.substr(i, subString.length);
+    if(sentence === subString){
+      console.log("In the if statement")
+      return true;
+    }
+  }
+  console.log("outside the for loop");
+  return false;
+}
+
+isSubstring("hello there", "there");
 isSubstring("Time to program", "Time");
 
 

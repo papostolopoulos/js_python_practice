@@ -1727,40 +1727,19 @@ Otherwise, false. Assume number is a positive integer.*/
 
 /*Debug The Program */
 
-// potential answer - longer option:
 function isPrime(number){
+  //determine if number is 1
   if(number === 1){
     return false;
   }
-  else if(number === 2){
-    return true;
-  }
-  else{
-    for(var i = 0; i < number; i++){
-      if(number % i === 0){
-        return true;
-      }
-      else{
-        return false;
-      }
-    }
-  }
-}
-isPrime(10);
-
-
-//another answer - shorter and better option:
-
-function isPrime(number){
-//looping through number
-  for(var i = 0; i < number; i++){
-    if(number % i === 0){
-      return false;
-    }
-    else{
-      return true;
-    }
-  }
+//0 gives you NaN and all the numbers are divisible by 1.  Therefore, you
+//start at 2.
+   for(var i = 2; i < number; i++){
+     if(number % i === 0){ //if the statement is true, then return false
+       return false;
+     }
+   }
+   return true;
 }
 isPrime(10);
 

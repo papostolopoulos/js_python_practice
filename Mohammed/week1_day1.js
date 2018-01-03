@@ -139,9 +139,18 @@ false */
 
 function isSubstring( searchString, subString) {
 
+<<<<<<< HEAD
   return searchString.toLowerCase().includes(subString);
 }
 
+=======
+  return searchString.toLowerCase().includes(subString                                                                                                                                      );
+}
+// or longer answer
+function isSubstring( searchString, subString) {
+
+}
+>>>>>>> 30465411646d56c43b09889da9f6ccb254352bec
 
 isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
@@ -161,6 +170,11 @@ function echo(str){
   return `${str.toUpperCase()}...${str}...${str.toLowerCase()}`
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 30465411646d56c43b09889da9f6ccb254352bec
 /* Boolean
 isEven
 Input: A Number.
@@ -192,7 +206,33 @@ function isEven(num) {
   return num % 3 !== 0 && num % 5!== 0
 
 }
+<<<<<<< HEAD
  
 isEven(2) //=> true
 isEven(5) //=> false
 isEven(-55) //=> false
+=======
+
+isEven(2) //=> true
+isEven(5) //=> false
+isEven(-55) //=> false
+
+/*----------- COMMENTS FROM PARIS------------
+isEven problems are identical and they are asking for the same thing.
+You need to keep in mind that the functions that you built have a "return" keyword so they return a value
+which can be
+A Number
+A String
+An Array
+An object
+A boolean
+Null
+undefined
+
+In the case of isOdd, you are returning a boolean value.
+How can you use this boolean value to return the exact oposite for isEven()?
+For example, if you return "false" from isOdd, you need to return the oposite
+for isEven through the isOdd invocation.
+/*
+.
+>>>>>>> 30465411646d56c43b09889da9f6ccb254352bec

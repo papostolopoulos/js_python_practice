@@ -1567,6 +1567,17 @@ Write a function logEach(array) that prints every element of the array and its i
 1: John
 2: Carson */
 
+var word = [];
+function logEach(array){
+
+  for(var i = 0; i < word.length; i++){
+    console.log(word[i]);
+   var eachWord = word[i].split();
+   var eachIndex = word[i];
+  }
+}
+logEach(["Anthony", "John", "Carson"]);
+
 
 /* maxValue
 Write a function maxValue(array) that returns the largest value in the array. Assume array is an array of numbers.
@@ -1641,6 +1652,18 @@ logBetween(14, 6); //nothing printed
 logBetween(4,6); //from 4 to 6 */
 
 
+function logBetween(lowNum, highNum){
+//empty variable
+    var num = " ";
+    for(var i = lowNum; i <= highNum; i++){
+      num += i + ',';
+    }
+    return num;
+}
+logBetween(-1, 2);
+logBetween(4, 6);
+
+
 
 /* fizzBuzz
 
@@ -1650,7 +1673,22 @@ from 0 to max that is divisible by either 3 or 5, but not both.
 
 TEST: fizzBuzz(20) should print numbers 3, 5, 6, 9, 10, 12, and 18 */
 
-
+function fizzBuzz(max){
+  var numBuzz = " ";
+//looping through numbers
+  for(var i = 0; i <= max; i++){
+    // console.log(fizzBuzz);
+    if(max % 3 === 0 || max % 5 === 0){
+//print answer and separate numbers by comma
+      console.log(numBuzz += i + ',');
+    }
+//this else statement can be removed
+    else{
+      console.log("Start over again!");
+    }
+  }
+}
+fizzBuzz(50);
 
 /* isFactorOf
 
@@ -1662,6 +1700,22 @@ isFactorOf(5,0); //false
  */
 
 
+function isFactorOf(number, factor){
+// console.log(isFactorOf);
+//looping through number, determine if number is less/equal to factor.
+// I am LOST here....
+  for(var i = number; i <= factor; i++){
+    if(number % 1 === 0){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+}
+isFactorOf(-6, 2);
+isFactorOf(5, 0);
+
 
 /* isPrime
 Define a function isPrime(number) that returns true if number is prime.
@@ -1672,6 +1726,43 @@ Otherwise, false. Assume number is a positive integer.*/
 // isPrime(3548563); //false
 
 /*Debug The Program */
+
+// potential answer - longer option:
+function isPrime(number){
+  if(number === 1){
+    return false;
+  }
+  else if(number === 2){
+    return true;
+  }
+  else{
+    for(var i = 0; i < number; i++){
+      if(number % i === 0){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+  }
+}
+isPrime(10);
+
+
+//another answer - shorter and better option:
+
+function isPrime(number){
+//looping through number
+  for(var i = 0; i < number; i++){
+    if(number % i === 0){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+}
+isPrime(10);
 
 
 //------------------------------------//
@@ -1716,6 +1807,7 @@ function plusFive(num){
 }
 
 plusFive(0);
+plusFive(21);
 
 
 /* threeOrSeven
@@ -1738,7 +1830,7 @@ function threeOrSeven(num){
 };
 
 threeOrSeven(42);
-
+threeOrSeven(8);
 
 /* Order of Operations
 Evaluate each expression. Check your answer in the console.
@@ -1772,7 +1864,7 @@ function hello(word){
 }
 
 hello("Anthony");
-
+hello("child");
 
 /* yell
 Input: A String. Assume no punctuation.
@@ -1827,14 +1919,30 @@ isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
 
 
-function searchString(str){
-  // I think I need to use a nested or call-back function, correct?
-  //I am LOST...here...
-  for(var i =0; i < str.length; i++){
-    if ????
-  }
+//answer - the LONG WAY:
 
+function isSubstring(searchString, subString){
+  for(var i = 0; i < searchString.length; i++){
+    // 'i' is defined start and subString.length is the 'length' | str.substr(start[, length])
+    var sentence = searchString.substr(i, subString.length);
+    if(sentence === subString){
+      return true;
+    } 
+  }
+//have the return outside the forloop and if answer is false, the code will exit at this stage.
+  return false;
 }
+
+isSubstring("Time to program", "Time");
+
+
+//optional answer:
+
+function isSubstring(searchString, subString){
+  return searchString.toLowerCase().includes(subString);
+}
+isSubstring("Time to program", "time");
+
 
 
 /* echo
@@ -1910,6 +2018,7 @@ isEven(-55) //=> false
 //This one is very confusing! I am trying to understand what it's asking,
 //but having difficulty.  I think I got 1/2 correct?
 
+// one potential answer:
 function isEven(num){
   if(num % 2 === 0){
     return true;
@@ -1921,12 +2030,34 @@ function isEven(num){
 
 function isOdd(el){
     if(el % 2 === 0){
-      return true;
+      return false;
     }
     else{
-      return false;
+      return true;
     }
   };
 
 isEven(-55);
 isOdd(5);
+
+
+
+//another potential option - BETTER WAY: LEARN TO USE OPERATORS
+
+function isOdd(num){
+  if(num % 2 !== 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+//constructed function in global scope and invoking
+//functions.
+function isEven(num){
+  //input opposite to get false
+  return !isOdd(num);
+}
+isEven(7);
+
+//primary data types: numbers, strings, booleans, NAN, undefined, symbol

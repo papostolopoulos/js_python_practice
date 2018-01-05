@@ -207,7 +207,7 @@ function isEven(num) {
 
 }
 <<<<<<< HEAD
- 
+
 isEven(2) //=> true
 isEven(5) //=> false
 isEven(-55) //=> false
@@ -233,6 +233,8 @@ In the case of isOdd, you are returning a boolean value.
 How can you use this boolean value to return the exact oposite for isEven()?
 For example, if you return "false" from isOdd, you need to return the oposite
 for isEven through the isOdd invocation.
+THIS STILL NEEDS THE RIGHT SOLUTION AS OF JANUARY 4TH
+
+Cleanup: Please do the cleanup of your file and get rid of unecessary code and
+bogus text
 /*
-.
->>>>>>> 30465411646d56c43b09889da9f6ccb254352bec

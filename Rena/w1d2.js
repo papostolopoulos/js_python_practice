@@ -80,7 +80,7 @@ function isFactorOf(number, factor){
  //have return true outside of forloop to exit once condition is met.
    return false;
 }
-isFactorOf(6, 2); 
+isFactorOf(6, 2);
 isFactorOf(-6, 2);
 isFactorOf(5, 0);
 
@@ -112,3 +112,11 @@ function isPrime(number){
 }
 isPrime(10);
 
+/*Comments from Paris
+logbetween: You are logging numbers with a comma at the end. Can you figure out how you can get rid of the last comma?
+isFactorOf: We talked about this but I do not see the solution. Can you work on it?
+fizzBuzz: You need to do the same thing like logBetween. Get rid of the comma.
+Also why are you starting with a variable that has a value of numBuzz = " ". Do you need the extra space at the beginning?
+Do you need the "else" statement in fizzBuzz? Is the problem asking for that?
+
+*/

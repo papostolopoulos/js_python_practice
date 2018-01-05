@@ -309,3 +309,12 @@ function isEven(num){
 isEven(7);
 
 //primary data types: numbers, strings, booleans, NAN, undefined, symbol
+
+
+/*Comments from Paris
+isOdd: You have the function twice in your code. Which solution is the correct one?
+Can you keep only the correct function?
+isEven: Same here. Which one is the function that is working and you want to keep?
+
+
+*/

@@ -307,3 +307,8 @@ isEven: I've kept one solution and other serves only as reference.
 
 
 */
+
+/*Comment from Paris
+isOdd needs a bit of work. I mentioned why in Slack
+
+*/

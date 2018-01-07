@@ -112,3 +112,10 @@ fizzBuzz: I was able to remove last comma.  Also, removed the extra space in num
 removed else statement. The else statement is not necessary.
 
 */
+
+/*Comments from Paris
+fizzBuzz: Run the function. You will see how you are printing all the numbers from 0 to 20 so
+something is wrong
+isFactorOf: You are returning the exact opposite result. Can you figure out why?
+
+*/

@@ -12,22 +12,21 @@ logBetween(-1, 2); // from -1 to 2
 logBetween(14, 6); //nothing printed
 logBetween(4,6); //from 4 to 6 */
 
-
 function logBetween(lowNum, highNum){
 //empty variable
-    var num = " ";
+    var num = "";
     for(var i = lowNum; i <= highNum; i++){
     //iterate through loop and separate number by comma.
-      num += i + ',';
+    var numstr = num += i + ',';
+    // console.log(numstr);
     }
-//have return num outside of forloop to produce every number in between
+//have return numstr outside of forloop to produce every number in between
 //lowNum and highNum
-    return num;
+   return numstr.slice(0, -1);
 }
 
 logBetween(4, 6);
-logBetween(-1, 2);
-
+logBetween(10, 22);
 
 
 
@@ -40,18 +39,16 @@ from 0 to max that is divisible by either 3 or 5, but not both.
 TEST: fizzBuzz(20) should print numbers 3, 5, 6, 9, 10, 12, and 18 */
 
 function fizzBuzz(max){
-  var numBuzz = " ";
+  var numBuzz = "";
 //looping through numbers
   for(var i = 0; i <= max; i++){
     // console.log(fizzBuzz);
     if(max % 3 === 0 || max % 5 === 0){
 //print answer and separate numbers by comma
-      console.log(numBuzz += i + ',');
+      var numbers = numBuzz += i + ',';
     }
-//this else statement can be removed
-    else{
-      console.log("Start over again!");
-    }
+//use slice() to remove last element:
+    console.log(numbers.slice(0, -1));
   }
 }
 fizzBuzz(50);
@@ -65,24 +62,20 @@ isFactorOf(-6, 2); //true
 isFactorOf(5,0); //false
  */
 
-
 function isFactorOf(number, factor){
-//looping through number, determine if number is less/equal to factor.
-
-  for(var i = number; i <= factor; i++){
- //console.log(number); **I NEED HELP HERE, IT'S ONLY 1/2 WORKING. NOT
- // SURE WHAT IS WRONG**
- //if my statement runs false, then it must return true.
-    if(number % 1 === 0){
-      return true;
+    // console.log(number);
+ //if my statement runs true, then it must return false.
+    if(number % factor === 0){
+      return false;
     }
-  }
- //have return true outside of forloop to exit once condition is met.
-   return false;
+ //have return true outside to exit once condition is met.
+   return true;
 }
 isFactorOf(6, 2);
 isFactorOf(-6, 2);
 isFactorOf(5, 0);
+isFactorOf(10, 5);
+
 
 
 /* isPrime
@@ -112,11 +105,10 @@ function isPrime(number){
 }
 isPrime(10);
 
-/*Comments from Paris
-logbetween: You are logging numbers with a comma at the end. Can you figure out how you can get rid of the last comma?
-isFactorOf: We talked about this but I do not see the solution. Can you work on it?
-fizzBuzz: You need to do the same thing like logBetween. Get rid of the comma.
-Also why are you starting with a variable that has a value of numBuzz = " ". Do you need the extra space at the beginning?
-Do you need the "else" statement in fizzBuzz? Is the problem asking for that?
+/*Comments from Rena:
+logbetween: I was able to remove last comma.
+isFactorOf: Removed the forloop and measured the correct items to get answer.
+fizzBuzz: I was able to remove last comma.  Also, removed the extra space in numBuzz
+removed else statement. The else statement is not necessary.
 
 */

@@ -13,9 +13,10 @@ logBetween(4,6); //from 4 to 6 */
 
 function logBetween(lowNum, highNum) {
   if (lowNum < highNum){
-     return`from ${lowNum} to ${highNum}`; }
+      return "from " + lowNum + " to " + highNum;
+     }
   else {
-    return
+      return "from " + highNum + " to " + lowNum;
   }
 }
 
@@ -59,8 +60,8 @@ var i = 0
 
 while ( i < Math.abs(number)) {
 
-  if ( i * (i+1) == Math.abs(number) ) {
-    return true;
+  if ( i * (i+1) == Math.abs(factor) && factor !==0 ) {
+    return true ;
   }
   i++
 }
@@ -91,12 +92,15 @@ while (i < number) {
 // isPrime(3548563); //false
 
 /*Comments from Paris
-logBetween: This is not what the problem is asking for. It is asking you to log
-the numbers from lowNum to highNum and not create a string that reads "from lowNum to highNum"
+logBetween: This is not what the problem is asking for.
+It is asking you to log the numbers from lowNum to highNum
+and not create a string that reads "from lowNum to highNum"
 
-isFactorOf: You are not using the second parameter (factor) in your function. Do you understand
-what the problem is asking you to do? It wants you to confirm if the parameter "factor" is a factor of
-the parameter "number". If you do not know what a factor of a number is, look it up online.
+isFactorOf: You are not using the second parameter (factor)
+in your function. Do you understand what the problem is asking
+you to do? It wants you to confirm if the parameter "factor"
+is a factor of the parameter "number". If you do not know what
+a factor of a number is, look it up online.
 If you still cannot understand what it is, then ask me
 
 

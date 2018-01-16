@@ -11,6 +11,11 @@ Write a function logEach(array) that prints every element of the array and its i
 2: Carson */
 
 
+function logEach(array){
+	
+}
+
+
 /* maxValue
 Write a function maxValue(array) that returns the largest value in the array. Assume array is an array of numbers.
 > maxValue([43, 12, 6, 2])

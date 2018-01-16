@@ -152,31 +152,31 @@ isSubstring("Time to program", "time"); //true
 isSubstring("Jump for joy", "joys"); //false
 
 
-//answer - the LONG WAY:
+//answer - the LONG WAY:  Just keep for reference only.
+
+// function isSubstring(searchString, subString){
+//   for(var i = 0; i < searchString.length; i++){
+//     // 'i' is defined start and subString.length is the 'length' | str.substr(start[, length])
+//     var sentence = searchString.substr(i, subString.length);
+//     if(sentence === subString){
+//       return true;
+//     }
+//   }
+// //have the return outside the forloop and if answer is false, the code will exit at this stage.
+//   return false;
+// }
+
 
 function isSubstring(searchString, subString){
   for(var i = 0; i < searchString.length; i++){
-    // 'i' is defined start and subString.length is the 'length' | str.substr(start[, length])
+    // console.log("We are in the for loop for i =", i);
     var sentence = searchString.substr(i, subString.length);
     if(sentence === subString){
+      // console.log("In the if statement")
       return true;
     }
   }
-//have the return outside the forloop and if answer is false, the code will exit at this stage.
-  return false;
-}
-
-
-function isSubstring(searchString, subString){
-  for(var i = 0; i < searchString.length; i++){
-    console.log("We are in the for loop for i =", i);
-    var sentence = searchString.substr(i, subString.length);
-    if(sentence === subString){
-      console.log("In the if statement")
-      return true;
-    }
-  }
-  console.log("outside the for loop");
+  // console.log("outside the for loop");
   return false;
 }
 
@@ -184,7 +184,7 @@ isSubstring("hello there", "there");
 isSubstring("Time to program", "Time");
 
 
-//optional answer:
+//optional answer: SHORTEST WAY
 
 function isSubstring(searchString, subString){
   return searchString.toLowerCase().includes(subString);
@@ -233,20 +233,16 @@ true
 > isEven(5)
 false */
 
-isEven(2); //true
-isEven(5); //false
-
 
 function isEven(num){
   if(num % 2 === 0){
     return true;
   }
-  else{
-    return false;
-  }
+  return false;
 };
 
 isEven(5);
+isEven(2);
 
 
 // Write a function isEven(num) which takes as the argument a number.
@@ -258,39 +254,33 @@ isEven(5);
 // isEven(5) => false
 // isEven(-55) => false
 
-isEven(2) //=> true
-isEven(5) //=> false
-isEven(-55) //=> false
 
 
-//This one is very confusing! I am trying to understand what it's asking,
-//but having difficulty.  I think I got 1/2 correct?
+// one potential answer: Just keep for reference only!
+// function isEven(num){
+//   if(num % 2 === 0){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// };
 
-// one potential answer:
-function isEven(num){
-  if(num % 2 === 0){
-    return true;
-  }
-  else{
-    return false;
-  }
-};
+// function isOdd(el){
+//     if(el % 2 === 0){
+//       return false;
+//     }
+//     else{
+//       return true;
+//     }
+//   };
 
-function isOdd(el){
-    if(el % 2 === 0){
-      return false;
-    }
-    else{
-      return true;
-    }
-  };
-
-isEven(-55);
-isOdd(5);
+// isEven(-55);
+// isOdd(5);
 
 
 
-//another potential option - BETTER WAY: LEARN TO USE OPERATORS
+// BETTER WAY: LEARN TO USE OPERATORS
 
 function isOdd(num){
   if(num % 2 !== 0){
@@ -311,10 +301,14 @@ isEven(7);
 //primary data types: numbers, strings, booleans, NAN, undefined, symbol
 
 
-/*Comments from Paris
-isOdd: You have the function twice in your code. Which solution is the correct one?
-Can you keep only the correct function?
-isEven: Same here. Which one is the function that is working and you want to keep?
+/*Comments from Rena:
+isOdd: I've kept one solution and other serves only as reference.
+isEven: I've kept one solution and other serves only as reference.
 
+
+*/
+
+/*Comment from Paris
+isOdd needs a bit of work. I mentioned why in Slack
 
 */

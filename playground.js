@@ -10,7 +10,8 @@ function winLottery(){
     userAnswer = prompt("Did you win the lottery ticket?");
   }
 
-  alert("Congratulations. You won the lottery so you can live a life in prosperity. Remember your good friend Paris and give him something.");
+  alert(`Congratulations. You won the lottery so you can live a life in prosperity.
+  Remember your good friend Paris and give him something.`);
 }
 
 winLottery();

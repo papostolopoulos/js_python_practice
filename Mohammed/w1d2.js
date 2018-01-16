@@ -89,3 +89,15 @@ while (i < number) {
 // isPrime(10); //false
 // isPrime(15485863); //true
 // isPrime(3548563); //false
+
+/*Comments from Paris
+logBetween: This is not what the problem is asking for. It is asking you to log
+the numbers from lowNum to highNum and not create a string that reads "from lowNum to highNum"
+
+isFactorOf: You are not using the second parameter (factor) in your function. Do you understand
+what the problem is asking you to do? It wants you to confirm if the parameter "factor" is a factor of
+the parameter "number". If you do not know what a factor of a number is, look it up online.
+If you still cannot understand what it is, then ask me
+
+
+*/

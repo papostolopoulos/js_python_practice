@@ -30,6 +30,18 @@ logBetween(10, 22);
 
 
 
+// //alternative answer: Using While-Loop
+
+// function logBetween(lowNum, highNum) {
+//   while(lowNum <= highNum){
+//     console.log(lowNum);
+//     lowNum++;
+//   }
+// }
+// logBetween(10, 22);
+
+
+
 /* fizzBuzz
 
 3 and 5 are magic numbers.
@@ -38,20 +50,70 @@ from 0 to max that is divisible by either 3 or 5, but not both.
 
 TEST: fizzBuzz(20) should print numbers 3, 5, 6, 9, 10, 12, and 18 */
 
+// //This code block prints out all the numbers:
+// function fizzBuzz(max){
+//   var numBuzz = "";
+// //looping through numbers
+//   for(var i = 0; i <= max; i++){
+//     // console.log(fizzBuzz);
+//     if(max % 3 === 0 || max % 5 === 0){
+// //print answer and separate numbers by comma
+//       var numbers = numBuzz += i + ',';
+//     }
+// //use slice() to remove last element:
+//     console.log(numbers.slice(0, -1));
+//   }
+// }
+// fizzBuzz(20);
+
+
+
+//This is correct answer:
 function fizzBuzz(max){
-  var numBuzz = "";
 //looping through numbers
-  for(var i = 0; i <= max; i++){
-    // console.log(fizzBuzz);
-    if(max % 3 === 0 || max % 5 === 0){
-//print answer and separate numbers by comma
-      var numbers = numBuzz += i + ',';
+  for(var i = 1; i <= max; i++){
+    // console.log(i);
+//identify i that is % by 3 OR % by 5
+      if(i % 3 === 0 || i % 5 === 0){
+//identify i that is % by 3 AND % by 5:
+        if(i % 3 === 0 && i % 5 === 0){
+//anything after continue; does not execute.
+           continue;
+      }
+    console.log(i);
     }
-//use slice() to remove last element:
-    console.log(numbers.slice(0, -1));
   }
 }
-fizzBuzz(50);
+fizzBuzz(20);
+
+/*Bonus challenge
+Can you replicate the same function but this time try to put everything
+that you want to keep in an array and 
+then print out the numbers
+of the array (not the array itself but the numbers in it)
+*/
+
+function fizzBuzz(num){
+  var newArr = [];
+
+  for(var i = 1; i <= num; i++){
+    if(i % 3 === 0 || i % 5 === 0){
+      if(i % 3 === 0 && i % 5 === 0){
+        continue;
+      }
+//use .push() method to push numbers into newArr variable.
+      newArr.push(i);
+    }   
+  }
+//loop thru newArr and then print out numbers:
+    for(var i = 0; i < newArr.length; i++){
+      console.log(newArr(i));
+    } 
+}
+fizzBuzz(20);
+
+
+
 
 /* isFactorOf
 
@@ -64,12 +126,12 @@ isFactorOf(5,0); //false
 
 function isFactorOf(number, factor){
     // console.log(number);
- //if my statement runs true, then it must return false.
+ //if my statement runs, then it must return true.
     if(number % factor === 0){
-      return false;
+      return true;
     }
- //have return true outside to exit once condition is met.
-   return true;
+ //have return false outside to exit once condition is met.
+   return false;
 }
 isFactorOf(6, 2);
 isFactorOf(-6, 2);

@@ -8,21 +8,25 @@ Input: A Number.
 Output: A Boolean. true if the number is odd, otherwise false*/
 
 
-isOdd(2);
-isOdd(5);
-isOdd(-17);
+// isOdd(2);
+// isOdd(5);
+// isOdd(-17);
 
-
+//using num % 2 ===0 and num % 2 !==0, is consider a "catch-all"
+//method for integers and floats.
 function isOdd(num){
-  if(num % 2 === 1){
-    return true;
-  }
-  else{
+  if(num % 2 === 0){
     return false;
   }
+
+  else (num % 2 !== 0) 
+    return true;
 };
 
-isOdd(2);
+isOdd(2); //false 
+isOdd(5); //true
+isOdd(-17); //true
+isOdd(10.01); //true
 
 
 /* plusFive
@@ -30,17 +34,17 @@ Input: A Number.
 Output: A Number. The sum of the input and 5.*/
 
 
-plusFive(0); //5
-plusFive(-2); //3
-plusFive(21); //26
+// plusFive(0); //5
+// plusFive(-2); //3
+// plusFive(21); //26
 
 
 function plusFive(num){
   return num + 5;
 }
 
-plusFive(0);
-plusFive(21);
+plusFive(0); //5
+plusFive(21); //26
 
 
 /* threeOrSeven
@@ -48,13 +52,13 @@ Input: A Number.
 Output: A Boolean. true if the number is divisible by 3 or 7*/
 
 
-threeOrSeven(3); //true
-threeOrSeven(42); //true
-threeOrSeven(8); //false
+// threeOrSeven(3); //true
+// threeOrSeven(42); //true
+// threeOrSeven(8); //false
 
 
 function threeOrSeven(num){
-  if(num % 3 === 1 || num % 7 === 1){
+  if(num % 3 === 0 || num % 7 === 0){
     return true;
   }
   else{
@@ -62,6 +66,7 @@ function threeOrSeven(num){
   }
 };
 
+threeOrSeven(3);
 threeOrSeven(42);
 threeOrSeven(8);
 
@@ -148,8 +153,8 @@ true
 > isSubstring("Jump for joy", "joys")
 false */
 
-isSubstring("Time to program", "time"); //true
-isSubstring("Jump for joy", "joys"); //false
+// isSubstring("Time to program", "time"); //true
+// isSubstring("Jump for joy", "joys"); //false
 
 
 //answer - the LONG WAY:  Just keep for reference only.
@@ -302,7 +307,7 @@ isEven(7);
 
 
 /*Comments from Rena:
-isOdd: I've kept one solution and other serves only as reference.
+isOdd: I've made revisions based on our Slack discussion.
 isEven: I've kept one solution and other serves only as reference.
 
 

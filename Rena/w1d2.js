@@ -176,8 +176,11 @@ removed else statement. The else statement is not necessary.
 */
 
 /*Comments from Paris
-fizzBuzz: Run the function. You will see how you are printing all the numbers from 0 to 20 so
-something is wrong
-isFactorOf: You are returning the exact opposite result. Can you figure out why?
-
+- TypeError and all errors: Please try to understand what the errors mean in order to be able to debug them
+- MDN is a good resource to get answers to questions and educate yourself. Try to use it more often
+- Go over the problem description more carefully and on several occasions to make sure you are doing the right thing
+- If there is an if statement that executes too many of too few times, see if your statement (what you have in the parenthesis)
+is accurate for your measurement
+- Try from small pieces of code and make sure they are working. Then start expanding your code.
+- When you are using operators, make sure you split them to see what the result of the operators is and then gradually join them
 */

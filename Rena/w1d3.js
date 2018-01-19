@@ -46,7 +46,7 @@ function maxValue(array){
 	if (0 < array.length){
 	//This operator, Math.max(...array), causes the values in the array to be
 	// expanded, or “spread” (i.e. three dots), into the function’s arguments.
-		return Math.max(...array);	
+		return Math.max(...array);
 	}
 }
 maxValue([-4, -10, 0.43]); //0.43
@@ -179,3 +179,13 @@ function sumofNPrimes(n){
 
 }
 sumOfNPrimes(1);
+
+
+/*Comments from Paris
+logEach: Even though you are printing out the index and the element for the array,
+you are not printing it in the way the problem asks you to. Please go over the problem and
+follow the correct format
+firstNPrimes: Several syntax errors. If you run this function with
+firstNPrimes(0), you get a type error.
+Try to remember that n represents the expected length of the array you will return
+at the end and it does not relate with figuring out the prime numbers.*/

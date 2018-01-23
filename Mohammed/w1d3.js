@@ -10,15 +10,29 @@ Write a function logEach(array) that prints every element of the array and its i
 1: John
 2: Carson */
 
+function logEach(array){
+  for (var i = 0; i < array.length; i++) {
+    console.log(i + ": " + array[i])
+  }
+}
 
 /* maxValue
-Write a function maxValue(array) that returns the largest value in the array. Assume array is an array of numbers.
+Write a function maxValue(array) that returns the largest value in the array.
+Assume array is an array of numbers.
 > maxValue([43, 12, 6, 2])
 43
 > maxValue([])
 null
 > maxValue([-4, -10, 0.43])
 0.43 */
+function maxValue(array){
+
+  if (0 < array.length ) {
+  return Math.max(...array)
+}
+  return null;
+}
+/* CAN YOU FIND ANOTHER WAY TO SOLVE THIS PROBELM W/O USING .MAX METHOD?         */
 
 
 /* printRange
@@ -33,6 +47,40 @@ If a range doesn't exist (start > end), then print "Bad Range" instead. Example:
 > printRange(5, 1)
 Bad Range */
 
+/* printRange */
+
+
+function printRange(start, end){
+  for(var i = start; i <= end; i++){
+    console.log(i);
+  }
+  if(start > end){
+    console.log("Bad Range");
+  }
+}
+=============
+
+Write a function printRange(start, end) that prints all the numbers from start to end.
+If a range doesn't exist (start > end), then print "Bad Range" instead. Example:
+
+> printRange(22, 24)
+22
+23
+24
+> printRange(5, 1)
+Bad Range */
+
+function printRange(start, end) {
+  if (start < end) {
+    for (var i = start; i <= end; i++) {
+      console.log(i);
+    }
+  }
+  else {
+    console.log("the range is bad");
+  }
+
+}
 
 /* Functions
 isPrime
@@ -47,6 +95,21 @@ true
 false
 > isPrime(303212)
 false */
+/*  Note : A prime number (or a prime) is a natural number greater than 1 that
+has no positive divisors other than 1 and itself
+https://www.w3resource.com/javascript-exercises/javascript-function-exercise-8.php
+.*/
+
+function isPrime(number) {
+      if(number < 2) return false;
+      for (var i = 2; i < number; i++) {
+          if(number%i==0)
+              return false;
+      }
+    return true;
+  }
+
+
 
 
 /* firstNPrimes
@@ -56,7 +119,16 @@ Using isPrime, write a function firstNPrimes(n) that returns an array of the fir
 > firstNPrimes(1)
 [2]
 > firstNPrimes(4)
-[2, 3, 5, 7] */
+
+> firstNPrimes(5)
+[2, 3, 5, 7, 11] */
+
+function firstNPrimes(n) {
+    for (var i = 0; i < n.length; i++) {
+      isPrime(i)
+    }
+  return i
+}
 
 
 /* sumOfNPrimes

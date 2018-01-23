@@ -11,14 +11,16 @@ logBetween(-1, 2); // from -1 to 2
 logBetween(14, 6); //nothing printed
 logBetween(4,6); //from 4 to 6 */
 
+
 function logBetween(lowNum, highNum) {
-  if (lowNum < highNum){
-      return "from " + lowNum + " to " + highNum;
-     }
-  else {
-      return "from " + highNum + " to " + lowNum;
+
+  while(lowNum <= highNum){
+    console.log(lowNum);
+    lowNum++;
   }
 }
+
+
 
 /* fizzBuzz
 
@@ -56,17 +58,12 @@ isFactorOf(5,0); //false
  */
 function isFactorOf(number, factor) {
 
-var i = 0
-
-while ( i < Math.abs(number)) {
-
-  if ( i * (i+1) == Math.abs(factor) && factor !==0 ) {
-    return true ;
+  function isFactorOf(number, factor) {
+    if (number % factor === 0) {
+      return true;
+    }
+    return false;
   }
-  i++
-}
-return false;
-}
 
 
 /* isPrime

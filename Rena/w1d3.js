@@ -127,7 +127,10 @@ isPrime(1693);
 
 
 /* firstNPrimes
-Using isPrime, write a function firstNPrimes(n) that returns an array of the first n prime numbers.
+0. Using isPrime, 
+1. write a function firstNPrimes(n) 
+2. that returns an array 
+3. of the first n prime numbers.
 > firstNPrimes(0)
 []
 > firstNPrimes(1)
@@ -136,33 +139,51 @@ Using isPrime, write a function firstNPrimes(n) that returns an array of the fir
 [2, 3, 5, 7] */
 
 
-// function firstNPrimes(n){
-// var array = [];
-//  for(var i = 2; i < n; i++){
-// // 	console.log(i);
-//  	if(n % i === 0){
-//         array.push(i);
-//  	}
-//  }
-//   console.log(array);
-// }
-// console.log("Try again!");
+function firstNPrimes(n){
+	var array = [];
+	for(var i = 2; ; i++){
+//invoke isPrime() and see if results of (i) === true.
+		if(isPrime(i) === true){
+			 array.push(i);
+			}
+//set another condition to break out of loop.
+		if(array.length === n){	
+			break;
+			}
+		}
+		return array;
+	 }
 
-// firstNPrimes(4);
+firstNPrimes(3); // --> [2,3,5]
+firstNPrimes(4); // --> [2,3,5,7]
+firstNPrimes(5); // --> [2,3,5,7,11]
 
 
 function firstNPrimes(n){
+	//set variable array to empty array
 	var array = [];
-	 	if(n === 0){
-	 		for(var i = 2; i < n.length; i++){
-	 		// console.log(isPrime(n));
-	 		}
-	 		console.log(isPrime(n)).push(array);
-	 	}
-	 }
-	 // return false;
+	//set variable i to 0;
+	var i = 0;
+//the condition will run if the result of isPrime(i)
+// results in true.  Then i will iterate and .push()
+//into the empty array.
+			while(isPrime(i) === true){
+				array.push(i);
+				i++;
+			}
+//return the answer/array:
+		return array;		
+	}
+//invoke the function:
+firstNPrimes(3); 
 
-firstNPrimes(4);
+//TEST EXAMPLE:
+// var testArr = [];
+// while(testArr.length < 4) {
+// 	testArr.push("Hello");
+// }
+// testArr(4);
+
 
 
 /* sumOfNPrimes

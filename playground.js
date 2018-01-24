@@ -1,53 +1,42 @@
-function isPrime(number){
- for(var i = 2; i < number; i++){
- 	if(number % i === 0){
- 		return false;
- 	}
- }
- return true;
-}
-isPrime(303212);
-isPrime(1693);
+// Write a function maxValue(array)
+//that returns the largest value in the array.
+// Assume array is an array of numbers.
+// > maxValue([43, 12, 6, 2])
+// 43
+// > maxValue([])
+// null
+// > maxValue([-4, -10, 0.43])
+// 0.43 */
 
 
-/* firstNPrimes
-0. Using isPrime,
-1. write a function firstNPrimes(n) OK
-2. that returns an array OK
-3. of the first n prime numbers.
-> firstNPrimes(0)
-[]
-> firstNPrimes(1)
-[2]
-> firstNPrimes(4)
-[2, 3, 5, 7] */
-
-
-
-
-function firstNPrimes(n){
-  var array = [];
-  for (var i = 2; i < 10; i++) {
-    if (isPrime(i) === true) {
-      array.push(i);
+function maxValue(array){
+  var largestValue = -Infinity;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > largestValue) {
+      largestValue = array[i]
     }
   }
 
-  return array;
+  return largestValue;
+}
+
+
+function maxValue(array){
+  return array.sort((a, b) => {
+    a - b;
+  })[array.length - 1];
+
 }
 
 
 
+function maxValue(array){
+  var finalArr = array.sort(function(a, b){
+    return a - b;
+  });
+  return finalArr[finalArr.length - 1];
 
-firstNPrimes(6);
-
-
-
-
-
-
-
-
+}
 
 
 

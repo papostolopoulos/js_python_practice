@@ -56,6 +56,14 @@ maxValue([43, 12, 6, 2]); //43
 //Extra exercise: Find the largest value in the array, but cannot use Math.max()
 //method. Write a function by sorting the array and select the largest number.
 
+function maxValue(array){
+	var finalArray = array.sort(function(a, b){
+		return a - b ;
+	});
+//return the array's largest value:
+	return finalArray[finalArray.length - 1];
+}
+maxValue([-4, -10, 0.43]);
 
 
 /* printRange
@@ -71,18 +79,18 @@ If a range doesn't exist (start > end), then print "Bad Range" instead. Example:
 Bad Range */
 
 // //First option as potential answer:
-// function printRange(start, end){
-// 	if(start < end){
-// 		for(var i = start; i <= end; i++){
-// 			console.log(i);
-// 		}
-// 	}
-// 	else{
-// 		console.log("Bad Range");
-// 	}
-// }
-// printRange(22, 24);
-// printRange(5, 1);
+function printRange(start, end){
+	if(start < end){
+		for(var i = start; i <= end; i++){
+			console.log(i);
+		}
+	}
+	else{
+		console.log("Bad Range");
+	}
+}
+printRange(22, 24);
+printRange(5, 1);
 
 
 //Alternative answer:
@@ -159,30 +167,58 @@ firstNPrimes(4); // --> [2,3,5,7]
 firstNPrimes(5); // --> [2,3,5,7,11]
 
 
+
+//Alternative for-loop answer:
+function firstNPrimes(n){
+	var array =[];
+	for(var i = 2; n > array.length; i++){
+		if(isPrime(i)){
+			array.push(i);
+		}
+	}
+	return array;
+}
+firstNPrimes(3);
+
+
+//Alternative answer using while-loop:
 function firstNPrimes(n){
 	//set variable array to empty array
 	var array = [];
-	//set variable i to 0;
-	var i = 0;
-//the condition will run if the result of isPrime(i)
-// results in true.  Then i will iterate and .push()
-//into the empty array.
-			while(isPrime(i) === true){
+	//set variable i to 2;
+	var i = 2;
+//the condition will run if the result of array.length
+//does NOT equal n.  n represents whatever "first n prime numbers" 
+			while(array.length !== n){
+// Then if-statement take isPrime(i) equal to true.
+			if(isPrime(i) === true){
+//Then use .push(i) into the empty array.
 				array.push(i);
-				i++;
-			}
+		}
+//iterate:
+			i++;
+		}
 //return the answer/array:
 		return array;		
 	}
 //invoke the function:
-firstNPrimes(3); 
+firstNPrimes(5);
 
-//TEST EXAMPLE:
-// var testArr = [];
-// while(testArr.length < 4) {
-// 	testArr.push("Hello");
-// }
-// testArr(4);
+
+
+//Another Alternative answer:
+function firstNPrimes(n){
+	var array = [];
+	var i = 2;
+	while(n > array.length){
+		if(isPrime(i)){
+			array.push(i);
+		}
+		i++
+	}
+	return array;
+}
+firstNPrimes(5);
 
 
 

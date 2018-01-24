@@ -135,9 +135,9 @@ isPrime(1693);
 
 
 /* firstNPrimes
-0. Using isPrime, 
-1. write a function firstNPrimes(n) 
-2. that returns an array 
+0. Using isPrime,
+1. write a function firstNPrimes(n)
+2. that returns an array
 3. of the first n prime numbers.
 > firstNPrimes(0)
 []
@@ -155,7 +155,7 @@ function firstNPrimes(n){
 			 array.push(i);
 			}
 //set another condition to break out of loop.
-		if(array.length === n){	
+		if(array.length === n){
 			break;
 			}
 		}
@@ -199,7 +199,7 @@ function firstNPrimes(n){
 			i++;
 		}
 //return the answer/array:
-		return array;		
+		return array;
 	}
 //invoke the function:
 firstNPrimes(5);
@@ -219,6 +219,14 @@ function firstNPrimes(n){
 	return array;
 }
 firstNPrimes(5);
+firstNPrimes(3);
+
+//TEST EXAMPLE:
+// var testArr = [];
+// while(testArr.length < 4) {
+// 	testArr.push("Hello");
+// }
+// testArr(4);
 
 
 
@@ -242,7 +250,8 @@ sumOfNPrimes(1);
 logEach: Even though you are printing out the index and the element for the array,
 you are not printing it in the way the problem asks you to. Please go over the problem and
 follow the correct format
-firstNPrimes: Several syntax errors. If you run this function with
-firstNPrimes(0), you get a type error.
+
+Line 56: you also need to work on this
+
 Try to remember that n represents the expected length of the array you will return
 at the end and it does not relate with figuring out the prime numbers.*/

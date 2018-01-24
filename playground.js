@@ -1,3 +1,63 @@
+// Write a function maxValue(array)
+//that returns the largest value in the array.
+// Assume array is an array of numbers.
+// > maxValue([43, 12, 6, 2])
+// 43
+// > maxValue([])
+// null
+// > maxValue([-4, -10, 0.43])
+// 0.43 */
+
+
+function maxValue(array){
+  var largestValue = -Infinity;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > largestValue) {
+      largestValue = array[i]
+    }
+  }
+
+  return largestValue;
+}
+
+
+function maxValue(array){
+  return array.sort((a, b) => {
+    a - b;
+  })[array.length - 1];
+
+}
+
+
+
+function maxValue(array){
+  var finalArr = array.sort(function(a, b){
+    return a - b;
+  });
+  return finalArr[finalArr.length - 1];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function mohammedsChallenge(money, haveTime){
   return money <= 10000 && haveTime >= 40 ? "Make some money first" : money <= 10000 && haveTime < 40 ? "Keep on working! More money needed" : money > 10000 && haveTime >= 40 ? "You have enough money. Time to code!" : "Keep writing code! You are doing it"
 }

@@ -221,18 +221,22 @@ function firstNPrimes(n){
 firstNPrimes(5);
 firstNPrimes(3);
 
+
+
 //TEST EXAMPLE:
-// var testArr = [];
-// while(testArr.length < 4) {
-// 	testArr.push("Hello");
-// }
-// testArr(4);
+var testArr = [];
+while(testArr.length < 4) {
+	testArr.push("Hello");
+}
+testArr(4);
 
 
 
 /* sumOfNPrimes
 
-Using firstNPrimes, write a function sumOfNPrimes(n) that returns the sum of the first n prime numbers.
+1. Using firstNPrimes, 
+2. write a function sumOfNPrimes(n) - ok
+3. that returns the sum of the first n prime numbers.
 > sumOfNPrimes(0)
 0
 > sumOfNPrimes(1)
@@ -240,10 +244,45 @@ Using firstNPrimes, write a function sumOfNPrimes(n) that returns the sum of the
 > sumOfNPrimes(4)
 17 */
 
-function sumofNPrimes(n){
 
+function sumOfNPrimes(n){
+	var totalSum = 0;
+	for(var i = 0; i < firstNPrimes(n).length; i++){
+		console.log(firstNPrimes(n)[i]);
+		totalSum = totalSum + firstNPrimes(n)[i];
+	}
+	return totalSum;
 }
-sumOfNPrimes(1);
+sumOfNPrimes(4);
+
+
+//Same exercise, but use. reduce() method instead:
+function sumOfNPrimes(n){
+	var totalSum = 0;
+	totalSum = firstNPrimes(n).reduce(function(curr, accum){
+		// console.log(firstNPrimes(n));
+//taking current number and adding the element from array.
+		return curr + accum;
+	}, 0);
+	return totalSum;
+}
+sumOfNPrimes(7);
+
+
+
+//Extra exercise on SUM of array:
+function sumOfArray(arr){
+	var sum = 0;
+	for(var i = 0; i < arr.length; i++){
+		// console.log(arr[i])
+		sum += arr[i];
+	}
+//returning the sum, NOT another array! 
+	return sum;
+}
+sumOfArray([1, 4, 5, 6, 11]);
+
+
 
 
 /*Comments from Paris

@@ -38,6 +38,10 @@ function maxValue(array){
 
 }
 
+function sumOfNPrimes(n) {
+  
+}
+
 
 
 

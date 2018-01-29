@@ -34,6 +34,36 @@ function maxValue(array){
 }
 /* CAN YOU FIND ANOTHER WAY TO SOLVE THIS PROBELM W/O USING .MAX METHOD?         */
 
+function maxValue(array){
+  var largestValue = -Infinity;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > largestValue) {
+      largestValue = array[i]
+    }
+  }
+
+  return largestValue;
+}
+
+
+function maxValue(array){
+  return array.sort((a, b) => {
+    a - b;
+  })[array.length - 1];
+
+}
+
+
+
+function maxValue(array){
+  var finalArr = array.sort(function(a, b){
+    return a - b;
+  });
+  return finalArr[finalArr.length - 1];
+
+}
+
+
 
 /* printRange
 
@@ -103,7 +133,7 @@ https://www.w3resource.com/javascript-exercises/javascript-function-exercise-8.p
 function isPrime(number) {
       if(number < 2) return false;
       for (var i = 2; i < number; i++) {
-          if(number%i==0)
+          if(number%i===0)
               return false;
       }
     return true;
@@ -133,7 +163,8 @@ function firstNPrimes(n) {
 
 /* sumOfNPrimes
 
-Using firstNPrimes, write a function sumOfNPrimes(n) that returns the sum of the first n prime numbers.
+Using firstNPrimes, write a function sumOfNPrimes(n) that returns
+the sum of the first n prime numbers.
 > sumOfNPrimes(0)
 0
 > sumOfNPrimes(1)
@@ -141,16 +172,60 @@ Using firstNPrimes, write a function sumOfNPrimes(n) that returns the sum of the
 > sumOfNPrimes(4)
 17 */
 
+function sumOfNPrimes(n){
+	var totalSum = 0;
+	for(var i = 0; i < n.length; i++){
+		totalSum =+ firstNPrimes(i)[3];
+	}
+	return totalSum;
+}
+sumOfNPrimes(3);
+
+/*Create a function sumOfArray(array) that adds all the values of the elements
+of the array and returns it's sum.*/
+
+  function sumOfArray(array){
+  	var sum = 0;
+  	for(var i = 0; i < array.length; i++){
+  		sum += array[i];
+  	}
+  	return sum;
+  }
+
+  sumOfArray([1, 4, 5, 6, 11]);
+
+
 
 /*Comments from Paris
 Line 35. Remember that you need to work on this
 
-Remember that is JavaScript there is truthy vs falsey and true and false. It is usually better to use === instead of ==.
+Remember that is JavaScript there is truthy vs falsey and true and false.
+ It is usually better to use === instead of ==.
 See line 106. Try to find references online that explain what the difference is.
 
 firstNPrimes
-Line 127: You are writting "i < n.length". What kind of data type is n? Does it have a length?
+Line 127: You are writting "i < n.length". What kind of data type is n?
+Does it have a length?
 
-- Try to remember that n represents the expected length of the array you will need to return
+- Try to remember that n represents the expected length of the array you will
+need to return
 at the end. n does not relate to you figuring out the prime numbers.
 */
+
+function mohammedsChallenge(money, haveTime){
+  return money <= 10000 && haveTime >= 40 ? "Make some money first" : money <= 10000 && haveTime < 40 ? "Keep on working! More money needed" : money > 10000 && haveTime >= 40 ? "You have enough money. Time to code!" : "Keep writing code! You are doing it"
+}
+
+
+function winLottery(){
+  var userAnswer = prompt("Did you win the lottery ticket?");
+  while (userAnswer.toLowerCase() !== "yes") {
+    alert("Sorry, you have to keep on studying code or win the lottery");
+    userAnswer = prompt("Did you win the lottery ticket?");
+  }
+
+  alert(`Congratulations. You won the lottery so you can live a life in prosperity.
+  Remember your good friend Paris and give him something.`);
+}
+
+winLottery();

@@ -9,11 +9,16 @@ takes three numbers as arguments and prints to the console every number from 0 t
 that is divisible by either num1 or num2, but not both. */
 
 
-
-
-
-
-
+function dynamicFizzBuzz(max, num1, num2){
+  // console.log(max, num1, num2);
+  for(var i = 0; i <= max; i++){
+    // console.log(i);
+      if(i / num1 === 0 || i / num2 === 0){
+        console.log(i);
+      }
+    }
+}
+dynamicFizzBuzz(30, 2, 6);
 
 
 

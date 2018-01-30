@@ -4,16 +4,23 @@
 
 /*dynamicFizzBuzz
 
-Define a function dynamicFizzBuzz(max, num1, num2) that
-takes three numbers as arguments and prints to the console every number from 0 to max
-that is divisible by either num1 or num2, but not both. */
+1. Define a function dynamicFizzBuzz(max, num1, num2) 
+2. that takes three numbers as arguments 
+3. and prints to the console every number from 0 to max
+4. that is divisible by either num1 or num2, but not both. */
 
 
-
-
-
-
-
+function dynamicFizzBuzz(max, num1, num2){
+  // console.log(max, num1, num2);
+  for(var i = 0; i <= max; i++){
+    // console.log(i);
+//Need to re-evaluate my if-statement?
+      if(i / num1 === 0 || max / num2 === 0 ){
+      }
+      console.log(num);
+    }
+}
+dynamicFizzBuzz(30, 2, 6);
 
 
 
@@ -30,11 +37,21 @@ var rickyBobbyJr = function(num) {
     return "Junior";
   }
 };
+
+rickyBobbyJr(10);
+rickyBobbyJr(-8);
+rickyBobbyJr(0);
+
 /*Answer:
 
+//Need to invoke rickyBobbyJr() to run the function:
 
+Depending on the parameter that is passed, the result will
+be "Bobby" or "Ricky" or "Junior" - BUT not all three names.
 
-
+If I pass a parameter LESS than -5, then I will get "Bobby". If
+it's LESS than 5, then I will get "Ricky".  For everything else,
+I will get "Junior".
 
 
 */

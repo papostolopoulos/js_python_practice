@@ -199,14 +199,13 @@ of the array and returns it's sum.*/
 /*Comments from Paris
 Line 35. Remember that you need to work on this
 
-Remember that is JavaScript there is truthy vs falsey and true and false.
- It is usually better to use === instead of ==.
-See line 106. Try to find references online that explain what the difference is.
-
 firstNPrimes
-Line 127: You are writting "i < n.length". What kind of data type is n?
-Does it have a length?
+Line 156: You are writting "i < n.length". What kind of data type is n?
+- Does it have a length? (Same issue with sum of sumOfNPrimes).
+- You need to 
+solve firstNPrimes first in order to be able to work on sumOfNPrimes
 
+sumOfNPrimes:
 - Try to remember that n represents the expected length of the array you will
 need to return
 at the end. n does not relate to you figuring out the prime numbers.

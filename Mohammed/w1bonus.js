@@ -5,12 +5,29 @@
 /*dynamicFizzBuzz
 
 Define a function dynamicFizzBuzz(max, num1, num2) that
-takes three numbers as arguments and prints to the console every number from 0 to max
+takes three numbers as arguments and prints to the console
+every number from 0 to max
 that is divisible by either num1 or num2, but not both. */
 
+function dynamicFizzBuzz(max, num1, num2) {
+  var i = 0
 
+  while (i < max) {
+    if(i % num1 === 0 || i % num2 === 0) {
+      if (i % num1 !== 0 && i % num2 !== 0) {
+        }
+          console.log(i);
+      }
+      i++;
+  }
+}
 
+/*
+ Max is last digit number our results should reach
+ from 0 to max number
+ However we need to test each number if its divisiable by num1 or num2
 
+ */
 
 
 

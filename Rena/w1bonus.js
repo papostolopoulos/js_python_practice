@@ -14,12 +14,41 @@
 function dynamicFizzBuzz(max, num1, num2){
   // console.log(max, num1, num2);
   for(var i = 0; i <= max; i++){
-      if(i / num1 === 0 || max / num2 === 0 ){
+      if(i % num1 === 0 || i % num2 === 0){
+          if(i % num1 === 0 && i % num2 === 0){
+//The continue statement breaks one iteration (in the loop), if a 
+//specified condition occurs, and continues with the next iteration
+// in the loop.
+            continue;
+        }
           console.log(i);
       }
     }
 }
 dynamicFizzBuzz(30, 2, 6);
+
+
+
+//alternative answer using while-loop:
+
+function dynamicFizzBuzz(max, num1, num2){
+//use -1 to then start at 0.
+  var i = -1;
+
+  while(i <= max){
+// have the iterator at top so it does not
+//turn into an infinite loop.
+    i++;
+    if(i % num1 === 0 || i % num2 === 0){
+      if(i % num1 === 0 && i % num2 === 0){
+        continue;
+      }
+      console.log(i);
+    }
+  }
+}
+dynamicFizzBuzz(10, 3, 5);
+
 
 
 //--------------------------------------
@@ -53,20 +82,21 @@ I will get "Junior".
 
 */
 
+    
+    var makeNum = function(num) {
+    return (num * 2) - (num * num);
+  };
 
-var makeNum = function(num) {
-  return (num * 2) - (num * num);
-};
+    var sayHi = function(n) {
+    var x = makeNum(n);
+    return "Hey now, " + rickyBobbyJr(x);
+  }
 
-var sayHi = function(n) {
-  var x = makeNum(n);
-  return "Hey now, " + rickyBobbyJr(x);
-}
 
 sayHi(3);
 /*Answer:
 
-
+rickyBobbyJr() is not defined.
 
 
 
@@ -75,12 +105,22 @@ sayHi(3);
 
 /*minMaxDifference
 
-Write a function minMaxDifference(array) that return the difference between
-the largest value and the smallest value in the array.
-Assume array is an array of numbers. */
+1) Write a function minMaxDifference(array) 
+2) that return the difference 
+between the largest value and the smallest value in the array.
+3) Assume array is an array of numbers. */
 
-function minMaxDifference(array) {
+function minMaxDifference(array){
 
+  var max = Math.max(...array);
+  // console.log(max);
+  var min = Math.min(...array);
+  // console.log(min);
+
+  for(var i = 0; i <= array.length; i++){
+    var total = max - min;
+  }
+  console.log(total);
 }
 
 minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);

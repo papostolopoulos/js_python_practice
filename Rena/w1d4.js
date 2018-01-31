@@ -1,3 +1,25 @@
+
+var cookieMonster = {
+  name: 'Fred',
+  food: {
+    awesomeFoods: ['cookies', 'milk'],
+    goodFoods: ['pizza', 'banana', 'apple'],
+    badFoods: ['salad', 'cheese'],
+    hatedFoods: ['spinach', 'brocolli']
+  },
+//the eat method has a function as a value:
+  eat: function(food){
+
+  }
+
+
+};
+
+
+
+
+
+
 //------------------------------------//
 //            Week 1 Day 4            //
 //------------------------------------//
@@ -15,7 +37,7 @@ This object should have the following key value pairs:
   - hatedFoods with an array that has values "spinach", "brocolli"
 - A method called "eat" that takes has one parameter (food).
 This method needs to return a final score that is calculated based on the types of
-foods entered.
+foods entered as arguments.
 There can be one or more arguments entered in the method each time it is run.
   - The method needs to run through all the arguments and see if they are included
   in the list of foods in the different categories.
@@ -24,7 +46,7 @@ There can be one or more arguments entered in the method each time it is run.
   +2 for an awesome food
   +1 for a good food
   -1 for a bad food
-  -1 for a hated food
+  -2 for a hated food
 - A method called isAlrightMeal that does the following:
   It needs to iterate through all the foods entered as arguments and print
   the following strings for each one of them.

@@ -1,3 +1,39 @@
+function dynamicFizzBuzz(max, num1, num2) {
+  var i = -1;
+
+  while (i <= max) {
+    i++;
+    if(i % num1 === 0 || i % num2 === 0) {
+      if (i % num1 === 0 && i % num2 === 0) {
+        continue;
+      }
+      console.log(i);
+    }
+  }
+}
+
+function dynamicFizzBuzz(max, num1, num2) {
+  var i = 0;
+  while (i <= max) {
+    if ( (i % num1 === 0 || i % num2 === 0) && !(i % num1 === 0 && i % num2 === 0) ) {
+      console.log(i);
+    }
+    i++;
+  }
+}
+
+
+function dynamicFizzBuzz(max, num1, num2) {
+  for (var i = 0; i <= max; i++) {
+    if (i % num1 === 0 || i % num2 === 0) {
+      if (i % num1 === 0 && i % num2 === 0) {
+        continue;
+      }
+      console.log(i);
+    }
+  }
+}
+
 
 var cookieMonster = {
   name: "Fred",

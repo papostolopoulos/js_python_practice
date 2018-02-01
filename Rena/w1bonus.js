@@ -39,6 +39,7 @@ function dynamicFizzBuzz(max, num1, num2){
 // have the iterator at top so it does not
 //turn into an infinite loop.
     i++;
+    
     if(i % num1 === 0 || i % num2 === 0){
       if(i % num1 === 0 && i % num2 === 0){
         continue;
@@ -128,6 +129,9 @@ minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);
 
 
 
+
+
+
 /* dogsAndBones
 
 You have 100 dogs (soo many dogs!).
@@ -142,3 +146,5 @@ The third round, you only stop at every 3rd dog (#3, #6, #9, #12, etc.).
 You continue this process until the 100th round (i.e. you only visit the 100th dog).
 
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
+
+

@@ -4,8 +4,8 @@
 
 /*dynamicFizzBuzz
 
-// 1. Define a function dynamicFizzBuzz(max, num1, num2) 
-// 2. that takes three numbers as arguments 
+// 1. Define a function dynamicFizzBuzz(max, num1, num2)
+// 2. that takes three numbers as arguments
 // 3. and prints to the console every number from 0 to max
 // 4. that is divisible by either num1 or num2, but not both. */
 //
@@ -16,7 +16,7 @@ function dynamicFizzBuzz(max, num1, num2){
   for(var i = 0; i <= max; i++){
       if(i % num1 === 0 || i % num2 === 0){
           if(i % num1 === 0 && i % num2 === 0){
-//The continue statement breaks one iteration (in the loop), if a 
+//The continue statement breaks one iteration (in the loop), if a
 //specified condition occurs, and continues with the next iteration
 // in the loop.
             continue;
@@ -83,7 +83,7 @@ I will get "Junior".
 
 */
 
- 
+
     var makeNum = function(num) {
     return (num * 2) - (num * num);
   };
@@ -97,7 +97,7 @@ I will get "Junior".
 sayHi(3);
 /*Answer:
 
-rickyBobbyJr() is not defined. 
+rickyBobbyJr() is not defined.
 
 // Did you see my Slack message
 yesterday?  Are you asking us to solve it by creating a
@@ -106,12 +106,13 @@ function?
 
 
 
+
 */
 
 /*minMaxDifference
 
-1) Write a function minMaxDifference(array) 
-2) that return the difference 
+1) Write a function minMaxDifference(array)
+2) that return the difference
 between the largest value and the smallest value in the array.
 3) Assume array is an array of numbers. */
 
@@ -148,3 +149,12 @@ You continue this process until the 100th round (i.e. you only visit the 100th d
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
 
 
+<<<<<<< HEAD
+=======
+
+/*
+Comments from Paris:
+rickyBobbyJr is actually defined in the previous exercise. You have declared two
+functions so you can invoke sayHi. Try to think about it a bit more.
+*/
+>>>>>>> 66c4056fe0e9e1dd6865467fd6ed5cad933c0816

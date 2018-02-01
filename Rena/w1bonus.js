@@ -82,7 +82,7 @@ I will get "Junior".
 
 */
 
-    
+ 
     var makeNum = function(num) {
     return (num * 2) - (num * num);
   };
@@ -96,7 +96,11 @@ I will get "Junior".
 sayHi(3);
 /*Answer:
 
-rickyBobbyJr() is not defined.
+rickyBobbyJr() is not defined. 
+
+// Did you see my Slack message
+yesterday?  Are you asking us to solve it by creating a
+function?
 
 
 
@@ -117,22 +121,10 @@ function minMaxDifference(array){
   var min = Math.min(...array);
   // console.log(min);
 
-  for(var i = 0; i <= array.length; i++){
-    var total = max - min;
-  }
-  console.log(total);
+  return max - min;
 }
 
 minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);
-
-
-
-
-
-
-
-
-
 
 
 

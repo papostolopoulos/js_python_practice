@@ -82,8 +82,6 @@ I will get "Junior".
 
 
 */
-
-
     var makeNum = function(num) {
     return (num * 2) - (num * num);
   };
@@ -95,16 +93,19 @@ I will get "Junior".
 
 
 sayHi(3);
+
+//Example of using rickyBobbyJr() from previous exercise.
+
+// var sayHi = function(n) {
+//   console.log("This is n:", n);
+// var x = makeNum(n);
+// console.log("This is x:", x);
+// return "Hey now, " + rickyBobbyJr(x);
+// }
+//sayHi(7);
+
+
 /*Answer:
-
-rickyBobbyJr() is not defined.
-
-// Did you see my Slack message
-yesterday?  Are you asking us to solve it by creating a
-function?
-
-
-
 
 
 */
@@ -132,7 +133,6 @@ minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);
 
 
 
-
 /* dogsAndBones
 
 You have 100 dogs (soo many dogs!).
@@ -149,12 +149,10 @@ You continue this process until the 100th round (i.e. you only visit the 100th d
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
 
 
-<<<<<<< HEAD
-=======
 
 /*
 Comments from Paris:
 rickyBobbyJr is actually defined in the previous exercise. You have declared two
 functions so you can invoke sayHi. Try to think about it a bit more.
 */
->>>>>>> 66c4056fe0e9e1dd6865467fd6ed5cad933c0816
+

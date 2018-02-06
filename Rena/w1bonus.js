@@ -131,8 +131,6 @@ minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);
 
 
 
-
-
 /* dogsAndBones
 
 You have 100 dogs (soo many dogs!).
@@ -149,10 +147,36 @@ You continue this process until the 100th round (i.e. you only visit the 100th d
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
 
 
+function dogsAndBones(num){
+  // var noBones = '';
+  // var dogsWithBones = '';
 
-/*
-Comments from Paris:
-rickyBobbyJr is actually defined in the previous exercise. You have declared two
-functions so you can invoke sayHi. Try to think about it a bit more.
-*/
+  for(var i = 0; i <= num.length; i++){
+//checking if dog has a bone
+    if(num[i] === num.length){
+    console.log('You are stopping and checking every dog.');
+    }
+//checking if every 2nd dog has a bone
+    for(var i = 0; i <= num.length; i+2){
+      if(num[i] === num.length){
+        console.log('Take bone from dog.');
+      }
+      if(num[i] !== num.length){
+        console.log('Give the dog a bone.');
+      }
+    }
+//checkign if every 3rd dog has a bone
+    for(var i = 0; i <= num.length; i+3){
+      if(num[i] === num.length){
+        console.log('Take bone from dog.');
+      }
+      if(num[i] !== num.length){
+        console.log('Give the dog a bone.');
+      }
+    }
+  }
+}
+dogsAndBones(100);
+
+
 

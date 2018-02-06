@@ -39,7 +39,7 @@ function dynamicFizzBuzz(max, num1, num2){
 // have the iterator at top so it does not
 //turn into an infinite loop.
     i++;
-    
+
     if(i % num1 === 0 || i % num2 === 0){
       if(i % num1 === 0 && i % num2 === 0){
         continue;
@@ -179,4 +179,9 @@ function dogsAndBones(num){
 dogsAndBones(100);
 
 
-
+/*Feedback from Paris
+On lines 156, 160, 161, 164, 170, 173 you are using comparisson operators for num.length.
+What is num? Does it take a .length property?
+Since you are getting "undefined", that means that none of your statements or loops is running.
+Can you figure out why?
+*/

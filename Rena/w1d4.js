@@ -9,10 +9,9 @@ var cookieMonster = {
   },
 //the eat method has a function as a value:
   eat: function(food){
-
+    // console.log(food);
   }
-
-
+  // food('apples');
 };
 
 

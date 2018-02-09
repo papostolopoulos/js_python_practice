@@ -189,11 +189,13 @@ function dogsAndBones(num){
   console.log(dogs);
 
   for(var i = 1; i <= dogs.length; i+=2){
-    if(i % 2 !== 0){
-      return 'Take bone away from dog.';
+    for(var j = i; i <= dogs.length; i+=3){
+      if(i % 2 !== 1 || j % 2 !== 0){
+        console.log('Take bone away from dog.');
+      }      
     }
+  console.log('Give the dog a bone.');
   }
-  return 'Give the dog a bone.';
 }
 dogsAndBones(100);
 

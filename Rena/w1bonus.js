@@ -147,55 +147,30 @@ You continue this process until the 100th round (i.e. you only visit the 100th d
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
 
 
-// function dogsAndBones(num){
-//   // var noBones = '';
-//   // var dogsWithBones = '';
-
-//   for(var i = 0; i <= num; i++){
-// //checking if dog has a bone
-//     if(num[i] === num){
-//     console.log('You are stopping and checking every dog.');
-//     }
-// //checking if every 2nd dog has a bone
-//     for(var i = 0; i <= num; i+2){
-//       if(num[i] === num){
-//         console.log('Take bone from dog.');
-//       }
-//       if(num[i] !== num){
-//         console.log('Give the dog a bone.');
-//       }
-//     }
-// //checking if every 3rd dog has a bone
-//     for(var i = 0; i <= num; i+3){
-//       if(num[i] === num){
-//         console.log('Take bone from dog.');
-//       }
-//       if(num[i] !== num){
-//         console.log('Give the dog a bone.');
-//       }
-//     }
-//   }
-// }
-// dogsAndBones(100);
-
-
+//ES5 version: study typeOf and isArray
 
 function dogsAndBones(num){
-  var dogs = [];
+  var wBones = [];
 
   for(var i = 1; i <= num; i++){
-    dogs.push(i);
+    wBones.push(i);
   }
-  console.log(dogs);
 
-  for(var i = 1; i <= dogs.length; i+=2){
-    for(var j = i; i <= dogs.length; i+=3){
-      if(i % 2 !== 1 || j % 2 !== 0){
-        console.log('Take bone away from dog.');
-      }      
+  for(var j = 1; j < wBones.length; j++){
+    for(var k = j; k < wBones.length; k+= j+1){
+       // console.log(wBones[k]);
+
+       if(typeof wBones[k] === 'number'){
+          wBones[k] = 'wo';
+       }
+       else{
+        wBones[k] = k + 1;
+       }
     }
-  console.log('Give the dog a bone.');
   }
+  return wBones.filter(function(el){
+    return el !== 'wo';
+  });
 }
 dogsAndBones(100);
 

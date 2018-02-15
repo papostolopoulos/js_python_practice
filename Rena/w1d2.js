@@ -167,13 +167,7 @@ function isPrime(number){
 }
 isPrime(10);
 
-/*Comments from Rena:
-logbetween: I was able to remove last comma.
-isFactorOf: Removed the forloop and measured the correct items to get answer.
-fizzBuzz: I was able to remove last comma.  Also, removed the extra space in numBuzz
-removed else statement. The else statement is not necessary.
 
-*/
 
 /*Comments from Paris
 - TypeError and all errors: Please try to understand what the errors mean in order to be able to debug them

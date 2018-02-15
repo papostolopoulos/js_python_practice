@@ -10,17 +10,13 @@ var cookieMonster = {
 //the eat method has a function as a value:
   eat: function(food) {
   // assign score values:
-    score: {
-    awesomeFoods: ['+2'],
-    goodFoods: ['+1'],
-    badFoods: ['-1'],
-    hatedFoods: ['-2']
+    
     },
 //attempting to pass food parameter and
 //obtain score:
     // console.log(food('apples'));
 
-    console.log(food.score('pie'));
+
     return arguments[1];
   }
 

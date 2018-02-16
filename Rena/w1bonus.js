@@ -175,7 +175,65 @@ function dogsAndBones(num){
 dogsAndBones(100);
 
 
-/*Feedback from Rena
-I removed num.length because I cannot take a length of a number. When I run the code, it only
-answers "Give the dog a bone".
+//Mini-quiz:
+/*Create a function called showArguments() that iterates through all 
+the arguments passed in the function and console.logs all of them.
 */
+
+function showArguments(){
+ for(var i = 0; i < arguments.length; i++){
+  console.log(arguments[i]);
+ } 
+}
+
+showArguments([11, "Hello", true, "apples", "Full Moon", [11, 42, "cars", 77]]);
+showArguments(1, 2, 'six', 'nine', 11);
+
+/*Create a function called arrayFromParams that takes several arguments. the 
+format should be arrayParams(arr, str, str, str)
+You need to compare all the string arguments that are passed in the function. If the
+ string is included in the array, then you should include it in a new array and 
+ return it at the end.
+Example: arrayParams(["hello", "the", "cookie", "chocolate", "spaghetti], "cookie", "spaghetti") --> ["chocolate", "spaghetti"]
+*/
+
+//Answer:
+function arrayFromParams(){
+var arrayParams =[];
+  // console.log(arguments);
+
+  for(var i = 0; i < arguments.length; i++){
+ // console.log(arguments[i]);
+    if(typeof arguments[i] === "string"){
+//  console.log(i);
+      arrayParams.push(arguments[i]);
+    }
+  }
+  console.log(arrayParams);
+}
+
+arrayFromParams(["hello", "the", "cookie", "chocolate", "spaghetti"], "cookie", "spaghetti", "string");
+
+
+
+//Another answer: This time you are comparing
+//contents of array with the remaining string elements.
+//See if the contents are the same.
+function arrayFromParams(){
+var arrayParams =[];
+  // console.log(arguments);
+
+  for(var i = 1; i < arguments.length; i++){
+ // console.log(arguments[i]);
+ 
+//Use .includes method to find out if the elements
+//are included in array[0].
+    if(arguments[0].includes(arguments[i])){
+//  console.log(i);
+      arrayParams.push(arguments[i]);
+    }
+  }
+  console.log(arrayParams);
+}
+
+arrayFromParams(["hello", "the", "cookie", "cats", "chocolate", "spaghetti"], "cookie", "spaghetti", "string", "cats");

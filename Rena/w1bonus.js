@@ -161,7 +161,7 @@ function dogsAndBones(num){
        // console.log(wBones[k]);
 
        if(typeof wBones[k] === 'number'){
-          wBones[k] = 'wo';
+          wBones[k] = 'wo/bones';
        }
        else{
         wBones[k] = k + 1;
@@ -169,10 +169,32 @@ function dogsAndBones(num){
     }
   }
   return wBones.filter(function(el){
-    return el !== 'wo';
+    return el !== 'wo/bones';
   });
 }
 dogsAndBones(100);
+
+
+//Alternative Dog Word Solution:
+function dogsAndBones() {
+  const dogQuant = 100;
+  //should be Array 100 and used .fill() method to have 100 false values.
+  const dog = Array( dogQuant ).fill( false );
+//use for-loop to show you've made 100 rounds walking around the dogs.
+  for ( let i = 1; i < ( dogQuant + 1 ); i++ ) {
+  //the second forloop provides the 'steps' to increment within each pass.
+    for ( let j = ( i - 1 ); j < dogQuant; j += i ) {
+      dog[j] = !dog[j]; //flip whether or not dog has bone.
+    }
+  }
+
+  for ( let i = 0; i < dogQuant; i++ ) {
+    console.log( `Dog number ${( i + 1 )} does ${dog[i] ? "" : "not"} have
+    a bone in its mouth.`)
+  }
+}
+
+dogsAndBones();
 
 
 //Mini-quiz:
@@ -217,7 +239,7 @@ arrayFromParams(["hello", "the", "cookie", "chocolate", "spaghetti"], "cookie", 
 
 
 //Another answer: This time you are comparing
-//contents of array with the remaining string elements.
+//Contents of Array with the REMAINING string elements.
 //See if the contents are the same.
 function arrayFromParams(){
 var arrayParams =[];

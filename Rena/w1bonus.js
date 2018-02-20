@@ -147,58 +147,115 @@ You continue this process until the 100th round (i.e. you only visit the 100th d
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
 
 
-// function dogsAndBones(num){
-//   // var noBones = '';
-//   // var dogsWithBones = '';
-
-//   for(var i = 0; i <= num; i++){
-// //checking if dog has a bone
-//     if(num[i] === num){
-//     console.log('You are stopping and checking every dog.');
-//     }
-// //checking if every 2nd dog has a bone
-//     for(var i = 0; i <= num; i+2){
-//       if(num[i] === num){
-//         console.log('Take bone from dog.');
-//       }
-//       if(num[i] !== num){
-//         console.log('Give the dog a bone.');
-//       }
-//     }
-// //checking if every 3rd dog has a bone
-//     for(var i = 0; i <= num; i+3){
-//       if(num[i] === num){
-//         console.log('Take bone from dog.');
-//       }
-//       if(num[i] !== num){
-//         console.log('Give the dog a bone.');
-//       }
-//     }
-//   }
-// }
-// dogsAndBones(100);
-
-
+//ES5 version: study typeOf and isArray
 
 function dogsAndBones(num){
-  var dogs = [];
+  var wBones = [];
 
   for(var i = 1; i <= num; i++){
-    dogs.push(i);
+    wBones.push(i);
   }
-  console.log(dogs);
 
-  for(var i = 1; i <= dogs.length; i+=2){
-    if(i % 2 !== 0){
-      return 'Take bone away from dog.';
+  for(var j = 1; j < wBones.length; j++){
+    for(var k = j; k < wBones.length; k+= j+1){
+       // console.log(wBones[k]);
+
+       if(typeof wBones[k] === 'number'){
+          wBones[k] = 'wo/bones';
+       }
+       else{
+        wBones[k] = k + 1;
+       }
     }
   }
-  return 'Give the dog a bone.';
+  return wBones.filter(function(el){
+    return el !== 'wo/bones';
+  });
 }
 dogsAndBones(100);
 
 
-/*Feedback from Rena
-I removed num.length because I cannot take a length of a number. When I run the code, it only
-answers "Give the dog a bone".
+//Alternative Dog Word Solution:
+function dogsAndBones() {
+  const dogQuant = 100;
+  //should be Array 100 and used .fill() method to have 100 false values.
+  const dog = Array( dogQuant ).fill( false );
+//use for-loop to show you've made 100 rounds walking around the dogs.
+  for ( let i = 1; i < ( dogQuant + 1 ); i++ ) {
+  //the second forloop provides the 'steps' to increment within each pass.
+    for ( let j = ( i - 1 ); j < dogQuant; j += i ) {
+      dog[j] = !dog[j]; //flip whether or not dog has bone.
+    }
+  }
+
+  for ( let i = 0; i < dogQuant; i++ ) {
+    console.log( `Dog number ${( i + 1 )} does ${dog[i] ? "" : "not"} have
+    a bone in its mouth.`)
+  }
+}
+
+dogsAndBones();
+
+
+//Mini-quiz:
+/*Create a function called showArguments() that iterates through all 
+the arguments passed in the function and console.logs all of them.
 */
+
+function showArguments(){
+ for(var i = 0; i < arguments.length; i++){
+  console.log(arguments[i]);
+ } 
+}
+
+showArguments([11, "Hello", true, "apples", "Full Moon", [11, 42, "cars", 77]]);
+showArguments(1, 2, 'six', 'nine', 11);
+
+/*Create a function called arrayFromParams that takes several arguments. the 
+format should be arrayParams(arr, str, str, str)
+You need to compare all the string arguments that are passed in the function. If the
+ string is included in the array, then you should include it in a new array and 
+ return it at the end.
+Example: arrayParams(["hello", "the", "cookie", "chocolate", "spaghetti], "cookie", "spaghetti") --> ["chocolate", "spaghetti"]
+*/
+
+//Answer:
+function arrayFromParams(){
+var arrayParams =[];
+  // console.log(arguments);
+
+  for(var i = 0; i < arguments.length; i++){
+ // console.log(arguments[i]);
+    if(typeof arguments[i] === "string"){
+//  console.log(i);
+      arrayParams.push(arguments[i]);
+    }
+  }
+  console.log(arrayParams);
+}
+
+arrayFromParams(["hello", "the", "cookie", "chocolate", "spaghetti"], "cookie", "spaghetti", "string");
+
+
+
+//Another answer: This time you are comparing
+//Contents of Array with the REMAINING string elements.
+//See if the contents are the same.
+function arrayFromParams(){
+var arrayParams =[];
+  // console.log(arguments);
+
+  for(var i = 1; i < arguments.length; i++){
+ // console.log(arguments[i]);
+ 
+//Use .includes method to find out if the elements
+//are included in array[0].
+    if(arguments[0].includes(arguments[i])){
+//  console.log(i);
+      arrayParams.push(arguments[i]);
+    }
+  }
+  console.log(arrayParams);
+}
+
+arrayFromParams(["hello", "the", "cookie", "cats", "chocolate", "spaghetti"], "cookie", "spaghetti", "string", "cats");

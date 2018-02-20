@@ -148,3 +148,26 @@ var args = [].slice.call(arguments);
 // ES2015
 const args = Array.from(arguments);
 /*
+
+/*
+Comments from Paris
+-----------------------
+rickyBobbyJr: I have question to paris:
+what is data type of rickyBobbyJr is this ? is this type of stucture Object?
+Answer: This is not a data type but a function expression. Not a function declaration. I will explain
+during our meeting later today
+
+makeNum: Question to Paris whats the different if I just do
+var makeNum = num vs. makeNum = function(num) ?
+Answer: I will explain during our meeting later today
+
+minMaxDifference: Math.max (like all the Math methods) can only get arguments
+and not arrays. If you do Math.max(1,2,3); it is going to work.
+If you do Math.max([1,2,3]) it will not work.
+The solution is to
+- use the spread operator or
+- the .apply method or
+- do it manually.
+Study the spread operator and see if you can figure it out
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+*/

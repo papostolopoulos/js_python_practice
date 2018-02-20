@@ -34,23 +34,24 @@ var cookieMonster = {
   //foodList represents an element of food array. Note: 'this'
   //represents cookieMonster
     for(foodList in this.foods){
+      console.log(foodList);
       //use the .includes() method to find out if a foodList
       //contains the foods passed in as parameters.
-        if(foodList.includes(args[i])){
-    // 'this' refers to the whole CookieMonster object and assigns a score:
-          if(this.foods.awesomeFoods.includes(args[i])){
-          foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
-          }
-          if(this.foods.goodFoods.includes(args[i])){
-            foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
-          }
-          if(this.foods.badFoods.includes(args[i])){
-            foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
-          }
-          if(this.foods.hatedFoods.includes(args[i])){
-            foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
-          }
-      }
+    //     if(foodList.includes(args[i])){
+    // // 'this' refers to the whole CookieMonster object and assigns a score:
+    //       if(this.foods.awesomeFoods.includes(args[i])){
+    //       foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
+    //       }
+    //       if(this.foods.goodFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
+    //       }
+    //       if(this.foods.badFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
+    //       }
+    //       if(this.foods.hatedFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
+    //       }
+    //   }
     }
   }
     return foodScore;

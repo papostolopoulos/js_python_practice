@@ -14,6 +14,13 @@ var cookieMonster = {
     badFoods: -1,
     hatedFoods: -2
   },
+  //create text object:
+  text: {
+    awesomeFoods: " likes " + "Chocolate chip cookie important to me...OM NOM NOM NOM NOM",
+    goodFoods: " ? Me love poetry, and cookies!",
+    badFoods: " or cookie?..." + " ...cookie..Me Cookie Monster! This is no-brainer!",
+    hatedFoods: " ? Me want cookie"
+  },
 //the eat method:
   eat: function() {
     var foodScore = 0;
@@ -30,27 +37,46 @@ var cookieMonster = {
       //use the .includes() method to find out if a foodList
       //contains the foods passed in as parameters.
         if(foodList.includes(args[i])){
-    // 'this' refers to the whole CookieMonster object:
+    // 'this' refers to the whole CookieMonster object and assigns a score:
           if(this.foods.awesomeFoods.includes(args[i])){
-          foodScore = foodScore + this.scores.awesomeFoods; // addresses one of the objects.
+          foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
           }
           if(this.foods.goodFoods.includes(args[i])){
-            foodScore = foodScore + this.scores.goodFoods;
+            foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
           }
           if(this.foods.badFoods.includes(args[i])){
-            foodScore = foodScore + this.scores.badFoods;
+            foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
           }
-          if{this.foods.hatedFoods.includes(args[i]){
-            foodScore = foodScore + this.scores.hatedFoods;
+          if(this.foods.hatedFoods.includes(args[i])){
+            foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
           }
-          }
-        }
+      }
     }
+  }
     return foodScore;
+  },
+
+//the isAlrightMeal function:
+isAlrightMeal: function(){
+  var responseList = '';
+//create another var args; the arguments are being
+//passed to isAlrightMeal function:
+  var args = Array.from(arguments);
+
+  //looping through the arguments:
+  for(var j = 0; j < args.length; j++){
+//words represent elements in text array. Note: 'this'
+  //represents cookieMonster
+    for(words in this.text){
+
+    }
+
+  }
+
   }
 };
 
-cookieMonster("pie");
+cookieMonster.eat("pie");
 
 
 

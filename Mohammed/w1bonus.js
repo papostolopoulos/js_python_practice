@@ -22,17 +22,7 @@ function dynamicFizzBuzz(max, num1, num2) {
   }
 }
 
-/*
- Max is last digit number our results should reach
- from 0 to max number
- However we need to test each number if its divisiable by num1 or num2
-
- */
-
-
-
-
-
+/* dynamicFizzBuzz(10, 3, 5)
 
 
 //--------------------------------------
@@ -47,8 +37,16 @@ var rickyBobbyJr = function(num) {
     return "Junior";
   }
 };
-/*Answer:
+/*Answer: by making rickyBobbyJr(5) for example
 
+it will return Junior as output, this is what happens:
+the argument value 5 is actually the output of ( function(num))
+so 5 will go and replace num since num is bigger than -5 it will skip
+to the next else condition it evaluate else statment but then it skips
+again because 5 is not smaller than 5 so end result is junior.
+
+I have question to paris:
+what is data type of rickyBobbyJr is this ? is this type of stucture Object?
 
 
 
@@ -57,8 +55,8 @@ var rickyBobbyJr = function(num) {
 */
 
 
-var makeNum = function(num) {
-  return (num * 2) - (num * num);
+var makeNum = function(num) { // function(5)
+  return (num * 2) - (num * num); // (5*2)-(5*5) =-15
 };
 
 var sayHi = function(n) {
@@ -68,10 +66,12 @@ var sayHi = function(n) {
 
 sayHi(3);
 /*Answer:
+it will retrun " Hey now, Bobby"
 
+I sat makeNum(5) that gave me a retrun of -15 :)
 
-
-
+Question to Paris whats the different if I just do
+var makeNum = num vs. makeNum = function(num) ?
 
 
 */
@@ -83,22 +83,22 @@ the largest value and the smallest value in the array.
 Assume array is an array of numbers. */
 
 function minMaxDifference(array) {
-
+var max1 = Math.max([array]);
+var min1 = Math.min([array]);
+var results = max1 - min1;
+return results;
 }
 
 minMaxDifference([22,23,43,33,2,3,7,5,4,9,8,1,12,45,32,65,41,43]);
+/* I am getting the wrong Answer:
+if I add [] to word array the return results is NaN,
+if I remove [] I get Zero for the results,
+if I do array.max() I get max undefined \]
+'[\]
 
 
-
-
-
-
-
-
-
-
-
-
+]'
+*/
 /* dogsAndBones
 
 You have 100 dogs (soo many dogs!).
@@ -113,3 +113,38 @@ The third round, you only stop at every 3rd dog (#3, #6, #9, #12, etc.).
 You continue this process until the 100th round (i.e. you only visit the 100th dog).
 
 Write a program dogsAndBones() that prints which dogs have bones at the end. */
+function dogsAndBones(num){
+  var wBones = [];
+
+  for(var i = 1; i <= num; i++){
+    wBones.push(i);
+  }
+
+  for(var j = 1; j < wBones.length; j++){
+    for(var k = j; k < wBones.length; k+= j+1){
+       // console.log(wBones[k]);
+
+       if(typeof wBones[k] === 'number'){
+          wBones[k] = 'wo';
+       }
+       else{
+        wBones[k] = k + 1;
+       }
+    }
+  }
+  return wBones.filter(function(el){
+    return el !== 'wo';
+  });
+}
+dogsAndBones(100);
+
+
+
+/*
+Question for Paris
+var args = Array.prototype.slice.call(arguments);
+var args = [].slice.call(arguments);
+
+// ES2015
+const args = Array.from(arguments);
+/*

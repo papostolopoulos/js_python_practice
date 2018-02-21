@@ -31,6 +31,7 @@ var cookieMonster = {
 
 //looping through the arguments:
   for(var i = 0; i < args.length; i++){
+<<<<<<< HEAD
 //Note: 'this' represents cookieMonster,
 //use the .includes() method to find out if argument
 //contains the foods passed in as parameters.
@@ -48,6 +49,31 @@ var cookieMonster = {
           if(this.foods.hatedFoods.includes(args[i])){
             foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
           }
+=======
+  //use a for-in loop to loop thru objects:
+  //foodList represents an element of food array. Note: 'this'
+  //represents cookieMonster
+    for(foodList in this.foods){
+      console.log(foodList);
+      //use the .includes() method to find out if a foodList
+      //contains the foods passed in as parameters.
+    //     if(foodList.includes(args[i])){
+    // // 'this' refers to the whole CookieMonster object and assigns a score:
+    //       if(this.foods.awesomeFoods.includes(args[i])){
+    //       foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
+    //       }
+    //       if(this.foods.goodFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
+    //       }
+    //       if(this.foods.badFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
+    //       }
+    //       if(this.foods.hatedFoods.includes(args[i])){
+    //         foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
+    //       }
+    //   }
+    }
+>>>>>>> 77e6ce5f4aa03b5513e76582dad700ba917a2343
   }
     return foodScore;
   },

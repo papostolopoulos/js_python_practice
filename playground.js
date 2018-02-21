@@ -1,38 +1,29 @@
-function dynamicFizzBuzz(max, num1, num2) {
-  var i = -1;
+console.log(a);
+b();
+var a = "This is variable a";
 
-  while (i <= max) {
-    i++;
-    if(i % num1 === 0 || i % num2 === 0) {
-      if (i % num1 === 0 && i % num2 === 0) {
-        continue;
-      }
-      console.log(i);
-    }
-  }
-}
 
-function dynamicFizzBuzz(max, num1, num2) {
-  var i = 0;
-  while (i <= max) {
-    if ( (i % num1 === 0 || i % num2 === 0) && !(i % num1 === 0 && i % num2 === 0) ) {
-      console.log(i);
-    }
-    i++;
-  }
+
+function b (){
+console.log("This is function b")
 }
 
 
-function dynamicFizzBuzz(max, num1, num2) {
-  for (var i = 0; i <= max; i++) {
-    if (i % num1 === 0 || i % num2 === 0) {
-      if (i % num1 === 0 && i % num2 === 0) {
-        continue;
-      }
-      console.log(i);
-    }
-  }
+c(); //undefined
+d(); //This is d
+
+// Function declaration
+function c(){
+  console.log("This is c");
 }
+
+// Function expression
+var d = function () {
+  console.log("This is d");
+}
+
+
+
 
 
 var cookieMonster = {
@@ -44,7 +35,23 @@ var cookieMonster = {
     hatedFoods: ["spinach", "brocolli"]
   },
   eat: function(food){
-    console.log("Hello, my name is " + this.name + " and I like " + food);
+    var result = 0;
+
+    for (var i = 0; i < arguments.length; i++) {
+      if (this.foods.awesomeFoods.includes(arguments[i])) {
+        result += 2;
+      }
+      if (this.foods.goodFoods.includes(arguments[i])) {
+        result += 1;
+      }
+      if (this.foods.badFoods.includes(arguments[i])) {
+        result -= 1;
+      }
+      if (this.foods.hatedFoods.includes(arguments[i])) {
+        result -= 2;
+      }
+    }
+    return result;
   }
 };
 

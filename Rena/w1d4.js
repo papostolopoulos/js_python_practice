@@ -27,16 +27,14 @@ var cookieMonster = {
   //an Array of arguments; the arguments
   //are being passed to the eat function.
     var args = Array.from(arguments);
+    // console.log(args);
 
 //looping through the arguments:
   for(var i = 0; i < args.length; i++){
-  //use a for-in loop to loop thru objects:
-  //foodList represents an element of food array. Note: 'this'
-  //represents cookieMonster
-    for(foodList in this.foods){
-      //use the .includes() method to find out if a foodList
-      //contains the foods passed in as parameters.
-        if(foodList.includes(args[i])){
+//Note: 'this' represents cookieMonster,
+//use the .includes() method to find out if argument
+//contains the foods passed in as parameters.
+ 
     // 'this' refers to the whole CookieMonster object and assigns a score:
           if(this.foods.awesomeFoods.includes(args[i])){
           foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
@@ -50,8 +48,6 @@ var cookieMonster = {
           if(this.foods.hatedFoods.includes(args[i])){
             foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
           }
-      }
-    }
   }
     return foodScore;
   },
@@ -65,18 +61,14 @@ isAlrightMeal: function(){
 
   //looping through the arguments:
   for(var j = 0; j < args.length; j++){
-//words represent elements in text array. Note: 'this'
-  //represents cookieMonster
-    for(words in this.text){
 
-    }
 
   }
 
   }
 };
 
-cookieMonster.eat("pie");
+cookieMonster.eat("cookies", "milk", "cheese");
 
 
 

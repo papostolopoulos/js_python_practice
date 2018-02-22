@@ -63,16 +63,16 @@ isAlrightMeal: function(){
     // console.log(i);
 //'this' refers to cookieMonster object and refers to .eat function.
 //'this' refers to cookieMonster object assigns text based on score.
-    if(this.eat <= this.scores.awesomeFoods){
+    if(this.eat(args[i]) <= this.scores.awesomeFoods){
       responseList = this.name + this.text.awesomeFoods;
     }
-    if(this.eat <= this.scores.goodFoods){
+    if(this.eat() <= this.scores.goodFoods){
       responseList = this.food.goodFoods + this.text.goodFoods;
     }
-    if(this.eat >= this.scores.badFoods){
+    if(this.eat() >= this.scores.badFoods){
           responseList = this.food.badFoods + this.text.badFoods;
     }
-    if(this.eat >= this.scores.hatedFoods){
+    if(this.eat() >= this.scores.hatedFoods){
       responseList = this.food.hatedFoods + this.text.hatedFoods;
     }
   }

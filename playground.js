@@ -52,38 +52,45 @@ var cookieMonster = {
     return result;
   },
   isAllright: function(){
-    setTimeout(function () {
-      return "This is alright";
+    console.log("allright");
+    setInterval(function () {
+      console.log("This is allright");
     }, 1000);
   },
 
   isAlrightMeal: function(food){
     var self = this;
+    var args = Array.from(arguments)
+    var counter = 0;
 
-    for (var i = 0; i < arguments.length; i++) {
-      console.log(arguments[i]);
+    setInterval(function () {
+      // console.log(self);
+      // console.log(self.eat);
+      console.log("args[counter]:", args[counter]);
+      console.log("args.length", args.length);
+      console.log("counter:", counter);
+      if (self.eat(args[counter]) === 2) {
+        console.log(self.name + " likes " + args[counter] + ". Chocolate chip cookie important to me... OM NOM NOM NOM NOM");
+      }
+      if (self.eat(args[counter]) === 1) {
+        console.log(args[counter] + "? Me love poetry, and cookies!");
+      }
+      if (self.eat(args[counter]) === -1) {
+        console.log(args[counter] + " or cookie? ..." + args[counter] + "...cookie. Me Cookie Monster! This is no-brainer!");
+      }
+      if (self.eat(args[counter]) === -2) {
+        console.log(args[counter] + "? Me want cookie");
+      }
 
-      setTimeout(function () {
-        var eatScore = self.eat(arguments[i]);
-        console.log(self);
-        console.log(self.eat);
-        console.log(arguments[i]);
-        console.log(eatScore);
-        if (eatScore === 2) {
-          console.log(self.name + " likes " + arguments[i] + ". Chocolate chip cookie important to me... OM NOM NOM NOM NOM");
-        }
-        if (eatScore === 1) {
-          console.log(arguments[i] + "? Me love poetry, and cookies!");
-        }
-        if (eatScore === -1) {
-          console.log(arguments[i] + " or cookie? ..." + arguments[i] + "...cookie. Me Cookie Monster! This is no-brainer!");
-        }
-        if (eatScore === -2) {
-          console.log(arguments[i] + "? Me want cookie");
-        }
-      }, 1000);
-    }
-    return this.eat(food);
+      if (counter === args.length - 1) {
+        console.log("In the if statement");
+        clearInterval()
+      }
+      counter++
+    }, 2000);
+
+
+    // return this.eat(food);
   }
 };
 

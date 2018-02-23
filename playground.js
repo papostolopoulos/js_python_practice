@@ -25,7 +25,6 @@ var d = function () {
 
 var cookieMonster = {
   name: "Fred",
-  self: this,
   foods: {
     awesomeFoods: ["cookies", "milk"],
     goodFoods: ["pizza", "banana", "apple"],
@@ -51,24 +50,12 @@ var cookieMonster = {
     }
     return result;
   },
-  isAllright: function(){
-    console.log("allright");
-    setInterval(function () {
-      console.log("This is allright");
-    }, 1000);
-  },
-
   isAlrightMeal: function(food){
     var self = this;
     var args = Array.from(arguments)
     var counter = 0;
 
-    setInterval(function () {
-      // console.log(self);
-      // console.log(self.eat);
-      console.log("args[counter]:", args[counter]);
-      console.log("args.length", args.length);
-      console.log("counter:", counter);
+    var intervals = setInterval(function () {
       if (self.eat(args[counter]) === 2) {
         console.log(self.name + " likes " + args[counter] + ". Chocolate chip cookie important to me... OM NOM NOM NOM NOM");
       }
@@ -82,15 +69,22 @@ var cookieMonster = {
         console.log(args[counter] + "? Me want cookie");
       }
 
+
       if (counter === args.length - 1) {
-        console.log("In the if statement");
-        clearInterval()
+        setTimeout(function () {
+          if (self.eat(...args) > 2) {
+            console.log("Me liked food. Me eat a cookie for you!");
+          }
+          else {
+            console.log(self.name + "  did not like food." + self.name + " wants to eat cookie!");
+          }
+        }, 2000);
+
+        clearInterval(intervals);
       }
       counter++
     }, 2000);
 
-
-    // return this.eat(food);
   }
 };
 

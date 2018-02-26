@@ -51,6 +51,7 @@ var cookieMonster = {
     return foodScore;
   },
 
+<<<<<<< HEAD
   // the isAlrightMeal function:
  isAlrightMeal: function() {
     var responseList = '';
@@ -59,6 +60,15 @@ var cookieMonster = {
     var args = Array.from(arguments);
     console.log(args); 
 
+=======
+//the isAlrightMeal function:
+isAlrightMeal: function(){
+  var responseList = '';
+//create another var args; the arguments are being
+//passed to isAlrightMeal function:
+  var args = Array.from(arguments);
+  console.log(args);
+>>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
 //looping through the arguments:
     for(var j = 0; j < args.length; j++){
       console.log(j);
@@ -89,6 +99,10 @@ cookieMonster.isAlrightMeal();
 //   }
 // }
 
+<<<<<<< HEAD
+=======
+cookieMonster.eat("cookies", "milk", "cheese");
+>>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
 
 
 

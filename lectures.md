@@ -1,3 +1,21 @@
+###Tuesday February 27th
+* The Execution context (creation phase and execution phase)
+* Creation phase (Global Execution Context)
+  * Global Object
+  * This
+  * Outer environment
+  * Code we have written
+* Execution phase
+* Function invocation (Invoke, call, run a function) and The execution stack
+* Global Execution Context
+* New Context when a function is invoked (on top of the stack)
+If another function is invoked inside a function, then the function will be invoked on top of the existing stack. Then it gets popped off the stack
+* Variable environment - where the variable lives - why same named variables get different values depending on the execution context they are at
+* Scope chain
+* let and const
+* The Event Queue
+
+
 ### Tuesday February 20th 2018
 * Explain name value pairs and objects
 * How to access objects and its properties

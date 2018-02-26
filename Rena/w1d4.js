@@ -51,22 +51,30 @@ var cookieMonster = {
     return foodScore;
   },
 
-//the isAlrightMeal function:
-isAlrightMeal: function(){
-  var responseList = '';
-//create another var args; the arguments are being
-//passed to isAlrightMeal function:
-  var args = Array.from(arguments); 
+  // the isAlrightMeal function:
+ isAlrightMeal: function() {
+    var responseList = '';
+  //create another var args; the arguments are being
+  //passed to isAlrightMeal function:
+    var args = Array.from(arguments);
+    console.log(args); 
 
 //looping through the arguments:
-  for(var j = 0; j < args.length; j++){
-    console.log(j); //Having problems using console.log???
-//'this' refers to cookieMonster object and refers to .eat function.
-//'this' refers to cookieMonster object assigns text based on score.
-    if(this.eat(args[i]) <= this.scores.awesomeFoods){
-      console.log(args[i]); //Having problems using console.log???
-      // responseList = this.name + this.text.awesomeFoods;
+    for(var j = 0; j < args.length; j++){
+      console.log(j);
     }
+  }
+}
+// cookieMonster.eat("cookies", "milk", "cheese");
+
+cookieMonster.isAlrightMeal();
+
+// //'this' refers to cookieMonster object and refers to .eat function.
+// //'this' refers to cookieMonster object assigns text based on score.
+//     if(this.eat(args[i]) <= this.scores.awesomeFoods){
+//       console.log(args[i]); //Having problems using console.log???
+//       // responseList = this.name + this.text.awesomeFoods;
+//     }
   //   if(this.eat() <= this.scores.goodFoods){
   //     responseList = this.food.goodFoods + this.text.goodFoods;
   //   }
@@ -78,10 +86,9 @@ isAlrightMeal: function(){
   //   }
   // }
   // return responseList;
-  }
-};
+//   }
+// }
 
-// cookieMonster.eat("cookies", "milk", "cheese");
 
 
 

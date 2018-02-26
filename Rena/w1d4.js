@@ -56,8 +56,8 @@ isAlrightMeal: function(){
   var responseList = '';
 //create another var args; the arguments are being
 //passed to isAlrightMeal function:
-  var args = Array.from(arguments); 
-
+  var args = Array.from(arguments);
+  console.log(args);
 //looping through the arguments:
   for(var j = 0; j < args.length; j++){
     console.log(j); //Having problems using console.log???
@@ -81,7 +81,7 @@ isAlrightMeal: function(){
   }
 };
 
-// cookieMonster.eat("cookies", "milk", "cheese");
+cookieMonster.eat("cookies", "milk", "cheese");
 
 
 

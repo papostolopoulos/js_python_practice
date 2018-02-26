@@ -88,7 +88,6 @@ var cookieMonster = {
   }
 };
 
-setTimeout.bind(cookieMonster.isAlrightMeal)
 
 
 // - A method called "eat" that takes one parameter (food).

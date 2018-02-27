@@ -51,58 +51,40 @@ var cookieMonster = {
     return foodScore;
   },
 
-<<<<<<< HEAD
   // the isAlrightMeal function:
  isAlrightMeal: function() {
     var responseList = '';
   //create another var args; the arguments are being
   //passed to isAlrightMeal function:
     var args = Array.from(arguments);
-    console.log(args); 
-
-=======
-//the isAlrightMeal function:
-isAlrightMeal: function(){
-  var responseList = '';
-//create another var args; the arguments are being
-//passed to isAlrightMeal function:
-  var args = Array.from(arguments);
-  console.log(args);
->>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
+    console.log(args);
 //looping through the arguments:
     for(var j = 0; j < args.length; j++){
       console.log(j);
     }
-  }
-}
 // cookieMonster.eat("cookies", "milk", "cheese");
-
-cookieMonster.isAlrightMeal();
 
 // //'this' refers to cookieMonster object and refers to .eat function.
 // //'this' refers to cookieMonster object assigns text based on score.
-//     if(this.eat(args[i]) <= this.scores.awesomeFoods){
-//       console.log(args[i]); //Having problems using console.log???
-//       // responseList = this.name + this.text.awesomeFoods;
-//     }
-  //   if(this.eat() <= this.scores.goodFoods){
-  //     responseList = this.food.goodFoods + this.text.goodFoods;
-  //   }
-  //   if(this.eat() >= this.scores.badFoods){
-  //         responseList = this.food.badFoods + this.text.badFoods;
-  //   }
-  //   if(this.eat() >= this.scores.hatedFoods){
-  //     responseList = this.food.hatedFoods + this.text.hatedFoods;
-  //   }
-  // }
-  // return responseList;
-//   }
-// }
+    if(this.eat(args[i]) <= this.scores.awesomeFoods){
+      console.log(args[i]); //Having problems using console.log???
+      responseList = this.name + this.text.awesomeFoods;
+    }
+    if(this.eat(args[i]) <= this.scores.goodFoods){
+      responseList = this.food.goodFoods + this.text.goodFoods;
+    }
+    if(this.eat(args[i]) >= this.scores.badFoods){
+          responseList = this.food.badFoods + this.text.badFoods;
+    }
+    if(this.eat(args[i]) >= this.scores.hatedFoods){
+      responseList = this.food.hatedFoods + this.text.hatedFoods;
+    }
+  }
+  return responseList;
+  }
 
-<<<<<<< HEAD
-=======
-cookieMonster.eat("cookies", "milk", "cheese");
->>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
+// cookieMonster.eat("cookies", "milk", "cheese");
+cookieMonster.isAlrightMeal();
 
 
 

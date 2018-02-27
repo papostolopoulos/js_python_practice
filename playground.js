@@ -23,9 +23,6 @@ var d = function () {
 }
 
 
-
-
-
 var cookieMonster = {
   name: "Fred",
   foods: {
@@ -52,8 +49,46 @@ var cookieMonster = {
       }
     }
     return result;
+  },
+  isAlrightMeal: function(food){
+    var self = this;
+    var args = Array.from(arguments)
+    var counter = 0;
+
+    var intervals = setInterval(function () {
+      if (self.eat(args[counter]) === 2) {
+        console.log(self.name + " likes " + args[counter] + ". Chocolate chip cookie important to me... OM NOM NOM NOM NOM");
+      }
+      if (self.eat(args[counter]) === 1) {
+        console.log(args[counter] + "? Me love poetry, and cookies!");
+      }
+      if (self.eat(args[counter]) === -1) {
+        console.log(args[counter] + " or cookie? ..." + args[counter] + "...cookie. Me Cookie Monster! This is no-brainer!");
+      }
+      if (self.eat(args[counter]) === -2) {
+        console.log(args[counter] + "? Me want cookie");
+      }
+
+
+      if (counter === args.length - 1) {
+        setTimeout(function () {
+          if (self.eat(...args) > 2) {
+            console.log("Me liked food. Me eat a cookie for you!");
+          }
+          else {
+            console.log(self.name + "  did not like food." + self.name + " wants to eat cookie!");
+          }
+        }, 2000);
+
+        clearInterval(intervals);
+      }
+      counter++
+    }, 2000);
+
   }
 };
+
+
 
 // - A method called "eat" that takes one parameter (food).
 

@@ -24,60 +24,85 @@ var cookieMonster = {
 //the eat method:
   eat: function() {
     var foodScore = 0;
-  //an Array of arguments; the arguments
-  //are being passed to the eat function.
+//an Array of arguments; the arguments
+//are being passed to the eat function.
     var args = Array.from(arguments);
+    // console.log(args);
 
 //looping through the arguments:
   for(var i = 0; i < args.length; i++){
-  //use a for-in loop to loop thru objects:
-  //foodList represents an element of food array. Note: 'this'
-  //represents cookieMonster
-    for(foodList in this.foods){
-      console.log(foodList);
-      //use the .includes() method to find out if a foodList
-      //contains the foods passed in as parameters.
-    //     if(foodList.includes(args[i])){
-    // // 'this' refers to the whole CookieMonster object and assigns a score:
-    //       if(this.foods.awesomeFoods.includes(args[i])){
-    //       foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
-    //       }
-    //       if(this.foods.goodFoods.includes(args[i])){
-    //         foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
-    //       }
-    //       if(this.foods.badFoods.includes(args[i])){
-    //         foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
-    //       }
-    //       if(this.foods.hatedFoods.includes(args[i])){
-    //         foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
-    //       }
-    //   }
-    }
+//Note: 'this' represents cookieMonster,
+//use the .includes() method to find out if argument
+//contains the foods passed in as parameters.
+// 'this' refers to the whole CookieMonster object and assigns a score:
+      if(this.foods.awesomeFoods.includes(args[i])){
+      foodScore = foodScore + this.scores.awesomeFoods; // addresses awesomeFoods array.
+      }
+      if(this.foods.goodFoods.includes(args[i])){
+        foodScore = foodScore + this.scores.goodFoods;// addresses goodFoods array.
+      }
+      if(this.foods.badFoods.includes(args[i])){
+        foodScore = foodScore + this.scores.badFoods;// addresses badFoods array.
+      }
+      if(this.foods.hatedFoods.includes(args[i])){
+        foodScore = foodScore + this.scores.hatedFoods;// addresses hatedFoods array.
+      }
   }
     return foodScore;
   },
 
+<<<<<<< HEAD
+  // the isAlrightMeal function:
+ isAlrightMeal: function() {
+    var responseList = '';
+  //create another var args; the arguments are being
+  //passed to isAlrightMeal function:
+    var args = Array.from(arguments);
+    console.log(args); 
+
+=======
 //the isAlrightMeal function:
 isAlrightMeal: function(){
   var responseList = '';
 //create another var args; the arguments are being
 //passed to isAlrightMeal function:
   var args = Array.from(arguments);
-
-  //looping through the arguments:
-  for(var j = 0; j < args.length; j++){
-//words represent elements in text array. Note: 'this'
-  //represents cookieMonster
-    for(words in this.text){
-
+  console.log(args);
+>>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
+//looping through the arguments:
+    for(var j = 0; j < args.length; j++){
+      console.log(j);
     }
-
   }
+}
+// cookieMonster.eat("cookies", "milk", "cheese");
 
-  }
-};
+cookieMonster.isAlrightMeal();
 
-cookieMonster.eat("pie");
+// //'this' refers to cookieMonster object and refers to .eat function.
+// //'this' refers to cookieMonster object assigns text based on score.
+//     if(this.eat(args[i]) <= this.scores.awesomeFoods){
+//       console.log(args[i]); //Having problems using console.log???
+//       // responseList = this.name + this.text.awesomeFoods;
+//     }
+  //   if(this.eat() <= this.scores.goodFoods){
+  //     responseList = this.food.goodFoods + this.text.goodFoods;
+  //   }
+  //   if(this.eat() >= this.scores.badFoods){
+  //         responseList = this.food.badFoods + this.text.badFoods;
+  //   }
+  //   if(this.eat() >= this.scores.hatedFoods){
+  //     responseList = this.food.hatedFoods + this.text.hatedFoods;
+  //   }
+  // }
+  // return responseList;
+//   }
+// }
+
+<<<<<<< HEAD
+=======
+cookieMonster.eat("cookies", "milk", "cheese");
+>>>>>>> 40d4142ab7a48f15c21e36a2fb67a79d5c7e3317
 
 
 

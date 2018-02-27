@@ -2,7 +2,7 @@
 //            Week 1 Day 4            //
 //------------------------------------//
 
-/* Cookie Monster Project
+/*Cookie Monster Project
 
 Create an object that is called cookieMonster.
 The object should have:
@@ -40,3 +40,32 @@ There can be one or more arguments entered in the method each time it is run.
   "Me liked food. Me eat a cookie for you!"
   - if the score is lower than three then Fred should say:
   - "(name) did not like food. (name) wants to eat cookie!"
+*/
+
+name: "Fred",
+foods: {
+  awesomeFoods: ["cookies", "milk"],
+  goodFoods: ["pizza", "banana", "apple"],
+  badFoods: ["salad", "cheese"],
+  hatedFoods: ["spinach", "brocolli"]
+},
+eat: function(food){
+  var result = 0;
+
+  for (var i = 0; i < arguments.length; i++) {
+    if (this.foods.awesomeFoods.includes(arguments[i])) {
+      result += 2;
+    }
+    if (this.foods.goodFoods.includes(arguments[i])) {
+      result += 1;
+    }
+    if (this.foods.badFoods.includes(arguments[i])) {
+      result -= 1;
+    }
+    if (this.foods.hatedFoods.includes(arguments[i])) {
+      result -= 2;
+    }
+  }
+  return result;
+}
+};

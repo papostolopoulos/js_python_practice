@@ -44,14 +44,6 @@ the argument value 5 is actually the output of ( function(num))
 so 5 will go and replace num since num is bigger than -5 it will skip
 to the next else condition it evaluate else statment but then it skips
 again because 5 is not smaller than 5 so end result is junior.
-
-I have question to paris:
-what is data type of rickyBobbyJr is this ? is this type of stucture Object?
-
-
-
-
-
 */
 
 
@@ -70,10 +62,6 @@ it will retrun " Hey now, Bobby"
 
 I sat makeNum(5) that gave me a retrun of -15 :)
 
-Question to Paris whats the different if I just do
-var makeNum = num vs. makeNum = function(num) ?
-
-
 */
 
 /*minMaxDifference
@@ -83,8 +71,8 @@ the largest value and the smallest value in the array.
 Assume array is an array of numbers. */
 
 function minMaxDifference(array) {
-var max1 = Math.max([array]);
-var min1 = Math.min([array]);
+var max1 = Math.max(...array);
+var min1 = Math.min(...array);
 var results = max1 - min1;
 return results;
 }
@@ -157,13 +145,20 @@ what is data type of rickyBobbyJr is this ? is this type of stucture Object?
 Answer: This is not a data type but a function expression. Not a function declaration. I will explain
 during our meeting later today
 
+- Thanks Paris this is clear now :)
+
 makeNum: Question to Paris whats the different if I just do
 var makeNum = num vs. makeNum = function(num) ?
 Answer: I will explain during our meeting later today
 
+- Thanks Paris this is clear now you covered it during our session last week :)
+
 minMaxDifference: Math.max (like all the Math methods) can only get arguments
 and not arrays. If you do Math.max(1,2,3); it is going to work.
 If you do Math.max([1,2,3]) it will not work.
+
+   - Gotcha ya, so math. max takes argument so I need to remove the brakets
+
 The solution is to
 - use the spread operator or
 - the .apply method or

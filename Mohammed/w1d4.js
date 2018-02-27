@@ -69,3 +69,14 @@ eat: function(food){
   return result;
 }
 };
+
+/*
+Comments from Paris
+The above code seems like it is missing something. I do not see a variable
+being defined. Was this deleted on purpose?
+Moreover, before you submit code, it is wise if you test it and see if it is working.
+The syntax might seem correct but there might always be an error that your eyes
+did not catch.
+After you resolve these things, then see if you can work on the other components
+of the problem.
+*/

@@ -25,7 +25,7 @@ royalWe("This is mine...");
 royalWe("Jump for my love");
 
 
-//Second optional answer: Still trying to debug.
+//Second optional answer: I think my if-statements are incorrect/need help.
 var newWordObj = {
 	I: "we",
 	mine: "ours",
@@ -33,12 +33,17 @@ var newWordObj = {
 	me: "us"
 };
 
-function royalWe(sentence){
-	var newString = sentence.replace(/I|mine|my|me/g, function(word){
-		return newString[word];
-	});
+for(var key in newWordObj){
+	if(key === newWordObj["I"]){
+		if(key === newWordObj["mine"]){
+			if(key === newWordObj["my"]){
+				if(key === newWordObj["us"]){
+				}
+			}
+		}	
+	}
+	console.log(newWordObj);
 }
-
 // royalWe("I want to go to the store.");
 // royalWe("This is my house and you will respect me!");
 // royalWe("This is mine...");
@@ -56,23 +61,19 @@ royalWe("Jump for my love");
 ** elementCount(["a", "a", "a", "b"]) //=> { a: 3, b: 1 }
 */
 
-//Still needs to debug some more:
-function elementCount(array, word){
-	var countObj = [];
+//I am LOST here...
+function elementCount(array){
+	var countObj = {};
 //looping through the array
 	for(var i = 0; i < array.length; i++){
-//compare if element in array equals to word:
-		if(array[i] === word){
-			console.log("b: " + countObj);
-		}
-		if(array[i] === word){
-			console.log("a: " + countObj);
+//compare if element equals to anything in the array itself:
+		if(array[i] === array){
+			countObj.
 		}
 		countObj++
 	}
 }
-elementCount(["a", "a", "a", "b"], "a");
-elementCount(["a", "a", "a", "b"], "b");
+elementCount(["a", "a", "a", "b"]);
 
 
 /******************************************************************************
@@ -90,7 +91,7 @@ function reverseRange(start, end){
 	for(var i = start; i < end; i++){
 		newRange.push(i);
 	}
-	console.log(newRange);
+	console.log(newRange.reverse());
 }
 
 reverseRange(2, 7);
@@ -123,41 +124,39 @@ reverseSentence("Jump, jump for joy");
 ** magicNumbers(20) \\=> [ 4, 6, 8, 16, 18, 20 ]
 */
 
-//Still trying to debug:
+//Getting closer, but still have issues:
 function magicNumbers(max){
 	var newArray = [];
 
-	for(var i = 0; i <= max.length; i++){
-		// console.log(i); // I keep getting undefined?
+	for(var i = 0; i <= max; i++){
 //identify i that is % by 4 OR % by 6:
-		if(i % 4 === 0 || i % 6 === 0){
+		if(i % 4 === 1 || i % 6 === 1){
 //identify i that is % by 4 AND % by 6:
-			if(i % 4 === 0 && i % 6 === 0)
-			continue;
+			if(i % 4 === 1 && i % 6 === 1){
+				continue;
+			}
 		}
-		newArray.push(i);
+		newArray.push(i); 
 	}
+	console.log(newArray);
 }
-
 magicNumbers(20);
 
 
 /*
-Feedback from Paris
-royalWe: PERFECT, NEAT AND QUICK - Thank you
+Feedback from Rena
+royalWe: Done.  However, still trying to understand for-in loop. I will do some
+more reading on for-in loop, but can we review this again in group meeting?
 
-elementCount: You need to create an empty object inside your function, not an
-empty array.
-After that, how would you start adding things in your object? Can you think of a way?
-The way that you try to invoke the function at the end is incorrect. There is only
-one argument in the function and that is an array of letter elements.
+elementCount: I created an empty object inside my function, but still have
+issues with my if-statements to get it to run properly.  However, I think I
+should have nested if-statement to try and match key-value pair, correct?
 
-reverseRange: Not quite correct but close. You are printing an array like
-[2,3,4,5,6] while it should be RETURNING [6,5,4,3]
+reverseRange: made correction; it should run properly now.
 
-reverseSentence: VERY GOOD!
+reverseSentence: Done.
 
-magicNumbers: max.lenght???
+magicNumbers: made correction; getting closer, but still have issue with if-statement.
 
 
 */

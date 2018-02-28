@@ -140,3 +140,24 @@ function magicNumbers(max){
 }
 
 magicNumbers(20);
+
+
+/*
+Feedback from Paris
+royalWe: PERFECT, NEAT AND QUICK - Thank you
+
+elementCount: You need to create an empty object inside your function, not an
+empty array.
+After that, how would you start adding things in your object? Can you think of a way?
+The way that you try to invoke the function at the end is incorrect. There is only
+one argument in the function and that is an array of letter elements.
+
+reverseRange: Not quite correct but close. You are printing an array like
+[2,3,4,5,6] while it should be RETURNING [6,5,4,3]
+
+reverseSentence: VERY GOOD!
+
+magicNumbers: max.lenght???
+
+
+*/

@@ -16,7 +16,7 @@ var cookieMonster = {
   },
   //create text object:
   text: {
-    awesomeFoods: " likes " + "Chocolate chip cookie important to me...OM NOM NOM NOM NOM",
+    awesomeFoods: [" likes ", ". Chocolate chip cookie important to me...OM NOM NOM NOM NOM"],
     goodFoods: " ? Me love poetry, and cookies!",
     badFoods: " or cookie?..." + " ...cookie..Me Cookie Monster! This is no-brainer!",
     hatedFoods: " ? Me want cookie"
@@ -52,40 +52,51 @@ var cookieMonster = {
   },
 
   // the isAlrightMeal function:
- isAlrightMeal: function() {
-    var responseList = '';
+ isAlrightMeal: function(food) {
   //create another var args; the arguments are being
   //passed to isAlrightMeal function:
     var args = Array.from(arguments);
-    console.log(args);
+    // console.log(args);
 //looping through the arguments:
     for(var j = 0; j < args.length; j++){
-      console.log(j);
+      // console.log(j);
+      //'this' refers to cookieMonster object and refers to .eat function.
+//'this' refers to cookieMonster object assigns text based on score.
+      if(this.eat(args[j]) === this.scores.awesomeFoods){
+        // console.log(args[j]); 
+        console.log(this.name + this.text.awesomeFoods[0] + args[j] + this.text.awesomeFoods[1]);
+      }
+        // Use args[j] to represent the food element in the array. Whatever
+      // the element is at the moment you run invoke the code.
+      if(this.eat(args[j]) === this.scores.goodFoods){
+        console.log(args[j] + this.text.goodFoods);
+      }
+      if(this.eat(args[j]) === this.scores.badFoods){
+        // console.log(this);
+        // console.log(this.foods)
+      // Use args[j] to represent the food element in the array. Whatever
+      // the element is at the moment you run invoke the code.
+        console.log(args[j] + this.text.badFoods);
+      }
+      if(this.eat(args[j]) === this.scores.hatedFoods){
+      // Use args[j] to represent the food element in the array. Whatever
+      // the element is at the moment you run invoke the code.
+        console.log(args[j] + this.text.hatedFoods);
+      }
     }
-// cookieMonster.eat("cookies", "milk", "cheese");
-
-// //'this' refers to cookieMonster object and refers to .eat function.
-// //'this' refers to cookieMonster object assigns text based on score.
-    if(this.eat(args[i]) <= this.scores.awesomeFoods){
-      console.log(args[i]); //Having problems using console.log???
-      responseList = this.name + this.text.awesomeFoods;
+  //the spread operator (...) is looking at whole array of foods.
+    if(this.eat(...args) > 2){
+      console.log("Me liked food. Me eat a cookie for you!");
     }
-    if(this.eat(args[i]) <= this.scores.goodFoods){
-      responseList = this.food.goodFoods + this.text.goodFoods;
-    }
-    if(this.eat(args[i]) >= this.scores.badFoods){
-          responseList = this.food.badFoods + this.text.badFoods;
-    }
-    if(this.eat(args[i]) >= this.scores.hatedFoods){
-      responseList = this.food.hatedFoods + this.text.hatedFoods;
+    else {
+      console.log(this.name + ' did not like food.' + this.name + ' wants to eat cookie!');
     }
   }
-  return responseList;
+
   }
 
 // cookieMonster.eat("cookies", "milk", "cheese");
-cookieMonster.isAlrightMeal();
-
+cookieMonster.isAlrightMeal('cheese', 'cookies');
 
 
 

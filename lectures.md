@@ -1,8 +1,8 @@
 ###Tuesday February 27th
 * The Execution context (creation phase and execution phase)
 * Creation phase (Global Execution Context)
-  * Global Object
-  * This
+  * Global Object --> window
+  * this -->
   * Outer environment
   * Code we have written
 * Execution phase
@@ -14,6 +14,17 @@ If another function is invoked inside a function, then the function will be invo
 * Scope chain
 * let and const
 * The Event Queue
+
+
+
+
+
+--------------------------
+-        var testVar = 5 -
+-                        -
+-                        -
+-                        -
+--------------------------
 
 
 ### Tuesday February 20th 2018

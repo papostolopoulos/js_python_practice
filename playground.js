@@ -1,26 +1,21 @@
-console.log(a);
-b();
-var a = "This is variable a";
+/** Write a function #royalWe(sentence) that returns an string where every 'I'
+** is replaced with 'we', every 'mine' is replaced with 'ours', every 'my' is replaced with 'our',
+** and every 'me' is replaced with "us".
+
+** Examples:
+** royalWe("I want to go to the store.") //=> "we want to go to the store."
+*/
+//If it .includes() then
+//where does this word reside .indexOf("I") 5
+// slice string (or substring) + new string + substring
 
 
 
-function b (){
-console.log("This is function b")
-}
 
 
-c(); //undefined
-d(); //This is d
 
-// Function declaration
-function c(){
-  console.log("This is c");
-}
 
-// Function expression
-var d = function () {
-  console.log("This is d");
-}
+
 
 
 var cookieMonster = {
@@ -52,7 +47,7 @@ var cookieMonster = {
   },
   isAlrightMeal: function(food){
     var self = this;
-    var args = Array.from(arguments)
+    var args = Array.from(arguments) //["banana", "cookies", "milk", "salad"]
     var counter = 0;
 
     var intervals = setInterval(function () {

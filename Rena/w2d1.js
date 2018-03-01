@@ -40,7 +40,7 @@ for(var key in newWordObj){
 				if(key === newWordObj["us"]){
 				}
 			}
-		}	
+		}
 	}
 	console.log(newWordObj);
 }
@@ -136,7 +136,7 @@ function magicNumbers(max){
 				continue;
 			}
 		}
-		newArray.push(i); 
+		newArray.push(i);
 	}
 	console.log(newArray);
 }
@@ -147,16 +147,25 @@ magicNumbers(20);
 Feedback from Rena
 royalWe: Done.  However, still trying to understand for-in loop. I will do some
 more reading on for-in loop, but can we review this again in group meeting?
+Paris: Yes we can but please create a random object and see if you can iterate through
+it and print its keys and its values
 
 elementCount: I created an empty object inside my function, but still have
 issues with my if-statements to get it to run properly.  However, I think I
 should have nested if-statement to try and match key-value pair, correct?
+Paris: No that is not the way. Your if statement is not going to help you at all the way it is.
+In fact the comparison you do in the if statement is quite incorrect since you are comparing
+and element to the whole array.
+How can you ad properties in an object after you create it? That is the first thing you should
+see if you know how to do. As practice, can you create an object and then add new properties to it?
+How would you do that?
 
 reverseRange: made correction; it should run properly now.
 
 reverseSentence: Done.
 
 magicNumbers: made correction; getting closer, but still have issue with if-statement.
-
+Paris: Why are you stating in your if statements the modulo's remainder as 1 and not as 0?
+Then you will not get the actual divisible numbers.
 
 */

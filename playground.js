@@ -7,7 +7,36 @@
 */
 //If it .includes() then
 //where does this word reside .indexOf("I") 5
-// slice string (or substring) + new string + substring
+// slice string (or substring) + new string
+
+function royalWe(string){
+	var newWordObj = {
+		I: "we",
+		mine: "ours",
+		my: "our",
+		me: "us"
+	};
+	var objKeys = Object.keys(newWordObj);
+	var splitString = string.split(" ");
+
+	for(var i = 0; i < splitString.length; i++){
+		var word = splitString[i];
+
+		for(var j = 0; j < objKeys.length; j++){
+			if(word.includes(objKeys[j])){
+			splitString[i] = word.slice(0, word.indexOf(objKeys[j])) + newWordObj[objKeys[j]] + word.slice(word.indexOf(objKeys[j]) + objKeys[j].length);
+				// console.log(word.substring(word.indexOf(objKeys[j]), word.indexOf(objKeys[j]) + objKeys[j].length));
+			}
+		}
+	}
+	return splitString.join(" ");
+}
+royalWe("This is mine...");
+
+
+// royalWe("I want to go to the store.");
+// royalWe("This is my house and you will respect me!");
+// royalWe("Jump for my love");
 
 
 

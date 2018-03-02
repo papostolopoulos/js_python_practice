@@ -16,8 +16,7 @@
 //Firstoptional answer: This works fine!
 function royalWe(sentence){
 //use. replace() to replace one word at a time:
-	var newString = sentence.replace(/I/g, "we").replace(/mine/g, "ours").replace(/my/g, "our").replace(/me/g, "us");
-	console.log(newString);
+	return sentence.replace(/I/g, "we").replace(/mine/g, "ours").replace(/my/g, "our").replace(/me/g, "us");
 }
 royalWe("I want to go to the store.");
 royalWe("This is my house and you will respect me!");
@@ -61,17 +60,20 @@ royalWe("Jump for my love");
 ** elementCount(["a", "a", "a", "b"]) //=> { a: 3, b: 1 }
 */
 
-//I am LOST here...
 function elementCount(array){
+//create an empty object variable:
 	var countObj = {};
 //looping through the array
 	for(var i = 0; i < array.length; i++){
-//compare if element equals to anything in the array itself:
-		if(array[i] === array){
-			countObj.
+
+		if(countObj[array[i]] === undefined){
+			countObj[array[i]] = 1;
 		}
-		countObj++
+		else {
+			countObj[array[i]] += 1;
+		}
 	}
+	return countObj;
 }
 elementCount(["a", "a", "a", "b"]);
 

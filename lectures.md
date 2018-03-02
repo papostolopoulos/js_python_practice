@@ -2,10 +2,10 @@
 * The Execution context (creation phase and execution phase)
 * Creation phase (Global Execution Context)
   * Global Object
-  * This
+  * This // It's a  reserved word, a variable that points at window object. Whenever we creating a new object, then 'this' is referring to a particular object.
   * Outer environment
   * Code we have written
-* Execution phase
+* Execution phase // The functions being invoked creates their own 'stacks'. Once something is executed, it gets 'popped off' the 'stack'.
 * Function invocation (Invoke, call, run a function) and The execution stack
 * Global Execution Context
 * New Context when a function is invoked (on top of the stack)

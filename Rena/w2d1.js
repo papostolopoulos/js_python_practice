@@ -24,29 +24,44 @@ royalWe("This is mine...");
 royalWe("Jump for my love");
 
 
-//Second optional answer: I think my if-statements are incorrect/need help.
-var newWordObj = {
-	I: "we",
-	mine: "ours",
-	my: "our",
-	me: "us"
-};
+//Second optional answer: 
+function royalWe(string){
+//create an object:
+	var newWordObj = {
+		I: "we",
+		mine: "ours",
+		my: "our",
+		me: "us"
+	};
 
-for(var key in newWordObj){
-	if(key === newWordObj["I"]){
-		if(key === newWordObj["mine"]){
-			if(key === newWordObj["my"]){
-				if(key === newWordObj["us"]){
-				}
+	var objKeys = Object.keys(newWordObj);
+
+	var splitString = string.split(" ");
+
+	for(var i = 0; i < splitString.length; i++){
+		var word = splitString[i];
+
+		for(var j = 0; j < objKeys.length; j++){
+			if(word.includes(objKeys[j])){
+			var wordOne = word.slice(0, word.indexOf(objKeys[j])) + newWordObj[objKeys[j]] + word.substring(word.indexOf(objKeys[j]) + objKeys[j].length)
+			word = "pizza".slice();
+				console.log(word.substring(word.indexOf(objKeys[j]), word.indexOf(objKeys[j]) + objKeys[j].length));
 			}
 		}
 	}
-	console.log(newWordObj);
+	return splitString.join(" ");
 }
 // royalWe("I want to go to the store.");
 // royalWe("This is my house and you will respect me!");
-// royalWe("This is mine...");
-royalWe("Jump for my love");
+royalWe("This is mine...");
+// royalWe("Jump for my love");
+
+// for(var key in newWordObj){
+	
+// 	}
+// 	console.log(newWordObj);
+// }
+
 
 
 
@@ -65,10 +80,16 @@ function elementCount(array){
 	var countObj = {};
 //looping through the array
 	for(var i = 0; i < array.length; i++){
-
+console.log(countObj);
+console.log(array[i]);
+//using bracket notation[] to use variable name:
+console.log(countObj[array[i]]);
+//if the value of the property is undefined, then
+//create the property and give value of 1.
 		if(countObj[array[i]] === undefined){
 			countObj[array[i]] = 1;
 		}
+//if the property exists, then you add 1.
 		else {
 			countObj[array[i]] += 1;
 		}
@@ -126,19 +147,19 @@ reverseSentence("Jump, jump for joy");
 ** magicNumbers(20) \\=> [ 4, 6, 8, 16, 18, 20 ]
 */
 
-//Getting closer, but still have issues:
+//Answer:
 function magicNumbers(max){
 	var newArray = [];
 
 	for(var i = 0; i <= max; i++){
 //identify i that is % by 4 OR % by 6:
-		if(i % 4 === 1 || i % 6 === 1){
+		if(i % 4 === 0 || i % 6 === 0){
 //identify i that is % by 4 AND % by 6:
-			if(i % 4 === 1 && i % 6 === 1){
+			if(i % 4 === 0 && i % 6 === 0){
 				continue;
 			}
+			newArray.push(i);
 		}
-		newArray.push(i);
 	}
 	console.log(newArray);
 }

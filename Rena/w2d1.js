@@ -40,7 +40,7 @@ function royalWe(string){
 //a given object's own enumerable (keys) properties.
 	var objKeys = Object.keys(newWordObj);
 	var splitString = string.split(" ");
-
+//looping through string length:
 	for(var i = 0; i < splitString.length; i++){
   //splitString[i] is the value of the element in the array:
 		var word = splitString[i];

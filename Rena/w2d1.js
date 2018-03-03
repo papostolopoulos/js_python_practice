@@ -25,44 +25,41 @@ royalWe("Jump for my love");
 
 
 //Second optional answer: 
+//If it .includes() then
+//where does this word reside .indexOf("I") 
+// slice string (or substring) + new string
+
 function royalWe(string){
-//create an object:
 	var newWordObj = {
 		I: "we",
 		mine: "ours",
 		my: "our",
 		me: "us"
 	};
-
+//The Object.keys() method returns an array of 
+//a given object's own enumerable (keys) properties.
 	var objKeys = Object.keys(newWordObj);
-
 	var splitString = string.split(" ");
 
 	for(var i = 0; i < splitString.length; i++){
+  //splitString[i] is the value of the element in the array:
 		var word = splitString[i];
-
+  //looping through the properties of the array of objects: 
 		for(var j = 0; j < objKeys.length; j++){
+// use word.includes() method to determine if elements of the array of objects:
 			if(word.includes(objKeys[j])){
-			var wordOne = word.slice(0, word.indexOf(objKeys[j])) + newWordObj[objKeys[j]] + word.substring(word.indexOf(objKeys[j]) + objKeys[j].length)
-			word = "pizza".slice();
-				console.log(word.substring(word.indexOf(objKeys[j]), word.indexOf(objKeys[j]) + objKeys[j].length));
+//.slice method to start at index 0, then object and object keys and then use .slice method to get remaining ...
+			splitString[i] = word.slice(0, word.indexOf(objKeys[j])) + newWordObj[objKeys[j]] + word.slice(word.indexOf(objKeys[j]) + objKeys[j].length);
+				// console.log(word.substring(word.indexOf(objKeys[j]), word.indexOf(objKeys[j]) + objKeys[j].length));
 			}
 		}
 	}
 	return splitString.join(" ");
 }
+royalWe("This is mine...");
 // royalWe("I want to go to the store.");
 // royalWe("This is my house and you will respect me!");
-royalWe("This is mine...");
 // royalWe("Jump for my love");
-
-// for(var key in newWordObj){
-	
-// 	}
-// 	console.log(newWordObj);
-// }
-
-
 
 
 
@@ -80,8 +77,8 @@ function elementCount(array){
 	var countObj = {};
 //looping through the array
 	for(var i = 0; i < array.length; i++){
-console.log(countObj);
-console.log(array[i]);
+// console.log(countObj);
+// console.log(array[i]);
 //using bracket notation[] to use variable name:
 console.log(countObj[array[i]]);
 //if the value of the property is undefined, then
@@ -139,6 +136,9 @@ function reverseSentence(sentence){
 reverseSentence("Go to the store");
 reverseSentence("Jump, jump for joy");
 
+
+
+
 /******************************************************************************
 ** Write a function that #magicNumbers(max) that returns an array of numbers up to
 ** the max. Each number should be either divisible by 4 or 6, BUT NOT BOTH.
@@ -168,27 +168,14 @@ magicNumbers(20);
 
 /*
 Feedback from Rena
-royalWe: Done.  However, still trying to understand for-in loop. I will do some
-more reading on for-in loop, but can we review this again in group meeting?
-Paris: Yes we can but please create a random object and see if you can iterate through
-it and print its keys and its values
+royalWe: Done and added second optional answer for records. 
 
-elementCount: I created an empty object inside my function, but still have
-issues with my if-statements to get it to run properly.  However, I think I
-should have nested if-statement to try and match key-value pair, correct?
-Paris: No that is not the way. Your if statement is not going to help you at all the way it is.
-In fact the comparison you do in the if statement is quite incorrect since you are comparing
-and element to the whole array.
-How can you ad properties in an object after you create it? That is the first thing you should
-see if you know how to do. As practice, can you create an object and then add new properties to it?
-How would you do that?
+elementCount: Done 
 
 reverseRange: made correction; it should run properly now.
 
 reverseSentence: Done.
 
-magicNumbers: made correction; getting closer, but still have issue with if-statement.
-Paris: Why are you stating in your if statements the modulo's remainder as 1 and not as 0?
-Then you will not get the actual divisible numbers.
+magicNumbers: Done
 
 */

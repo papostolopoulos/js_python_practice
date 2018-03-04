@@ -16,7 +16,7 @@ var cookieMonster = {
   },
   //create text object:
   text: {
-    awesomeFoods: [" likes ", ". Chocolate chip cookie important to me...OM NOM NOM NOM NOM"],
+    awesomeFoods: " likes " ". Chocolate chip cookie important to me...OM NOM NOM NOM NOM",
     goodFoods: " ? Me love poetry, and cookies!",
     badFoods: " or cookie?..." + " ...cookie..Me Cookie Monster! This is no-brainer!",
     hatedFoods: " ? Me want cookie"

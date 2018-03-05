@@ -111,8 +111,16 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 */
 
 function peakFinder(array){
-
-
+	var highestPeak = [];
+//looping 
+	for(var i = 0; i < array.length; i++){
+		// console.log(i);
+//calculate highest peak between two elements??
+		if(array[i] - 1 === 0 && array[i] + 1 === 0){
+			highestPeak.push(i);
+		}
+	}
+	console.log(highestPeak);
 }
 peakFinder([4,6,9,4,2,-7,2,-4,5]); 
 
@@ -126,6 +134,7 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
 3) Let's discuss at group mtg. I think it's almost correct.
 
-4) I am confused as to what the requirements are...help???
+4) My code is not working correctly, I think there's something
+wrong with my if-statement. I am not getting an error, just an empty [].
 
 */

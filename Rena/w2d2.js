@@ -18,9 +18,13 @@ function divisibleByThreePairSum(array){
 //looping through the array length:
 	for(var i = 0; i < array.length; i++){
 // console.log(array[i]);
-	//Confused in this area:
-		if(array[i] + array[i] % 3 === 0){
-			sumArr.push(i);
+//looping through the second array plus 1. You want
+//to add 1 each time you increase i.
+		for(var j = i + 1; j < array.length; j++){
+		// console.log(array[j]);
+			if((array[i] + array[j]) % 3 === 0){
+			sumArr.push([i, j]);
+			}
 		}
 	}
 	console.log(sumArr);
@@ -45,18 +49,17 @@ function pairZero(array){
 
 	for(var i = 0; i < array.length; i++){
 			// console.log(array[i]);
-		for(var j = i; j < array.length; j++){
+		for(var k = i + 1; k < array.length; k++){
 			// console.log(array[j]);
-	//Confused in this area:
-			if(array[i] + array[j] === 0){
-			newSum.push(array[i], array[j]);
+			if(array[i] + array[k] === 0){
+			newSum.push([i, k]);
 		}
 	}
 }
 console.log(newSum);
 }
-pairZero([0, 2, 5, -2, 0]);
-
+// pairZero([0, 2, 5, -2, 0]);
+pairZero([1, 2, -1])
 
 /* isValidEmail:
 Write a function isValidEmail(email) that takes an email string. Return true if the email is considered valid. A valid email:
@@ -117,15 +120,12 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
 /* Notes from Rena:
 
-1) I think I am close, but got confused on line 22. What two elements? Do you mean
-I am supposed to add same elements and then % 3 === 0?
+1) I created a nested for-loop and I think I got correct answer.
 
-2) Again I think I am close, but got confused on line 51 and 52.  Do you mean
-I should add the elements from two different forloops?
+2) I created a nested for-loop and I think I got correct answer.
 
-3) I think I got this working, but did not use provided arrays. Do I need
-to do a second solution and try to use provided arrays?
+3) Let's discuss at group mtg. I think it's almost correct.
 
-4) Still working breaking down problem and getting solution; not done yet.
+4) I am confused as to what the requirements are...help???
 
 */

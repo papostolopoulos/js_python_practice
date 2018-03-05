@@ -18,7 +18,8 @@ function divisibleByThreePairSum(array){
 //looping through the array length:
 	for(var i = 0; i < array.length; i++){
 // console.log(array[i]);
-		if(array[i] % 3 === 0){
+	//Confused in this area:
+		if(array[i] + array[i] % 3 === 0){
 			sumArr.push(i);
 		}
 	}
@@ -39,29 +40,25 @@ This means we we will have to add each element to the other elements in the arra
 > pairZero([0, 2, 5, -2, 0])
 [ [0, 4], [1, 3] ] */
 
-
 function pairZero(array){
 	var newSum = [];
 
 	for(var i = 0; i < array.length; i++){
-		// console.log(array[i]);
-		if(array[i].indexOf() === 0) //this is incorrect, in wrong place??
-			newSum.push(i);
+			// console.log(array[i]);
+		for(var j = i; j < array.length; j++){
+			// console.log(array[j]);
+	//Confused in this area:
+			if(array[i] + array[j] === 0){
+			newSum.push(array[i], array[j]);
+		}
 	}
+}
 console.log(newSum);
 }
 pairZero([0, 2, 5, -2, 0]);
 
 
-/* isValidEmail
->isValidEmail("junk@gmail.com"); --> true
->isValidEmail("now.what@now.co"); --> true
->isValidEmail("i_am_happy@feelings.net"); --> true
->isValidEmail("my@website@gmail.com"); --> false
->isValidEmail("webby@gmail.co.net"); --> false
->isValidEmail("anthony@ira_ladson.com"); --> false
->isValidEmail("anthony!@ladson.com"); --> false
-
+/* isValidEmail:
 Write a function isValidEmail(email) that takes an email string. Return true if the email is considered valid. A valid email:
 Contains one and only one "@" symbol
 All the characters before the "@" symbol are alphanumeric, underscores, or dots "."
@@ -80,6 +77,23 @@ var numbers = [ "1","2","3","4","5","6","7","8","9","0"];*/
 // isValidEmail("anthony!@ladson.com"); //--> false */
 
 
+function isValidEmail(email){
+//looping through email string:
+	for(var i = 0; i < email.length; i++){
+//Use RegEx and .test() method to validate email string:
+		if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+			return true;
+		}
+		else{
+			console.log("You have entered an invalid email address. Try again!");
+		}
+//Once condition is satisfied, break from forloop:
+		break;
+	}
+}
+// isValidEmail("junk@gmail.com");
+// isValidEmail("now.what@now.co");
+isValidEmail("my@website@gmail.com"); 
 
 /* peakFinder
 
@@ -93,27 +107,25 @@ peakFinder([2,1,2,3,4,5]); //[0, 5]
 peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 */
 
+function peakFinder(array){
+
+
+}
+peakFinder([4,6,9,4,2,-7,2,-4,5]); 
+
 
 
 /* Notes from Rena:
 
-1) divisibleByThreePairSum: When I run my function, I get [1, 2, 5] as the answer. Which is incorrect, but
-at least my function is running without errors.  Am I understanding how to break down the problem
-correctly in my if-statement?
-Answer: The pairs that you need to push are the indices which you are partially doing correctly. You need to confirm through
-if the sum of two elements is divisible by three and not one element at the time.
-Therefore,
-if (element1 + element2) % 3 === 0 then push the indices of these two elements.
+1) I think I am close, but got confused on line 22. What two elements? Do you mean
+I am supposed to add same elements and then % 3 === 0?
 
-2) I am a bit confused by instructions, but I tried to interpret what it's asking...??  I know I need to nest my for-loop, but
-wanted to use .indexOf() method, but not sure...???
-Answer: this is similar to the one above.
-If (element1 + element2 === 0) then push the indices of these two elements. 
+2) Again I think I am close, but got confused on line 51 and 52.  Do you mean
+I should add the elements from two different forloops?
 
-3) Regarding email validation requirement: Before I start on this, I am guessing I should somehow incorporate RegEx and
-try to do a comparison to get output, correct?
-Answer: It is up to you to use any way you want for this.
+3) I think I got this working, but did not use provided arrays. Do I need
+to do a second solution and try to use provided arrays?
 
-Will work on remaining problems later...have errands to run with family now!
+4) Still working breaking down problem and getting solution; not done yet.
 
 */

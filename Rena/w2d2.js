@@ -41,7 +41,7 @@ This means we we will have to add each element to the other elements in the arra
 
 
 function pairZero(array){
-	var newSum = [];	
+	var newSum = [];
 
 	for(var i = 0; i < array.length; i++){
 		// console.log(array[i]);
@@ -98,17 +98,22 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 /* Notes from Rena:
 
 1) divisibleByThreePairSum: When I run my function, I get [1, 2, 5] as the answer. Which is incorrect, but
-at least my function is running without errors.  Am I understanding how to break down the problem 
+at least my function is running without errors.  Am I understanding how to break down the problem
 correctly in my if-statement?
+Answer: The pairs that you need to push are the indices which you are partially doing correctly. You need to confirm through
+if the sum of two elements is divisible by three and not one element at the time.
+Therefore,
+if (element1 + element2) % 3 === 0 then push the indices of these two elements.
 
 2) I am a bit confused by instructions, but I tried to interpret what it's asking...??  I know I need to nest my for-loop, but
 wanted to use .indexOf() method, but not sure...???
+Answer: this is similar to the one above.
+If (element1 + element2 === 0) then push the indices of these two elements. 
 
-3) Regarding email validation requirement: Before I start on this, I am guessing I should somehow incorporate RegEx and 
+3) Regarding email validation requirement: Before I start on this, I am guessing I should somehow incorporate RegEx and
 try to do a comparison to get output, correct?
+Answer: It is up to you to use any way you want for this.
 
 Will work on remaining problems later...have errands to run with family now!
 
 */
-
-

@@ -96,7 +96,7 @@ function isValidEmail(email){
 }
 // isValidEmail("junk@gmail.com");
 // isValidEmail("now.what@now.co");
-isValidEmail("my@website@gmail.com"); 
+isValidEmail("my@website@gmail.com");
 
 /* peakFinder
 
@@ -112,7 +112,7 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 
 function peakFinder(array){
 	var highestPeak = [];
-//looping 
+//looping
 	for(var i = 0; i < array.length; i++){
 		// console.log(i);
 //calculate highest peak between two elements??
@@ -122,19 +122,23 @@ function peakFinder(array){
 	}
 	console.log(highestPeak);
 }
-peakFinder([4,6,9,4,2,-7,2,-4,5]); 
+peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
 
 
 /* Notes from Rena:
 
 1) I created a nested for-loop and I think I got correct answer.
+Answer: looks good
 
 2) I created a nested for-loop and I think I got correct answer.
+Answer: looks good
 
 3) Let's discuss at group mtg. I think it's almost correct.
+Answer: Regex is very off. We can work on it together.
 
 4) My code is not working correctly, I think there's something
 wrong with my if-statement. I am not getting an error, just an empty [].
+Answer: Your error is that you are adding or subtracting 1 to the element and not the index. Check your syntax
 
 */

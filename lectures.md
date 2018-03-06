@@ -5,9 +5,8 @@
   * Global Object
   * This // It's a  reserved word, a variable that points at window object. Whenever we creating a new object, then 'this' is referring to a particular object.
 =======
-  * Global Object --> window
-  * this -->
->>>>>>> 339cb46545457f3c5fae91bc77432c8c966d34ae
+  * Global Object 
+  * this
   * Outer environment
   * Code we have written
 * Execution phase // The functions being invoked creates their own 'stacks'. Once something is executed, it gets 'popped off' the 'stack'.

@@ -30,7 +30,7 @@ function divisibleByThreePairSum(array){
 	console.log(sumArr);
 }
 divisibleByThreePairSum([1, 6, 3, 4, 2, 0]);
-
+divisibleByThreePairSum([8, 3, 5, 9, 2]);
 
 
 /* Sometimes you will need to nest a loop inside of another loop.
@@ -58,7 +58,7 @@ function pairZero(array){
 }
 console.log(newSum);
 }
-// pairZero([0, 2, 5, -2, 0]);
+pairZero([0, 2, 5, -2, 0]);
 pairZero([1, 2, -1])
 
 /* isValidEmail:
@@ -94,9 +94,10 @@ function isValidEmail(email){
 		break;
 	}
 }
-// isValidEmail("junk@gmail.com");
-// isValidEmail("now.what@now.co");
+isValidEmail("junk@gmail.com");
+isValidEmail("now.what@now.co");
 isValidEmail("my@website@gmail.com");
+isValidEmail("anthony!@ladson.com");
 
 /* peakFinder
 
@@ -110,19 +111,19 @@ peakFinder([2,1,2,3,4,5]); //[0, 5]
 peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 */
 
-function peakFinder(array){
-	var highestPeak = [];
-//looping
-	for(var i = 0; i < array.length; i++){
-		// console.log(i);
-//calculate highest peak between two elements??
-		if(array[i] - 1 === 0 && array[i] + 1 === 0){
-			highestPeak.push(i);
+	function peakFinder(array){
+		var highestPeak = [];
+	//looping through the length of array:
+		for(var i = 0; i < array.length; i++){
+			// console.log(i);
+	//calculate highest peak between two elements using the index??
+			if(i + 1 === 0 || i - 1 === 0){
+				highestPeak.push(i);
+			}
 		}
+		console.log(highestPeak());
 	}
-	console.log(highestPeak);
-}
-peakFinder([4,6,9,4,2,-7,2,-4,5]);
+	peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
 
 
@@ -134,11 +135,11 @@ Answer: looks good
 2) I created a nested for-loop and I think I got correct answer.
 Answer: looks good
 
-3) Let's discuss at group mtg. I think it's almost correct.
-Answer: Regex is very off. We can work on it together.
+3) Still cannot figure out the problem with RegEx. Is it because I did
+not include [A-Z, a-z]? We can discuss at group mtg.
 
-4) My code is not working correctly, I think there's something
-wrong with my if-statement. I am not getting an error, just an empty [].
-Answer: Your error is that you are adding or subtracting 1 to the element and not the index. Check your syntax
+4) I changed my code, but now it's just giving back [1]. We can work on it
+tomorrow at group mtg.
+
 
 */

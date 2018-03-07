@@ -99,6 +99,25 @@ isValidEmail("now.what@now.co");
 isValidEmail("my@website@gmail.com");
 isValidEmail("anthony!@ladson.com");
 
+
+
+
+function isValidEmail(email){
+	var x = email.match(/@/g);
+
+	if(x.length > 1){
+		return false;
+	}
+
+	var string = email.split("@");
+
+	if(/^[\.-]*[0-9a-zA-Z]+$/.test(string)){
+		return true;
+	}
+}
+isValidEmail("anthony!@ladson.com");
+
+
 /* peakFinder
 
 Write a function peakFinder(array) that takes in an array of numbers.
@@ -113,15 +132,24 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 
 	function peakFinder(array){
 		var highestPeak = [];
+//compare element at position 0 is larger than element at position 1, then use .push(i):	
+	if(array[0] > array[1]){
+		highestPeak.push(i);
+	}
 	//looping through the length of array:
-		for(var i = 0; i < array.length; i++){
+//start at index 1, next subtract -1 from array to get the element before the LAST element:
+		for(var i = 1; i < array.length - 1; i++){
 			// console.log(i);
-	//calculate highest peak between two elements using the index??
-			if(i + 1 === 0 || i - 1 === 0){
+//compare if element is larger than neighboring elements:
+			if(array[i] > array[i-1] && array[i] > array[i+1]){
 				highestPeak.push(i);
-			}
+			}	
 		}
-		console.log(highestPeak());
+//compare if element at last position of array is larger than neighboring element:
+		if(array[array.length - 1] > array[array.length - 2]){
+			highestPeak.push(array.length-1);
+		}
+		return highestPeak;
 	}
 	peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
@@ -135,11 +163,9 @@ Answer: looks good
 2) I created a nested for-loop and I think I got correct answer.
 Answer: looks good
 
-3) Still cannot figure out the problem with RegEx. Is it because I did
-not include [A-Z, a-z]? We can discuss at group mtg.
+3) ??
 
-4) I changed my code, but now it's just giving back [1]. We can work on it
-tomorrow at group mtg.
+4) Done
 
 
 */

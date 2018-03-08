@@ -79,7 +79,7 @@ var numbers = [ "1","2","3","4","5","6","7","8","9","0"];*/
 // isValidEmail("anthony@ira_ladson.com"); //--> false
 // isValidEmail("anthony!@ladson.com"); //--> false */
 
-
+//Potential solution, but only partially works:
 function isValidEmail(email){
 //looping through email string:
 	for(var i = 0; i < email.length; i++){
@@ -90,7 +90,7 @@ function isValidEmail(email){
 		else{
 			console.log("You have entered an invalid email address. Try again!");
 		}
-//Once condition is satisfied, break from forloop:
+//Once condition is satisfied, break from for-loop:
 		break;
 	}
 }
@@ -101,7 +101,7 @@ isValidEmail("anthony!@ladson.com");
 
 
 
-
+//Cannot solve using RegEx:
 function isValidEmail(email){
 	var x = email.match(/@/g);
 
@@ -109,9 +109,13 @@ function isValidEmail(email){
 		return false;
 	}
 
-	var string = email.split("@");
+	var newEmail = email.match(/^([\.-]+[0-9a-zA-Z])+$/g);
+	console.log(newEmail);
 
-	if(/^[\.-]*[0-9a-zA-Z]+$/.test(string)){
+	var newArr = email.split("@");
+	console.log(newArr);
+
+	if(/^([\.-]+[0-9a-zA-Z])+$/.match(newArr)){
 		return true;
 	}
 }
@@ -163,7 +167,7 @@ Answer: looks good
 2) I created a nested for-loop and I think I got correct answer.
 Answer: looks good
 
-3) ??
+3) I AM LOST!!! CANNOT use RegEx properly...WWWWAAAAHHHHH!!!!
 
 4) Done
 

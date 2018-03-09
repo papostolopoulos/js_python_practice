@@ -61,6 +61,7 @@ console.log(newSum);
 pairZero([0, 2, 5, -2, 0]);
 pairZero([1, 2, -1])
 
+
 /* isValidEmail:
 Write a function isValidEmail(email) that takes an email string. Return true if the email is considered valid. A valid email:
 Contains one and only one "@" symbol
@@ -100,25 +101,91 @@ isValidEmail("my@website@gmail.com");
 isValidEmail("anthony!@ladson.com");
 
 
+//Alternative Solution - worked as group problem solving:
+function isValidEmail(email) {
+  var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var alphanumeric = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","_","."];
+  var splitEmail = email.split("@");
+  var split1 = splitEmail[0];
+  var split2 = splitEmail[1];
 
-//Cannot solve using RegEx:
-function isValidEmail(email){
+
+  //Condition 1
 	var x = email.match(/@/g);
+	if(x.length > 1) {
+    console.log("condition 1");
+    return false;
+  }
 
-	if(x.length > 1){
-		return false;
-	}
+  //Condition 2
+  for (var i = 0; i < split1.length; i++) {
+    if (alphanumeric.indexOf(split1[i]) === -1) {
+      console.log("condition 2");
+      return false;
+    }
+  }
 
-	var newEmail = email.match(/^([\.-]+[0-9a-zA-Z])+$/g);
-	console.log(newEmail);
+  //Condition 3
+  if (split2.match(/\./g).length > 1){
+    console.log("condition 3");
+    return false;
+  }
 
-	var newArr = email.split("@");
-	console.log(newArr);
+  //Condition 4
+  if (/^[a-z]+\.[a-z]+$/.test(split2) === false) {
+    console.log("condition 4");
+    return false;
+  }
 
-	if(/^([\.-]+[0-9a-zA-Z])+$/.match(newArr)){
-		return true;
-	}
+
+	return true;
 }
+
+//Second solution with RegEx for each condition
+function isValidEmail(email) {
+  var splitEmail = email.split("@");
+  var split1 = splitEmail[0];
+  var split2 = splitEmail[1];
+
+
+  //Condition 1
+	var x = email.match(/@/g);
+	if(x.length > 1) {
+    console.log("condition 1");
+    return false;
+  }
+
+  //Condition 2
+  if (!/^[A-Za-z0-9\._,]+$/.test(split1)) {
+    console.log("condition 2");
+    return false
+  }
+
+  //Condition 3
+  if (split2.match(/\./g).length > 1){
+    console.log("condition 3");
+    return false;
+  }
+
+  //Condition 4
+  if (/^[a-z]+\.[a-z]+$/.test(split2) === false) {
+    console.log("condition 4");
+    return false;
+  }
+
+
+	return true;
+}
+
+//Third solution with everything in one line
+function isValidEmail(email) {
+  return /^[A-Za-z0-9\._,]+@[A-Za-z]+\.[A-Za-z]+$/.test(email);
+}
+
+
+isValidEmail("junk@gmail.com");
+isValidEmail("now.what@now.co");
+isValidEmail("my@website@gmail.com");
 isValidEmail("anthony!@ladson.com");
 
 
@@ -167,7 +234,7 @@ Answer: looks good
 2) I created a nested for-loop and I think I got correct answer.
 Answer: looks good
 
-3) I AM LOST!!! CANNOT use RegEx properly...WWWWAAAAHHHHH!!!!
+3) Use the group solution.
 
 4) Done
 

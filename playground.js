@@ -57,6 +57,7 @@ function isValidEmail(email) {
 	return true;
 }
 
+
 //Second solution with RegEx for each condition
 function isValidEmail(email) {
   var splitEmail = email.split("@");

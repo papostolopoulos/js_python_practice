@@ -57,7 +57,6 @@ function isValidEmail(email) {
 	return true;
 }
 
-
 isValidEmail("junk@gmail.com");
 isValidEmail("now.what@now.co");
 isValidEmail("my@website@gmail.com");

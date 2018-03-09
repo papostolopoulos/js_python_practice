@@ -57,6 +57,47 @@ function isValidEmail(email) {
 	return true;
 }
 
+//Second solution with RegEx for each condition
+function isValidEmail(email) {
+  var splitEmail = email.split("@");
+  var split1 = splitEmail[0];
+  var split2 = splitEmail[1];
+
+
+  //Condition 1
+	var x = email.match(/@/g);
+	if(x.length > 1) {
+    console.log("condition 1");
+    return false;
+  }
+
+  //Condition 2
+  if (!/^[A-Za-z0-9\._,]+$/.test(split1)) {
+    console.log("condition 2");
+    return false
+  }
+
+  //Condition 3
+  if (split2.match(/\./g).length > 1){
+    console.log("condition 3");
+    return false;
+  }
+
+  //Condition 4
+  if (/^[a-z]+\.[a-z]+$/.test(split2) === false) {
+    console.log("condition 4");
+    return false;
+  }
+
+
+	return true;
+}
+
+//Third solution with everything in one line
+function isValidEmail(email) {
+  return /^[A-Za-z0-9\._,]+@[A-Za-z]+\.[A-Za-z]+$/.test(email);
+}
+
 
 isValidEmail("junk@gmail.com");
 isValidEmail("now.what@now.co");

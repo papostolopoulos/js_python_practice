@@ -103,3 +103,27 @@ function magicNumbers(max) {
   }
   return maxNum;
 }
+
+/*Feedback for Mohammed
+1) royalWe - You do not need the "else" because it does not do anything
+The if statements need improvement. For example, royalWe("This is mine...") does
+not change "mine" to "ours" because you try to find and identical match with the
+comparison operator (===). What method can you use to see if the element "contains"
+the word you try to change? How can you change it after that?
+
+2) elementCount - You have created an empty object (var obj = {}). I will type
+a description for you so you can try to figure it out.
+question 1: if you have an empty object and you type obj.a, what is the value you get?
+question 2: how can you add a new property in an object and give it a value?
+question 3: Why are you naming in the forEach method the parameters (properties, values)?
+Do you know what they represent?
+
+3) reverseRange - There is no range() in JavaScript but some libraries have it. Your function
+is 90% correct because you define var i = start and therefore the start number is
+included while it should not.
+Alternative solution:
+for (var i = end - 1; i > start; i--) {range.push(i)}
+Alternative solution 2:
+for (var i = start + 1; i < end; i++) {range.unshift(i)}
+
+*/

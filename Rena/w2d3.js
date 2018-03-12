@@ -14,7 +14,8 @@ First write a function containsPunctuation(word) that takes in a single word
 and returns true if the word contains a punctuation mark.
 Feel free to use the punctuation array we've given you below.
 
-Second, write a function isStopWord(word, stopWords) that takes in a single word and returns true if it is a stop word. The check will vary depending on if the word contains punctuation or not. Using Array.prototype.indexOf will not work in all cases. See the third example.
+Second, write a function isStopWord(word, stopWords) that takes in a single word and returns true if it is a stop word.
+The check will vary depending on if the word contains punctuation or not. Using Array.prototype.indexOf will not work in all cases. See the third example.
 
 Third, write the titleize function, using the functions you wrote before.
 
@@ -42,6 +43,57 @@ var punctuation = [";", "!", ".", "?", ",", "-"];
 
 
 
+function titleize(title, stopWords){
+    var punctuation = [";", "!", ".", "?", ",", "-"];
+//create new variable and use .split(" ") method to turn string into array.
+    var wordArr = title.split(" ");
+    var newArray = [];
+
+    for(var i = 0; i < wordArr.length; i++){
+        // console.log(i);
+        // console.log(wordArr[i].toLowerCase());
+        var lowerCaseWord = wordArr[i].toLowerCase();
+
+        if(punctuation.indexOf(wordArr, stopWords)) {// Got lost here....
+        newArray.push(wordArr); //Something is missing?
+        // console.log(newArray);
+    }
+}
+titleize("Shall we dance?", ["dance"]);
+
+
+
+function containsPunctuation(word){
+    var punctuation = [";", "!", ".", "?", ",", "-"];
+//create new variable and assign it the last character in sentence.
+    var newWord = word[word.length - 1];
+    // console.log(newWord);
+//use .indexOf method to compare punctuation array against last character in sentence.
+    if(punctuation.indexOf(newWord) !== -1){
+        return true;
+    }
+    return false;
+}
+containsPunctuation("Shall we dance?");
+containsPunctuation("When are you going on vacation?");
+containsPunctuation("I went out to buy milk");
+
+
+
+function isStopWord(word, stopWords){
+    var punctuation = [";", "!", ".", "?", ",", "-"];
+//Use .split() method to turn string into array.
+    singleWord = word.split(" ");
+    // console.log(singleWord);
+    
+    for(var i = 0; i < singleWord.length; i++){
+    //    console.log(singleWord[i]);
+        // if()
+    }
+
+
+}
+isStopWord("forest gump, the runner", ["the"]);
 
 
 
@@ -88,3 +140,17 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 Write a function deepIndexOf(array, val) that takes a 2-dimensional array and val as its parameters.
 It returns an array containing the pairs of indices that represents the location of val in array.
 If the element does not exist, return [ [-1, -1] ]. */
+
+
+
+
+
+/* NOTES:
+1) For titleized() requirement: I tried to revise my code in various ways and it still produces the same array 3 times. Not sure
+if I am on the right path?
+
+2) For 
+
+
+
+*/

@@ -85,7 +85,7 @@ function isStopWord(word, stopWords){
 //Use .split() method to turn string into array.
     singleWord = word.split(" ");
     // console.log(singleWord);
-    
+
     for(var i = 0; i < singleWord.length; i++){
     //    console.log(singleWord[i]);
         // if()
@@ -146,10 +146,16 @@ If the element does not exist, return [ [-1, -1] ]. */
 
 
 /* NOTES:
+1) containsPunctuation takes only one parameter which is one word, not a full senctence
+2) isStopWord takes two parameters, a word and an array of stop words. You need to
+compare the word against the stop stopWords
+3) in titleize() you need to invoke both containsPunctuation and isStopWord and
+eventually titleize your sentence.
+
 1) For titleized() requirement: I tried to revise my code in various ways and it still produces the same array 3 times. Not sure
 if I am on the right path?
 
-2) For 
+2) For
 
 
 

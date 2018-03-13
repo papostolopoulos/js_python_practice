@@ -103,16 +103,15 @@ titleize("Shall we dance?", ["dance"]);
 
 
 /*arraySumN
-<<<<<<< HEAD
+
 1) Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
 and as n a number. ary is an array of arrays of numbers. 
 2) The function returns the indices of the inner arrays whose elements sum to n.
-=======
+
 Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
 and as n a number. ary is an array of arrays of numbers.
 The function returns
 the indices of the inner arrays whose elements sum to n.
->>>>>>> b5b8ec30ee0ed6964c8b6b83e330692494030e46
 Example 1:
 var ary1 = [ [0, 1], [2, 2, 0], [3, -2] ];
 var results1 = arraySumN(ary1, 1);
@@ -128,16 +127,10 @@ var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
 
 function arraySumN(ary, n){
     for(var i = 0; i < ary.length; i++){
-<<<<<<< HEAD
         console.log(ary[i]); 
     } // code works fine up until here!
 
-//.reduce() applies a function against an accumulator and each element in the 
-=======
-        // console.log(ary[i]);
-    }
 //.reduce() applies a function against an accumulator and each element in the
->>>>>>> b5b8ec30ee0ed6964c8b6b83e330692494030e46
 //array (from left to right) to reduce it to a single value.
     if(ary.reduce(add, 0)) {
         function add(a, b){
@@ -150,10 +143,12 @@ function arraySumN(ary, n){
 arraySumN(ary, 1);
 
 /*concatObjects
-Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
-It returns an object containing all of the keys found in both obj1 and
-obj2. If a key appears in both obj1 and obj2, its value is the concatenation
-of its values in obj1 and obj2. Otherwise, a key's value is its value
+1) Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
+2) It returns an object containing all of the keys found in both obj1 and
+obj2. 
+3) If a key appears in both obj1 and obj2, its value is the concatenation
+of its values in obj1 and obj2. 
+4) Otherwise, a key's value is its value
 in the original object. Do not modify the arguments.
 
 Example 1:
@@ -198,25 +193,28 @@ concatObjects();
 2) It returns an array containing the pairs of indices that represents the location of val in array.
 3) If the element does not exist, return [ [-1, -1] ]. */
 
-function deepIndexOf(array, val){
+function deepIndexOf(array, val){ // TOTALLY LOST!!
 
 }
 deepIndexOf();
 
 
-/* NOTES:
+/* 
+NOTES: from Rena:
+I have tried to re-work some of the requirements.  I think it would be
+wise to try and go over breaking down the problems at our next session!  I have tried to break it down line by line,
+but it's still a challenge.  I will try to work on the code again tomorrow morning before our noon meeting; 
+my code is just not making sense.  I am lost at the last exercise - which 2 dimensional array am I suppose to use,
+or do I supply my own?
+
+
+
+NOTES:
 1) containsPunctuation takes only one parameter which is one word, not a full senctence
 2) isStopWord takes two parameters, a word and an array of stop words. You need to
 compare the word against the stop stopWords
 3) in titleize() you need to invoke both containsPunctuation and isStopWord and
 eventually titleize your sentence.
-
-NOTES: from Rena:
-I have tried to work on all the requirements; however, my code only partially works.  I think it would be
-wise to try and go over breaking down the problems at our next session!  I have tried to break it down line by line,
-but it's still a challenge.
-
-
 4) isStopWord: your if statement is comparing a string to an array. This is going to always
 result into "false".
 5) arraySumN: The .reduce method you are trying to use is incorrectly used.

@@ -103,10 +103,9 @@ titleize("Shall we dance?", ["dance"]);
 
 
 /*arraySumN
-Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
+1) Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
 and as n a number. ary is an array of arrays of numbers. 
-The function returns
-the indices of the inner arrays whose elements sum to n.
+2) The function returns the indices of the inner arrays whose elements sum to n.
 Example 1:
 var ary1 = [ [0, 1], [2, 2, 0], [3, -2] ];
 var results1 = arraySumN(ary1, 1);
@@ -122,13 +121,14 @@ var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
 
 function arraySumN(ary, n){
     for(var i = 0; i < ary.length; i++){
-        // console.log(ary[i]);
-    }
+        console.log(ary[i]); 
+    } // code works fine up until here!
+
 //.reduce() applies a function against an accumulator and each element in the 
 //array (from left to right) to reduce it to a single value.
-    if(ary.reduce(add, 0)){ // something is wrong here!
+    if(ary.reduce(add, 0)) {
         function add(a, b){
-        var sum = a + b;
+         var sum = a + b;
         // console.log(sum);
         return sum;
         }
@@ -156,28 +156,34 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 */
 
 
+//First optional answer - using .assign(): Still only returns partial answer.
 function concatObjects(obj1, obj2){
     var cat1 = {name: "hello", bow: "pink"};
     var cat2 = {name: "kitty", color: "white"};
 
-    var cat1Arr = Array.from(cat1);
-    console.log(cat1Arr);
-
-    var cat2Arr = Array.from(cat2);
-    console.log(cat2Arr);
-
-    var merge = cat1.concat(cat2);
-    console.log(merge);
+    var conCat = Object.assign({}, cat1, cat2);
+    console.log(conCat);
 }
+concatObjects();
 
-concatObjects(cat1, cat2);
+
+
+//Second optional answer - tried to use spread operator, but again, only returns partial answer.
+function concatObjects(obj1, obj2){
+    var cat1 = {name: "hello", bow: "pink"};
+    var cat2 = {name: "kitty", color: "white"};
+// Using (...) spread operator:
+    var summary = {...cat1, ...cat2};
+    console.log(summary);
+}
+concatObjects();
 
 
 /* deepIndexOf
 
-Write a function deepIndexOf(array, val) that takes a 2-dimensional array and val as its parameters.
-It returns an array containing the pairs of indices that represents the location of val in array.
-If the element does not exist, return [ [-1, -1] ]. */
+1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array and val as its parameters.
+2) It returns an array containing the pairs of indices that represents the location of val in array.
+3) If the element does not exist, return [ [-1, -1] ]. */
 
 function deepIndexOf(array, val){
 
@@ -191,6 +197,11 @@ deepIndexOf();
 compare the word against the stop stopWords
 3) in titleize() you need to invoke both containsPunctuation and isStopWord and
 eventually titleize your sentence.
+
+NOTES: from Rena:
+I have tried to work on all the requirements; however, my code only partially works.  I think it would be
+wise to try and go over breaking down the problems at our next session!  I have tried to break it down line by line,
+but it's still a challenge.
 
 
 */

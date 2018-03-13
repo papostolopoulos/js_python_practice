@@ -16,7 +16,7 @@ Feel free to use the punctuation array we've given you below.
 
 Second, write a function isStopWord(word, stopWords) that takes
  in a single word and returns true if it is a stop word.
-The check will vary depending on if the word contains punctuation or not. 
+The check will vary depending on if the word contains punctuation or not.
 Using Array.prototype.indexOf will not work in all cases. See the third example.
 
 Third, write the titleize function, using the functions you wrote before.
@@ -103,9 +103,16 @@ titleize("Shall we dance?", ["dance"]);
 
 
 /*arraySumN
+<<<<<<< HEAD
 1) Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
 and as n a number. ary is an array of arrays of numbers. 
 2) The function returns the indices of the inner arrays whose elements sum to n.
+=======
+Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
+and as n a number. ary is an array of arrays of numbers.
+The function returns
+the indices of the inner arrays whose elements sum to n.
+>>>>>>> b5b8ec30ee0ed6964c8b6b83e330692494030e46
 Example 1:
 var ary1 = [ [0, 1], [2, 2, 0], [3, -2] ];
 var results1 = arraySumN(ary1, 1);
@@ -121,10 +128,16 @@ var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
 
 function arraySumN(ary, n){
     for(var i = 0; i < ary.length; i++){
+<<<<<<< HEAD
         console.log(ary[i]); 
     } // code works fine up until here!
 
 //.reduce() applies a function against an accumulator and each element in the 
+=======
+        // console.log(ary[i]);
+    }
+//.reduce() applies a function against an accumulator and each element in the
+>>>>>>> b5b8ec30ee0ed6964c8b6b83e330692494030e46
 //array (from left to right) to reduce it to a single value.
     if(ary.reduce(add, 0)) {
         function add(a, b){
@@ -202,6 +215,21 @@ NOTES: from Rena:
 I have tried to work on all the requirements; however, my code only partially works.  I think it would be
 wise to try and go over breaking down the problems at our next session!  I have tried to break it down line by line,
 but it's still a challenge.
+
+
+4) isStopWord: your if statement is comparing a string to an array. This is going to always
+result into "false".
+5) arraySumN: The .reduce method you are trying to use is incorrectly used.
+I suggest you try to use .reduce separately and try to understand its functionality.
+Secondly, the problem is asking you for the sums of the elements for each one of the
+arrays and its comparison to the n number. So if you have an array [[1, 3], [2, 5], [2, 2]]
+You need to do [[1 + 3], [2 + 5], [2 + 2]]. If the sum of each one of the arrays is equal to n,
+then you need to push the indice in the final array.
+6) concatObjects: Not sure why you are defining a couple of variable objects
+(cat1, cat2) inside the function.
+This is not necessary since the function takes the objects as parameters.
+Also not sure why you are creating Arrays from the objects (Array.from).
+You are expected to return an object and not an array. 
 
 
 */

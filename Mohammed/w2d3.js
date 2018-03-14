@@ -88,3 +88,20 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 Write a function deepIndexOf(array, val) that takes a 2-dimensional array and val as its parameters.
 It returns an array containing the pairs of indices that represents the location of val in array.
 If the element does not exist, return [ [-1, -1] ]. */
+
+
+//Examples:
+var ary = [
+  [0, 2, 4],
+  [1, 3, 9],
+];
+
+deepIndexOf(ary, 3); // => [ [1, 1] ]
+
+var ary2 = [
+  ["a", "b", "c"],
+  [5, 0, 5, 0],
+  [0, 1, 2]
+];
+
+deepIndexOf(ary2, 0); // => [ [1, 1], [1, 3], [2, 0] ]

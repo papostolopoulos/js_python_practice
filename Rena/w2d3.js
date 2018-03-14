@@ -105,7 +105,7 @@ titleize("Shall we dance?", ["dance"]);
 /*arraySumN
 
 1) Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
-and as n a number. ary is an array of arrays of numbers. 
+and as n a number. ary is an array of arrays of numbers.
 2) The function returns the indices of the inner arrays whose elements sum to n.
 
 Example 1:
@@ -127,7 +127,7 @@ function arraySumN(ary, n){
 //.reduce() applies a function against an accumulator and each element in the
 //array (from left to right) to reduce it to a single value.
         var result = ary.reduce(add, 0);
-        console.log(result);    
+        console.log(result);
 }
 arraySumN();
 
@@ -148,9 +148,9 @@ arraySumN();
 /*concatObjects
 1) Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
 2) It returns an object containing all of the keys found in both obj1 and
-obj2. 
+obj2.
 3) If a key appears in both obj1 and obj2, its value is the concatenation
-of its values in obj1 and obj2. 
+of its values in obj1 and obj2.
 4) Otherwise, a key's value is its value
 in the original object. Do not modify the arguments.
 
@@ -170,7 +170,7 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 //First optional answer - using .assign(): Cannot be used due to the fact
 //the first argument is mutated and later properties overwrite earlier properties.
 /** There's no limit to the number of objects you can merge.
- *  All objects get merged into the first object. 
+ *  All objects get merged into the first object.
  *  Only the object in the first argument is mutated and returned.
  *  Later properties overwrite earlier properties with the same name. */
 // function concatObjects(obj1, obj2){
@@ -185,7 +185,7 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 
 
 
-//Second attempt - tried to use spread operator, but in the case of a 
+//Second attempt - tried to use spread operator, but in the case of a
 //key collision, the right-most (last) object's value wins out:
 // function concatObjects(obj1, obj2){
 //     var cat1 = {name: "hello", bow: "pink"};
@@ -212,11 +212,11 @@ concatObjects();
 
 /* deepIndexOf
 
-1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array 
+1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array
 and val as its parameters.
-2) It returns an array containing the pairs of indices that represents 
+2) It returns an array containing the pairs of indices that represents
 the location of val in array.
-3) If the element does not exist, return [ [-1, -1] ]. 
+3) If the element does not exist, return [ [-1, -1] ].
 
 Examples:
 var ary = [
@@ -255,26 +255,46 @@ var ary2 = [
 deepIndexOf();
 
 
-/* 
+/*
 NOTES: from Rena:
-1) For the concatObjects() method, the first two alternative options will 
-not work; I put the explanation up in the code block (scroll up).  It was a good learning 
-experience to figure out WHY it will NOT work.  I think my 3rd potential answer works better. 
+1) For the concatObjects() method, the first two alternative options will
+not work; I put the explanation up in the code block (scroll up).  It was a good learning
+experience to figure out WHY it will NOT work.  I think my 3rd potential answer works better.
+Answer: Okay now you need to see how you can concatenate each value under one key and in a new object.
 
 2) For function arraySumN(ary, n), I rewrote my code and it returns a sum of numbers; but
 I don't think it's correct. I tried to nest another function within a function.
+Answer: the .reduce method will not work because you do not have an array of numbers
+but you have an array with arrays as elements.
+My previous comment reads:
+arraySumN: The .reduce method you are trying to use is incorrectly used.
+I suggest you try to use .reduce separately and try to understand its functionality.
+Secondly, the problem is asking you for the sums of the elements for each one of the
+arrays and its comparison to the n number. So if you have an array [[1, 3], [2, 5], [2, 2]]
+You need to do [[1 + 3], [2 + 5], [2 + 2]]. If the sum of each one of the arrays is equal to n,
+then you need to push the indice in the final array.
 
 
 3) For function deepIndexOf(array, val) exercise, I tried to use .indexOf() method. I think
 I am using correct method, but HOW I am applying it is incorrect?  Can
-you explain what I am missing? 
+you explain what I am missing?
+Answer: you have syntactical errors and type errors.
+You need to remember that you have an array inside an array. For example:
+ary2[1] = [5, 0, 5, 0]
+Therefore ary2.indexOf(ary2[i], 0); is just going to give you a position for [5, 0, 5, 0]
+
 
 4) You will find some other notes (commented out) where I tried to use alternative
 methods, but they were not appropriate to use.  In another case, I have used alternative
 methods (theser are NOT commented out) where I wanted to experiment and see if I
 could solve the problem in a different way - but was only halfway successful to date.
+Answer: OK
 
 5) I still do not understand how to solve titleized() section. Would like to review at group mtg.
+Your isStopWord function is half way through correct. Read my previous comment:
+isStopWord: your if statement (line 74) is comparing a string to an array.
+This is going to always result into "false".
+You need to see if the string is included in the array and not if (string === array)
 
 
 
@@ -296,7 +316,7 @@ then you need to push the indice in the final array.
 (cat1, cat2) inside the function.
 This is not necessary since the function takes the objects as parameters.
 Also not sure why you are creating Arrays from the objects (Array.from).
-You are expected to return an object and not an array. 
+You are expected to return an object and not an array.
 
 
 */

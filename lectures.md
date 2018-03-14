@@ -1,3 +1,15 @@
+###Tuesday March 13th
+* Object properties and methods
+* Object invocation (dot and bracket)
+* Literals vs the new keyword
+* Operator precedence (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+* Functions are Objects
+* Function statements and function expressions
+* Constructors
+
+
+
+
 ###Tuesday February 27th
 * The Execution context (creation phase and execution phase)
 * Creation phase (Global Execution Context)
@@ -5,7 +17,7 @@
   * Global Object
   * This // It's a  reserved word, a variable that points at window object. Whenever we creating a new object, then 'this' is referring to a particular object.
 =======
-  * Global Object 
+  * Global Object
   * this
   * Outer environment
   * Code we have written

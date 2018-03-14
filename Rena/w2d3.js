@@ -164,27 +164,49 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 */
 
 
-//First optional answer - using .assign(): Still only returns partial answer.
+//First optional answer - using .assign(): Cannot be used due to the fact
+//the first argument is mutated and later properties overwrite earlier properties.
+/** There's no limit to the number of objects you can merge.
+ *  All objects get merged into the first object. 
+ *  Only the object in the first argument is mutated and returned.
+ *  Later properties overwrite earlier properties with the same name. */
+// function concatObjects(obj1, obj2){
+
+//     var cat1 = {name: "hello", bow: "pink"};
+//     var cat2 = {name: "kitty", color: "white"};
+
+//     var conCat = Object.assign({}, cat1, cat2);
+//     console.log(conCat);
+// }
+// concatObjects();
+
+
+
+//Second attempt - tried to use spread operator, but in the case of a 
+//key collision, the right-most (last) object's value wins out:
+// function concatObjects(obj1, obj2){
+//     var cat1 = {name: "hello", bow: "pink"};
+//     var cat2 = {name: "kitty", color: "white"};
+// // Using (...) spread operator:
+//     var summary = {...cat1, ...cat2};
+//     console.log(summary);
+// }
+// concatObjects();
+
+
+
+//Third optional answer:  This works!
 function concatObjects(obj1, obj2){
     var cat1 = {name: "hello", bow: "pink"};
     var cat2 = {name: "kitty", color: "white"};
 
-    var conCat = Object.assign({}, cat1, cat2);
-    console.log(conCat);
+    var finalConCat = cat1.name + cat2.name + " " + cat1.bow + " " + cat2.color;
+    console.log(finalConCat);
+
 }
 concatObjects();
 
 
-
-//Second optional answer - tried to use spread operator, but again, only returns partial answer.
-function concatObjects(obj1, obj2){
-    var cat1 = {name: "hello", bow: "pink"};
-    var cat2 = {name: "kitty", color: "white"};
-// Using (...) spread operator:
-    var summary = {...cat1, ...cat2};
-    console.log(summary);
-}
-concatObjects();
 
 
 /* deepIndexOf
@@ -201,12 +223,11 @@ deepIndexOf();
 
 /* 
 NOTES: from Rena:
-I have tried to re-work some of the requirements.  I think it would be
-wise to try and go over breaking down the problems at our next session!  I have tried to break it down line by line,
-but it's still a challenge.  I will try to work on the code again tomorrow morning before our noon meeting; 
-my code is just not making sense.  I am lost at the last exercise - which 2 dimensional array am I suppose to use,
-or do I supply my own?
+1) For the concatObjects() method, the first two alternative options will 
+not work; I put the explanation up in the code block (scroll up).  It was a good learning 
+experience to figure out WHY it will NOT work.  I think my 3rd potential answer works better. 
 
+2) Will try to work on rest before Thursday's mtg.
 
 
 NOTES:

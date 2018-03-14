@@ -108,10 +108,6 @@ titleize("Shall we dance?", ["dance"]);
 and as n a number. ary is an array of arrays of numbers. 
 2) The function returns the indices of the inner arrays whose elements sum to n.
 
-Write a function arraySumN(ary, n) which takes as ary a 2-dimensional array
-and as n a number. ary is an array of arrays of numbers.
-The function returns
-the indices of the inner arrays whose elements sum to n.
 Example 1:
 var ary1 = [ [0, 1], [2, 2, 0], [3, -2] ];
 var results1 = arraySumN(ary1, 1);
@@ -121,26 +117,33 @@ var ary2 = [ [3, 2, 1], [100], [0, 1, 2, 3, 100], [6] ];
 arraySumN(ary2, 6); // => [0, 3]
 */
 
-
-//new array variable is located in global scope:
-var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
-
+//First potential optional answer:
 function arraySumN(ary, n){
-    for(var i = 0; i < ary.length; i++){
-        console.log(ary[i]); 
-    } // code works fine up until here!
+    var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
 
+        function add(a, b){
+            return a + b;
+        }
 //.reduce() applies a function against an accumulator and each element in the
 //array (from left to right) to reduce it to a single value.
-    if(ary.reduce(add, 0)) {
-        function add(a, b){
-         var sum = a + b;
-        // console.log(sum);
-        return sum;
-        }
-    }
+        var result = ary.reduce(add, 0);
+        console.log(result);    
 }
-arraySumN(ary, 1);
+arraySumN();
+
+
+//Second potential optional answer:
+//Tried to incorporate .map() method, but I think it's done
+//incorrectly or perhaps .map() method cannot be used?
+function arraySumN(ary, n){
+    var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
+
+    for(var i = 0; i < ary.length; i++){
+        var sum = ary.map(ary[i]);
+    }
+    console.log(sum);
+}
+arraySumN();
 
 /*concatObjects
 1) Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
@@ -207,16 +210,47 @@ function concatObjects(obj1, obj2){
 concatObjects();
 
 
-
-
 /* deepIndexOf
 
-1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array and val as its parameters.
-2) It returns an array containing the pairs of indices that represents the location of val in array.
-3) If the element does not exist, return [ [-1, -1] ]. */
+1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array 
+and val as its parameters.
+2) It returns an array containing the pairs of indices that represents 
+the location of val in array.
+3) If the element does not exist, return [ [-1, -1] ]. 
 
-function deepIndexOf(array, val){ // TOTALLY LOST!!
+Examples:
+var ary = [
+  [0, 2, 4],
+  [1, 3, 9],
+];
 
+deepIndexOf(ary, 3); // => [ [1, 1] ]
+
+var ary2 = [
+  ["a", "b", "c"],
+  [5, 0, 5, 0],
+  [0, 1, 2]
+];
+
+deepIndexOf(ary2, 0); // => [ [1, 1], [1, 3], [2, 0] ]
+
+
+*/
+
+function deepIndexOf(array, val){
+
+var ary2 = [
+  ["a", "b", "c"],
+  [5, 0, 5, 0],
+  [0, 1, 2]
+];
+
+//looping through the array:
+    for(var i = 0; i < ary2.length; i++){
+        console.log(ary2[i]);
+        var sum = arry2.indexOf(ary2[i], 0);
+    }
+    console.log(sum);
 }
 deepIndexOf();
 
@@ -227,7 +261,21 @@ NOTES: from Rena:
 not work; I put the explanation up in the code block (scroll up).  It was a good learning 
 experience to figure out WHY it will NOT work.  I think my 3rd potential answer works better. 
 
-2) Will try to work on rest before Thursday's mtg.
+2) For function arraySumN(ary, n), I rewrote my code and it returns a sum of numbers; but
+I don't think it's correct. I tried to nest another function within a function.
+
+
+3) For function deepIndexOf(array, val) exercise, I tried to use .indexOf() method. I think
+I am using correct method, but HOW I am applying it is incorrect?  Can
+you explain what I am missing? 
+
+4) You will find some other notes (commented out) where I tried to use alternative
+methods, but they were not appropriate to use.  In another case, I have used alternative
+methods (theser are NOT commented out) where I wanted to experiment and see if I
+could solve the problem in a different way - but was only halfway successful to date.
+
+5) I still do not understand how to solve titleized() section. Would like to review at group mtg.
+
 
 
 NOTES:

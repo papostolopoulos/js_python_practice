@@ -8,6 +8,9 @@
 * Constructors
 
 
+1. arraySumN
+2. titleize
+
 
 
 ###Tuesday February 27th

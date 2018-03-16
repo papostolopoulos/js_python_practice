@@ -1,3 +1,22 @@
+function sayHi(name){
+    return "hello " + name;
+}
+
+function Person(name, address) {
+  this.name = name;
+  this.address = address;
+  this.whereDoYouLive = function () {
+    return "My address is " + this.address;
+  }
+}
+
+var paris = new Person("Paris", "999 Market Av");
+
+Person.prototype.sayHello = function(){
+  return "Hello, I am " + this.name;
+}
+
+
 /*titleize
 
 Write a function titleize(title, stopWords) that takes in a string title and and array of strings stopWords.

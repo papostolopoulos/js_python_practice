@@ -201,7 +201,7 @@ function Person(name, address) {
     return "Hello, I'm " + this.name;
   };
 }
-
+console.log(name);
 
 var mo = new Person("Mohammed", "999 Second Av");
 var rena = new Person("Rena", "111 Main St");

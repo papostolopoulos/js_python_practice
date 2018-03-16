@@ -55,51 +55,66 @@ function containsPunctuation(word){
     return false;
 }
 containsPunctuation("Bagels?");
-containsPunctuation("flowers.");
+containsPunctuation("flowers");
 
 
 
 function isStopWord(word, stopWords){
 //create new variable and assign empty string.
     var compareWord = "";
-//invoke the containsPunctuation function here:
+//invoke the containsPunctuation function here, if "true", then..:
     if (containsPunctuation(word)) {
-        compareWord = word.slice(0, word.length - 2)
+//.slice(0, word.length - 1), start at 0 index and subtract 1 from
+// length of word.
+        compareWord = word.slice(0, word.length - 1);
     }
     else {
         compareWord = word
     }
-    console.log(compareWord);
-
-    if(compareWord === stopWords){
+//use .indexOf() method to find the index of each character:
+    if(stopWords.indexOf(compareWord) !== -1){
         return true;
     }
     else{
         return false;
     }
 }
-isStopWord("LOVE;", ["V"]);
+isStopWord("love;", ["love", "the"]);
+isStopWord("hate", ["love", "the"]);
 
 
+function titleize(title, stopWords) {
+//create new variable equal to empty array.
+  var endTitle = [];
+//create new variable that takes a string and puts everything to lowercase.
+//Once every word is lowercase, then split the string so that it's an array.
+  var titleArr = title.toLowerCase().split(" ");
+  console.log(titleArr);
 
+//loop through the string length:
+  for (var i = 0; i < titleArr.length; i++) {
+    console.log("titleArr[i] is " + titleArr[i]);
+    console.log("isStopWord(titleArr[i], stopWords) is " + isStopWord(titleArr[i], stopWords) + " so I am about to get in the if statement");
 
-function titleize(title, stopWords){
-    var punctuation = [";", "!", ".", "?", ",", "-"];
-//create new variable and use .split(" ") method to turn string into array.
-    var wordArr = title.split(" ");
-    var newArray = [];
-
-    for(var i = 0; i < wordArr.length; i++){
-        // console.log(i);
-        // console.log(wordArr[i].toLowerCase());
-        var lowerCaseWord = wordArr[i].toLowerCase();
-
-        if(punctuation.indexOf(wordArr, stopWords)) {// Got lost here....
-        newArray.push(wordArr); //Something is missing?
-        // console.log(newArray);
+//invoking the isStopWord function here...if true, then compare every word against stopWords.
+    if (isStopWord(titleArr[i], stopWords)) {
+//next use .push() to push the word into empty array.
+      endTitle.push(titleArr[i]);
     }
+    else {
+      // endTitle.push(titleArr[i][0].toUpperCase() + titleArr[i].slice(1));
+      endTitle.push(titleArr[i][0].toUpperCase() + titleArr[i].substring(1));
+    }
+    console.log("--------------------------");
+
+  }
+  return endTitle.join(" ");
 }
-titleize("Shall we dance?", ["dance"]);
+
+titleize("forest gump, the runner", ["the"]); //"Forest Gump, the Runner"
+// titleize("MASTER AND COMMANDER", ["and"]); //"Master and Commander"
+// titleize("i LOVE; lover of mine", ["love", "of"]); //"I love; Lover of Mine"
+// titleize("shall we dance?", ["dance"]); //"Shall We dance?"
 
 
 /*arraySumN
@@ -117,6 +132,7 @@ var ary2 = [ [3, 2, 1], [100], [0, 1, 2, 3, 100], [6] ];
 arraySumN(ary2, 6); // => [0, 3]
 */
 
+
 //First potential optional answer:
 function arraySumN(ary, n){
     var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
@@ -132,18 +148,34 @@ function arraySumN(ary, n){
 arraySumN();
 
 
-//Second potential optional answer:
-//Tried to incorporate .map() method, but I think it's done
-//incorrectly or perhaps .map() method cannot be used?
-function arraySumN(ary, n){
-    var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
-
-    for(var i = 0; i < ary.length; i++){
-        var sum = ary.map(ary[i]);
+//This answer works!
+function arraySumN(ary, n) {
+//create new variable with empty array:
+  var endArr = [];
+//looping through the array length:
+  for (var i = 0; i < ary.length; i++) {
+//create new variable equal to array element.
+    var el = ary[i]
+//create new variable sum equal to 0.
+    var sum = 0;
+    console.log("I just defined sum and the value is: " + sum);
+//looping through array element length:
+    for (var j = 0; j < el.length; j++) {
+      sum += el[j];
+      console.log("I just added to sum the value of " + el[j] + "and therefore sum is: " + sum);
     }
-    console.log(sum);
+
+    if (sum === n) {
+      console.log("I got in the if statement because sum is " + sum + " and n is " + n);
+      endArr.push(i);
+    }
+
+  }
+  return endArr;
 }
-arraySumN();
+
+arraySumN([[0, 1], [2, 2, 0], [3, -2]], 1);
+
 
 /*concatObjects
 1) Write a function concatObjects(obj1, obj2) which "concatenates" two objects.

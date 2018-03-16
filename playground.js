@@ -1,3 +1,117 @@
+/* deepIndexOf
+1) Write a function deepIndexOf(array, val) that takes a 2-dimensional array
+and val as its parameters.
+2) It returns an array containing the pairs of indices that represent
+the location of val in array.
+3) If the element does not exist, return [ [-1, -1] ].
+
+Examples:
+var ary = [
+  [0, 2, 4],
+  [1, 3, 9],
+];
+
+deepIndexOf(ary, 3); // => [ [1, 1] ]
+
+var ary2 = [
+  ["a", "b", "c"],
+  [5, 0, 5, 0],
+  [0, 1, 2]
+];
+
+deepIndexOf(ary2, 0); // => [ [1, 1], [1, 3], [2, 0] ]
+*/
+
+function deepIndexOf(array, val) {
+  var endArr = [];
+
+
+  for (var i = 0; i < array.length; i++) {
+    console.log("array[i] is: " + array[i]);
+
+    for (var j = 0; j < array[i].length; j++) {
+
+      if (array[i][j] === val) {
+        endArr.push([i, j])
+      }
+
+    }
+
+  }
+
+  return endArr;
+}
+
+
+var ary = [[0, 2, 4],[1, 3, 9]];
+var ary2 = [["a", "b", "c"],[5, 0, 5, 0],[0, 1, 2]];
+deepIndexOf(ary, 3); // => [ [1, 1] ]
+deepIndexOf(ary2, 0); // => [ [1, 1], [1, 3], [2, 0] ]
+
+
+/*concatObjects
+1) Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
+2) It returns an object containing all of the keys found in both obj1 and
+obj2.
+3) If a key appears in both obj1 and obj2, its value is the concatenation
+of its values in obj1 and obj2.
+4) Otherwise, a key's value is its value
+in the original object. Do not modify the arguments.
+
+Example 1:
+var cat1 = {name: "hello", bow: "pink"};
+var cat2 = {name: "kitty", color: "white"};
+var cat3 = concatObjects(cat1, cat2);
+cat3; // => { name: "hellokitty", bow: "pink", color: "white"}
+
+Example 2:
+var splash = { pointGuard: "Steph", shootingGuard: "Klay", team: "Warriors"};
+var brothers = { pointGuard: "Curry", shootingGuard: "Thompson"};
+concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard: "KlayThompson", team: "Warriors"}
+*/
+
+
+//First optional answer - using .assign(): Cannot be used due to the fact
+//the first argument is mutated and later properties overwrite earlier properties.
+/** There's no limit to the number of objects you can merge.
+ *  All objects get merged into the first object.
+ *  Only the object in the first argument is mutated and returned.
+ *  Later properties overwrite earlier properties with the same name. */
+
+
+function concatObjects(obj1, obj2){
+  var endObj = Object.assign({}, obj1);
+  console.log("The endObj has keys: " + Object.keys(endObj) + " and values: " + Object.values(endObj));
+
+
+  for (var key in obj2){
+    console.log("The key that is being checked is: " + key);
+    if (endObj[key] === undefined) {
+      // If the property's value is undefined (meaning that the property does not
+    // exist in the object) then create a new property with a value from obj2
+      endObj[key] = obj2[key];
+    }
+    else {
+      endObj[key] += obj2[key];
+    }
+
+  }
+
+  return endObj;
+
+}
+
+
+
+var splash = {pointGuard: "Steph", shootingGuard: "Klay", team: "Warriors"};
+var brothers = { pointGuard: "Curry", shootingGuard: "Thompson", city: "Oakland"};
+concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard: "KlayThompson", team: "Warriors"}
+
+
+
+
+
+
 function sayHi(name){
     return "hello " + name;
 }

@@ -133,20 +133,6 @@ arraySumN(ary2, 6); // => [0, 3]
 */
 
 
-//First potential optional answer:
-function arraySumN(ary, n){
-    var ary = [ [0, 1], [2, 2, 0], [3, -2] ];
-
-        function add(a, b){
-            return a + b;
-        }
-//.reduce() applies a function against an accumulator and each element in the
-//array (from left to right) to reduce it to a single value.
-        var result = ary.reduce(add, 0);
-        console.log(result);
-}
-arraySumN();
-
 
 //This answer works!
 function arraySumN(ary, n) {
@@ -205,15 +191,21 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
  *  All objects get merged into the first object.
  *  Only the object in the first argument is mutated and returned.
  *  Later properties overwrite earlier properties with the same name. */
-// function concatObjects(obj1, obj2){
 
-//     var cat1 = {name: "hello", bow: "pink"};
-//     var cat2 = {name: "kitty", color: "white"};
 
-//     var conCat = Object.assign({}, cat1, cat2);
-//     console.log(conCat);
-// }
-// concatObjects();
+function concatObjects(obj1, obj2){
+    var cat1 = {name: "hello", bow: "pink"};
+    var cat1Val = Object.values(cat1);
+    console.log(cat1Val);
+
+    var cat2 = {name: "kitty", color: "white"};
+    var cat2Val = Object.values(cat2);
+    console.log(cat2Val);
+
+    var conCat = cat1Val.concat(cat2Val);
+    console.log(conCat);
+}
+concatObjects();
 
 
 
@@ -234,6 +226,8 @@ concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard
 function concatObjects(obj1, obj2){
     var cat1 = {name: "hello", bow: "pink"};
     var cat2 = {name: "kitty", color: "white"};
+
+    var finalConCat = 
 
     var finalConCat = cat1.name + cat2.name + " " + cat1.bow + " " + cat2.color;
     console.log(finalConCat);

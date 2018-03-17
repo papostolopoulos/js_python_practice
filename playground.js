@@ -43,6 +43,23 @@ function deepIndexOf(array, val) {
 }
 
 
+//Same function but used forEach method instead
+function deepIndexOf(array, val) {
+  var endArr = [];
+
+  array.forEach(function (element, index) {
+
+    element.forEach(function (el, idx) {
+
+      if (el === val) endArr.push([index, idx]);
+
+    });
+
+  });
+
+  return endArr;
+}
+
 var ary = [[0, 2, 4],[1, 3, 9]];
 var ary2 = [["a", "b", "c"],[5, 0, 5, 0],[0, 1, 2]];
 deepIndexOf(ary, 3); // => [ [1, 1] ]

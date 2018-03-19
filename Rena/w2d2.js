@@ -189,6 +189,15 @@ isValidEmail("my@website@gmail.com");
 isValidEmail("anthony!@ladson.com");
 
 
+//Notes from group mtg w/Adam: Regular Expression
+//the " + " means one or more.  There are no spaces in the RegEx.
+//the " $ " means it's the end of line.
+//the " ^ " means it's the start of line.
+//Can also use .match() method with RegEx, see MDN.
+
+/^[A-Za-z0-9_.]+@[A-Za-z]+\.[A-Za-z]+$/
+
+
 /* peakFinder
 
 Write a function peakFinder(array) that takes in an array of numbers.

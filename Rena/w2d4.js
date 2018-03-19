@@ -16,9 +16,14 @@ console.log(foo); //What is foo on this line? --->Answer is: 5, referencing the 
 
 console.log(bar()); //What is bar() on this line? --->Answer is: Anthony.  Q: Why
 //is the answer NOT 'Anthony is home' instead?
+// Paris: Because you are not assigning the concatenation to any variable. So at the end
+// the only thing that is returned is the variable 'foo'
 
 console.log(foo); //What is foo on this line? --->Answer is: 5. Q: Why is it repeating
 //same answer as 1st line?
+// Paris: Because this is a question to confirm that you understand the global vs the local environment
+
+
 
 //-------------------------------------------
 var foo = 5;
@@ -35,14 +40,23 @@ console.log(bar(5)); //What is bar() on this line? --->Answer is 70, the value o
 
 console.log(foo); //What is foo on this line? --->Answer is: 5. Q: Why is it repeating
 //same asnwer as 1st line?
+// Paris: Because this is a question to confirm you understand the difference between
+// variables in different scopes as well as the parameters of a function
+
 
 console.log(bar(5)); //What is bar() on this line? --->Answer is 70. Q: Why is it repeating again?
+// Paris: for all these questions, you have to remember that variables have same
+// names but are in a different lexical environment. That is why it is asking these
+// questions. They are not the same questions, they are asking to see if you know what
+// everything represents as the program is being red.
 
 //-------------------------------------------
 
 var foo = "Happy"; //Q: Is the for-loop taking
 //the string length of 'Happy' as 5?  Why not
 //list 'foo.length <= 5' below?
+// Paris: read my comments above. Same name of variable but different variable and with a different scope.
+// Also foo.length <= 5 is wrong. This would not result in an iteration.
 
 for(var foo = 0; foo <= 5; foo += 1){
   console.log(foo); //What will foo be on each iteration?
@@ -50,8 +64,9 @@ for(var foo = 0; foo <= 5; foo += 1){
   //the for-loop less/equal to 5.
 }
 
-console.log(foo); //What will foo be on this line? --> Answer: 6. Q: Is 
+console.log(foo); //What will foo be on this line? --> Answer: 6. Q: Is
 //this because of '+=1' in the for-loop that gets the answer 6?
+// Paris: Correct. The for loop is terminated after the += assignment operator
 
 //------------------------------------
 
@@ -62,22 +77,27 @@ console.log("1: " + bar); //1: What will bar be on this line?
 function foo(){
   var bar = 10;
   console.log("3: " + bar); //3: What will bar be on this line?
-  //--->Answer: 3: 10, it's a string plus the value. 
+  //--->Answer: 3: 10, it's a string plus the value.
 
   var innerFoo = function(){
     bar = 15;
   }
 
-  console.log("4: " + bar); //4: What will bar be on this line? 
+  console.log("4: " + bar); //4: What will bar be on this line?
 }//-->Answer: 4: 10, Q: Is this because the console.log is outside of innerFoo(),
 //but within the function foo() code block?
+// Paris: the value of bar is changed within the scope of innerFoo but this is a
+// function expression and not a function declaration. Therefore innerFoo is still
+// undefined and therefore the function never runs in order to change the value of
+// bar.
 
 console.log("2: " + bar); //2: What will bar be on this line? --> Answer: 2: 5, I think
 //it runs outside of innerFoo() and foo() code blocks; which allows it to access
-//var bar = 5. 
+//var bar = 5.
 
 foo(); // Q: I ran this code, it produces '3: 10' and '4: 10' as the answer, but
 //I do not know why. Since it produces '4: 10', how can this reference innerFoo() as well?
+// Paris: innerFoo is a variable that is never called so it does not affect anything
 
 console.log("5: " + bar); //5: What will bar be on this line? -->Answer: 5: 5, it
 //references var bar = 5, since it's outside of function foo() code block.
@@ -95,13 +115,17 @@ function foo(){
 
   console.log("2: " + bar); //2: What will bar be on this line?-->Answer: 2: 10,  it
   //runs within the foo() code block, but I don't know why it ignores innerFoo().
+  // Paris: because it is not a declaration, it is an expression. innerFoo is undefined
 
   innerFoo(); //-->Answer: This does nothing, why? Q: Is it because it's being
   //invokeed inside the same innerFoo() code block?
+  // Paris: incorrect. A variable is being declared and given a value but it does not
+  // have a return
 
   console.log("3: " + bar); //3: What will bar be on this line? -->Answer: 3: 10,
   // it runs within foo() code block and references var bar = 10 before the innerFoo()
   //code block.
+  // Paris: Again, innerFoo does nothing other than the function expression
 }
 
 console.log("1: " + bar); //1: What will bar be on this line? -->Answer: 1: dance, it
@@ -112,6 +136,9 @@ foo(); //
 console.log("4: " + bar); //4: What will bar be on this line? --> Answer: 4: 10, but I
 //have no idea why, help! Q: This runs outside of foo() and innerFoo() code block, why is
 //it not referencing 'dance'?
+// Paris: Your answer is incorrect. It gives "4: dance"
+// Same like line 131, it just logs the string + the value of the bar variable
+// which is in the global scope.
 
 
 
@@ -136,8 +163,8 @@ function factorial(n){
 }
 
 factorial(1);
-factorial(4); 
-factorial(5); 
+factorial(4);
+factorial(5);
 factorial(10);
 
 
@@ -205,3 +232,18 @@ trying to debug.
 5) function hipsterfly(sentence) - will work on this next.
 
 /*
+
+/*
+Feedback from Paris:
+Q: Why is the answer NOT 'Anthony is home' instead?
+- Because you are not assigning the concatenation to any variable. So at the end
+the only thing that is returned is the variable 'foo'
+Q: Why is it repeating same answer as 1st line?
+- Because this is a question to confirm that you understand the global vs the local environment
+Q: Why is it repeating same asnwer as 1st line?
+- Because this is a question to confirm you understand the difference between
+variables in different scopes as well as the parameters of a function
+Q: Is this because the console.log is outside of innerFoo(), but within
+the function foo() code block?
+- Correct
+*/

@@ -232,18 +232,3 @@ trying to debug.
 5) function hipsterfly(sentence) - will work on this next.
 
 /*
-
-/*
-Feedback from Paris:
-Q: Why is the answer NOT 'Anthony is home' instead?
-- Because you are not assigning the concatenation to any variable. So at the end
-the only thing that is returned is the variable 'foo'
-Q: Why is it repeating same answer as 1st line?
-- Because this is a question to confirm that you understand the global vs the local environment
-Q: Why is it repeating same asnwer as 1st line?
-- Because this is a question to confirm you understand the difference between
-variables in different scopes as well as the parameters of a function
-Q: Is this because the console.log is outside of innerFoo(), but within
-the function foo() code block?
-- Correct
-*/

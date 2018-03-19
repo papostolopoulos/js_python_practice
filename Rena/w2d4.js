@@ -254,3 +254,18 @@ trying to debug.
 5) function hipsterfly(sentence) - My code breakdown is incomplete, need to review tomorrow.
 
 /*
+
+/*Comments from Paris:
+factorial: You are using recursion. We never talked about recursion so I assume
+this is something that you found online. If I ask you to, would you be able to
+explain your solution and how it works?
+Also there is no request in the problem to specially handle the parameter when n = 0
+
+longWordCount: Please read the problem again. It wants you to count the words that are long,
+not return the string
+
+lcm: the if statement on line 205 will always return false. Can you guess why?
+What is wrong with what you are trying to compare with the comparison operators?
+
+hipstrfy: the method you are probably looking for is .indexOf(). Give it some thought
+*/

@@ -200,9 +200,18 @@ Write a function lcm(num1, num2) that returns the lowest number which is a multi
 // lcm(24, 26); //312
 
 function lcm(num1, num2){
-
+//Using Math.min() returns the lowest number:
+  // console.log(Math.min(num1, num2));
+  if(typeof num1 !== 0 || typeof num2 !== 0){
+    return false;
+  }
+  else{
+    return Math.min(num1, num2) //this is wrong, I am lost as
+    //to the breakdown for next steps.
+  }
 }
-lcm(2, 3);
+lcm(24, 26);
+// lcm(2, 3);
 
 
 /* Hipsterfy
@@ -213,6 +222,19 @@ Remove the last vowel from each word. 'y' is not a vowel. */
 // hipsterfy("towel flicker banana"); //"towl flickr banan"
 // hipsterfy("runner anaconda"); //"runnr anacond"
 // hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
+
+
+function hipsterfly(sentence){
+
+  for(var i = 0; i < sentence.length; i++){
+    if(sentence[i] !== 'a, e, i o, u'){ // this is incorrect.
+      var newSentence = sentence[i]; // this is incorrect
+    }
+  }
+  console.log(newSentence);
+}
+hipsterfly("turtle cheeseburger fries");
+
 
 
 
@@ -227,8 +249,8 @@ regarding the results, which are listed in the code block itself.
 than 7 characters. I am not getting the the number of words...still trying to debug.
 trying to debug.
 
-4) function lcm - still working on this!
+4) function lcm:  I can't figure this out...confused.
 
-5) function hipsterfly(sentence) - will work on this next.
+5) function hipsterfly(sentence) - My code breakdown is incomplete, need to review tomorrow.
 
 /*

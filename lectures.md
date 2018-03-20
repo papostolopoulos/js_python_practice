@@ -1,3 +1,20 @@
+###Tuesday March 20th
+* .map, .filter, .reduce
+* Functions are objects
+  * From MDN: In JavaScript, functions are first-class objects, because they can have properties and methods just like any other object. What distinguishes them from other objects is that functions can be called. In brief, they are Function objects. (length, name, toString(), call(), apply(), bind())
+* The prototype
+* Adding methods to the constructor vs the prototype
+* The Execution context (creation phase and execution phase)
+* Creation phase (Global Execution Context)
+  * Global Object
+  * this // It's a  reserved word, a variable that points at window object. Whenever we creating a new object, then 'this' is referring to a particular object.
+  * Outer environment
+  * Code we have written
+* Execution phase // The functions being invoked creates their own 'stacks'. Once something is executed, it gets 'popped off' the 'stack'.
+
+
+
+
 ###Tuesday March 13th
 * Object properties and methods
 * Object invocation (dot and bracket)
@@ -7,9 +24,6 @@
 * Function statements and function expressions
 * Constructors
 
-
-1. arraySumN
-2. titleize
 
 
 
@@ -30,16 +44,6 @@ If another function is invoked inside a function, then the function will be invo
 * let and const
 * The Event Queue
 
-
-
-
-
---------------------------
--        var testVar = 5 -
--                        -
--                        -
--                        -
---------------------------
 
 
 ### Tuesday February 20th 2018

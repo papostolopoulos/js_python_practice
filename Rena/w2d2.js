@@ -189,6 +189,15 @@ isValidEmail("my@website@gmail.com");
 isValidEmail("anthony!@ladson.com");
 
 
+//Notes from group mtg w/Adam: Regular Expression
+//the " + " means one or more.  There are no spaces in the RegEx.
+//the " $ " means it's the end of line.
+//the " ^ " means it's the start of line.
+//Can also use .match() method with RegEx, see MDN.
+
+/^[A-Za-z0-9_.]+@[A-Za-z]+\.[A-Za-z]+$/
+
+
 /* peakFinder
 
 Write a function peakFinder(array) that takes in an array of numbers.
@@ -224,19 +233,3 @@ peakFinder([4,6,9,4,2,-7,2,-4,5]); //[2,6,8]
 	}
 	peakFinder([4,6,9,4,2,-7,2,-4,5]);
 
-
-
-/* Notes from Rena:
-
-1) I created a nested for-loop and I think I got correct answer.
-Answer: looks good
-
-2) I created a nested for-loop and I think I got correct answer.
-Answer: looks good
-
-3) Use the group solution.
-
-4) Done
-
-
-*/

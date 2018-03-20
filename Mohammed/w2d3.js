@@ -39,9 +39,59 @@ var punctuation = [";", "!", ".", "?", ",", "-"];
 // titleize("MASTER AND COMMANDER", ["and"]); //"Master and Commander"
 // titleize("i LOVE; lover of mine", ["love", "of"]); //"I love; Lover of Mine"
 // titleize("shall we dance?", ["dance"]); //"Shall We dance?"
+function containsPunctuation(word){
+    var punctuation = [";", "!", ".", "?", ",", "-"];
+//create new variable and assign it the last character in sentence.
+    var newWord = word[word.length - 1];
+    // console.log(newWord);
+//use .indexOf method to compare punctuation array against last character in sentence.
+    if(punctuation.indexOf(newWord) !== -1){
+        return true;
+    }
+    return false;
+}
+containsPunctuation("Bagels?");
 
+function isStopWord(word, stopWords){
+//create new variable and assign empty string.
+    var compareWord = "";
+//invoke the containsPunctuation function here:
+    if (containsPunctuation(word)) {
+        compareWord = word.slice(0, word.length - 1);
+    }
+    else {
+        compareWord = word
+    }
 
+    if(stopWords.indexOf(compareWord) !== -1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
+function titleize(title, stopWords) {
+  var endTitle = [];
+  var titleArr = title.toLowerCase().split(" ");
+  console.log(titleArr);
+
+  for (var i = 0; i < titleArr.length; i++) {
+    console.log("titleArr[i] is " + titleArr[i]);
+    console.log("isStopWord(titleArr[i], stopWords) is " + isStopWord(titleArr[i], stopWords) + " so I am about to get in the if statement");
+
+    if (isStopWord(titleArr[i], stopWords)) {
+      endTitle.push(titleArr[i]);
+    }
+    else {
+      // endTitle.push(titleArr[i][0].toUpperCase() + titleArr[i].slice(1));
+      endTitle.push(titleArr[i][0].toUpperCase() + titleArr[i].substring(1));
+    }
+
+  }
+
+  return endTitle.join(" ");
+}
 
 
 
@@ -59,6 +109,25 @@ arraySumN(ary2, 6); // => [0, 3]
 */
 
 
+function arraySumN(ary, n) {
+  var endArr = [];
+
+  for (var i = 0; i < ary.length; i++) {
+    var el = ary[i]
+    var sum = 0;
+    console.log("I just defined sum and the value is: " + sum);
+
+    for (var j = 0; j < el.length; j++) {
+      sum += el[j];
+      console.log("I just added to sum the value of " + el[j] + "and therefore sum is: " + sum);
+    }
+    if (sum === n) {
+      console.log("I got in the if statement because sum is " + sum + " and n is " + n);
+      endArr.push(i);
+    }
+  }
+  return endArr;
+}
 
 /*concatObjects
 Write a function concatObjects(obj1, obj2) which "concatenates" two objects.
@@ -79,7 +148,22 @@ var brothers = { pointGuard: "Curry", shootingGuard: "Thompson"};
 concatObjects(splash, brothers); // => { pointGuard: "StephCurry", shootingGuard: "KlayThompson", team: "Warriors"}
 */
 
+function concatObjects(obj1, obj2){
+  var endObj = Object.assign({}, obj1);
+  console.log("The endObj has keys: " + Object.keys(endObj) + " and values: " + Object.values(endObj));
 
+
+  for (var key in obj2){
+    console.log("The key that is being checked is: " + key);
+    if (endObj[key] === undefined) {
+      endObj[key] = obj2[key];
+    }
+    else {
+      endObj[key] += obj2[key];
+    }
+  }
+  return endObj;
+}
 
 
 
@@ -89,7 +173,21 @@ Write a function deepIndexOf(array, val) that takes a 2-dimensional array and va
 It returns an array containing the pairs of indices that represents the location of val in array.
 If the element does not exist, return [ [-1, -1] ]. */
 
+function deepIndexOf(array, val) {
+  var endArr = [];
 
+  for (var i = 0; i < array.length; i++) {
+    console.log("array[i] is: " + array[i]);
+
+    for (var j = 0; j < array[i].length; j++) {
+
+      if (array[i][j] === val) {
+        endArr.push([i, j])
+      }
+    }
+  }
+  return endArr;
+}
 //Examples:
 var ary = [
   [0, 2, 4],

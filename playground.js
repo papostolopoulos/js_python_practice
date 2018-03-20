@@ -292,8 +292,6 @@ function arraySumN(ary, n) {
       console.log("I got in the if statement because sum is " + sum + " and n is " + n);
       endArr.push(i);
     }
-
-
   }
 
   return endArr;
@@ -314,12 +312,6 @@ arraySumN([[0, 1], [2, 2, 0], [3, -2]], 1); //[0, 2]
     {}
   ]
 ]
-
-
-
-
-
-
 
 
 

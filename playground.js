@@ -1,3 +1,42 @@
+/* Hipsterfy
+Write a function hipsterfy(sentence) that takes a string containing several words as input.
+Remove the last vowel from each word. 'y' is not a vowel. */
+// hipsterfy("proper"); //"propr"
+// hipsterfy("proper tonic panther"); //"propr tonc panthr"
+// hipsterfy("towel flicker banana"); //"towl flickr banan"
+// hipsterfy("runner anaconda"); //"runnr anacond"
+// hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
+
+//ES6
+function hipsterfy(sentence){
+  return sentence.split(" ").map((el) => el.split("").reverse().join("").replace(/[aeiou]/, "").split("").reverse().join("")).join(" ");
+}
+
+
+//ES5
+function hipsterfy(sentence){
+  var sentenceArr = sentence.split(" ");
+  var newSentence = sentenceArr.map(function(el) {
+    return el.split("").reverse().join("").replace(/[aeiou]/, "").split("").reverse().join("");
+  });
+  return newSentence.join(" ");
+}
+
+
+hipsterfy("proper"); //"propr"
+hipsterfy("proper tonic panther"); //"propr tonc panthr"
+hipsterfy("towel flicker banana"); //"towl flickr banan"
+hipsterfy("runner anaconda"); //"runnr anacond"
+hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
+
+
+var str = "Hello, hello, I think I like you. hello, Hello"
+
+console.log(str.replace(/hello/g, "Goodbye"));
+console.log(str.replace(/hello/gi, "Goodbye"));
+console.log(str.replace("hello", "Goodbye"));
+
+
 /*.map, .filter, .reduce
 .map gets an array and returns an array
   .map gets each element of the array and modifies it in a way where the Same

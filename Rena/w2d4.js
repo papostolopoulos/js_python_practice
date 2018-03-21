@@ -131,7 +131,7 @@ function foo(){
 console.log("1: " + bar); //1: What will bar be on this line? -->Answer: 1: dance, it
 //references var bar = dance, which is outside of foo() and innerFoo() code block.
 
-foo(); //
+foo(); // Do not know about this step!
 
 console.log("4: " + bar); //4: What will bar be on this line? --> Answer: 4: 10, but I
 //have no idea why, help! Q: This runs outside of foo() and innerFoo() code block, why is

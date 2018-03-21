@@ -44,24 +44,25 @@ console.log(foo); //What is foo on this line? --->Answer is: 5. Q: Why is it rep
 // variables in different scopes as well as the parameters of a function
 
 
-console.log(bar(5)); //What is bar() on this line? --->Answer is 70. Q: Why is it repeating again?
+console.log(bar(5)); //What is bar() on this line? --->Answer is 70. Again, the value of 5 is
+//being passed as parameter (foo) in function bar(); therefore returning the value of 5 + 65.
 // Paris: for all these questions, you have to remember that variables have same
 // names but are in a different lexical environment. That is why it is asking these
 // questions. They are not the same questions, they are asking to see if you know what
-// everything represents as the program is being red.
+// everything represents as the program is being read.
 
 //-------------------------------------------
 
 var foo = "Happy"; //Q: Is the for-loop taking
 //the string length of 'Happy' as 5?  Why not
-//list 'foo.length <= 5' below?
+//list 'foo.length < 5' below?
 // Paris: read my comments above. Same name of variable but different variable and with a different scope.
-// Also foo.length <= 5 is wrong. This would not result in an iteration.
+// Also foo.length < 5 is wrong. This would not result in an iteration.
 
-for(var foo = 0; foo <= 5; foo += 1){
+for(var foo = 0; foo < 5; foo += 1){
   console.log(foo); //What will foo be on each iteration?
   //--->Answer: 0, 1, 2, 3, 4, 5. Will iterate thru
-  //the for-loop less/equal to 5.
+  //the for-loop up to 5.
 }
 
 console.log(foo); //What will foo be on this line? --> Answer: 6. Q: Is
@@ -180,17 +181,20 @@ the number of words longer than 7 characters. */
 
 
 function longWordCount(string){
-//looping thru string to determine length:
-  for(var i = 0; i < string.length; i++){
-    // console.log(string[i]);
-    if(string.length > 7){
-      return string;
+  var newString = string.split(' ');
+  // console.log(newString)
+  var stringChar = 7;
+
+  for(var i = 0; i < newString.length; i++){
+    // console.log(newString[i]);
+    if(newString[i] != stringChar){
+      return newString;
     }
-    return "String is too short."
   }
+  return "String is too short.";
 }
 longWordCount("allwordword longwordword wordswordword");
-
+longWordCount("two reallylong words inthisstring");
 
 
 /* Least Common Multiple
@@ -201,17 +205,27 @@ Write a function lcm(num1, num2) that returns the lowest number which is a multi
 
 function lcm(num1, num2){
 //Using Math.min() returns the lowest number:
-  // console.log(Math.min(num1, num2));
-  if(typeof num1 !== 0 || typeof num2 !== 0){
-    return false;
-  }
-  else{
-    return Math.min(num1, num2) //this is wrong, I am lost as
-    //to the breakdown for next steps.
+  if(num1 !== 0 && num2 !== 0){
+    // console.log(Math.min(num1, num2));
+    return Math.min(num1, num2)
   }
 }
 lcm(24, 26);
-// lcm(2, 3);
+lcm(2, 3);
+
+
+
+function lcm(num1, num2){
+ var sumNum = num1 * num2;
+//  console.log(sumNum);
+  //Using Math.min() returns the lowest number:
+    if(sumNum % num1 !== 0 && sumNum % num2 !== 0){
+      // console.log(Math.min(num1, num2));
+      return Math.min(sumNum);
+    }
+  }
+  lcm(24, 26);
+  lcm(2, 3);
 
 
 /* Hipsterfy
@@ -224,34 +238,37 @@ Remove the last vowel from each word. 'y' is not a vowel. */
 // hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
 
 
-function hipsterfly(sentence){
-
+function hipsterfy(sentence){
   for(var i = 0; i < sentence.length; i++){
-    if(sentence[i] !== 'a, e, i o, u'){ // this is incorrect.
-      var newSentence = sentence[i]; // this is incorrect
+    if(sentence.indexOf('a', 'e', 'i', 'o', 'u')){
+      // console.log(sentence[i])
     }
+    return sentence[i];
   }
-  console.log(newSentence);
+  return -1;
 }
-hipsterfly("turtle cheeseburger fries");
-
+hipsterfy("turtle cheeseburger fries");
+hipsterfy("runner anaconda");
 
 
 
 /*NOTES from Rena:
 
-1) Please see code for 1st half of exercises. I ran the various exercises, but have questions
-regarding the results, which are listed in the code block itself.
+1) Already read your comments and went through code again.
 
 2) For factorial(n): I think this works!
 
-3) function longWordCount(string):  It works, but it only returns the actual string itself if it's greater
-than 7 characters. I am not getting the the number of words...still trying to debug.
-trying to debug.
+3) function longWordCount(string):  I tried a different route to solve it, but I am having issues evaluating
+if the sentence is greater than 7 characters. I tried different versions of if-statement, but at this point,
+could only get my code to print out the string. What am I doing wrong?
 
-4) function lcm:  I can't figure this out...confused.
+4) function lcm:  I re-wrote my code, but I think it's still partly wrong. It's returning the lowest number 
+in the first version of answer, but I think line 210 is incorrect. For second version, it returns undefined and I think
+my if-statement is incorrect.  Between the two versions, which one is closer to me being on the right track to solve it?
 
-5) function hipsterfly(sentence) - My code breakdown is incomplete, need to review tomorrow.
+5) function hipsterfy(sentence) - I tried to use the .indexOf() method, but I think I am using it incorrectly. I went
+to MDN and was able to understand some of the examples - but when I attempted it with my code, it does not work. 
+What am I missing?
 
 /*
 

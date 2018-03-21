@@ -26,7 +26,8 @@ function divisibleByThreePairSum(array){
 
 
 /* Sometimes you will need to nest a loop inside of another loop.
-Let's say we are given an array and have to return the indices of all pair of elements that sum to 0.
+Let's say we are given an array and have to return the indices of all pair of
+elements that sum to 0.
 This means we we will have to add each element to the other elements in the array.
 
 > pairZero([4, 1, 0,])
@@ -184,3 +185,25 @@ var newArray = [];
   }
 	return newArray;
 }
+
+
+/*Comments from Paris
+divisibleByThreePairSum: This is almost correct. You are adding extra arrays inside
+your array that you do not need. That is because you are comparing elements with
+themselves.
+You need to slightly modify the nested array (for var j = 0...) so that the
+elements do not compare with themselves. For example, (array[1] + array[1]) % 3.
+Can you think of a way of doing that?
+
+pairZero: Your for loops are correct (Hint: use them for the previous function)
+In your if statement, you need to see if the sum of two elements equals to zero
+if(array[i] + array[j] === 0){
+result.push([i,j]);
+}
+
+peakFinder: line 177 --> What if the array is [6, 6]? There is no peak for that.
+If you invoke peakFinder([2,1,2,3,4,5]);, you are returning an empty array. That is
+incorrect. Your for loop is correct but it cannot do the correct comparison
+for the very first element and the very last element of the array.
+Bother me so I can explain in more detail what you need to do.
+*/

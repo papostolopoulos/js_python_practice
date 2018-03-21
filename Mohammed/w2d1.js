@@ -112,6 +112,14 @@ comparison operator (===). What method can you use to see if the element "contai
 the word you try to change? How can you change it after that?
 
 1) Answer: I tried .match()
+-------------------
+1) for in is a for loop that works better with objects. Try the "for of" loop or
+a simple for loop.
+------------------------------------------------------------------------
+
+
+
+
 
 2) elementCount - You have created an empty object (var obj = {}). I will type
 a description for you so you can try to figure it out.
@@ -129,6 +137,20 @@ Do you know what they represent?
 Answer 3: to iturate through an array the forEach method is a built in fuction that carry up
 to 3 parapaters ( elements, index, array ), I should just named them elements instead of properties
 and values should be named index
+-----------------------
+2)
+//if the object does not have this property then create it with a value of 1,
+//otherwise add one to the existing property
+if(obj[property] === undefined){
+  obj[property] = 1;
+}
+else{
+obj[property] += 1;
+}
+
+
+
+
 
 3) reverseRange - There is no range() in JavaScript but some libraries have it. Your function
 is 90% correct because you define var i = start and therefore the start number is
@@ -139,4 +161,8 @@ Alternative solution 2:
 for (var i = start + 1; i < end; i++) {range.unshift(i)}
 
 Answer - I through about it before and tried to add + then for somereason it went to infite loop.
+----------------
+You have a syntax error in your code because you are missing the brackets {} in
+your for loop. Also since you are using this for loop, you should not .push but
+.unshift
 */

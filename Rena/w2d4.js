@@ -181,14 +181,15 @@ the number of words longer than 7 characters. */
 
 
 function longWordCount(string){
+  var count = 0;
   var newString = string.split(' ');
   // console.log(newString)
   var stringChar = 7;
 
   for(var i = 0; i < newString.length; i++){
     // console.log(newString[i]);
-    if(newString[i] != stringChar){
-      return newString;
+    if(count > stringChar){
+      return count++ ; // not sure how to incorporate count in if-statement.
     }
   }
   return "String is too short.";
@@ -259,8 +260,8 @@ hipsterfy("runner anaconda");
 2) For factorial(n): I think this works!
 
 3) function longWordCount(string):  I tried a different route to solve it, but I am having issues evaluating
-if the sentence is greater than 7 characters. I tried different versions of if-statement, but at this point,
-could only get my code to print out the string. What am I doing wrong?
+if the sentence is greater than 7 characters. I don't think I understand
+how to incorporate count in my code, can we review?
 
 4) function lcm:  I re-wrote my code, but I think it's still partly wrong. It's returning the lowest number 
 in the first version of answer, but I think line 210 is incorrect. For second version, it returns undefined and I think

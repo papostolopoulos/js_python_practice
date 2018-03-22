@@ -30,11 +30,55 @@ hipsterfy("runner anaconda"); //"runnr anacond"
 hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
 
 
+//Other possible solution:
+
+function hipsterfy(sentence){
+
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  var sentArr = sentence.split(' ');
+//iterate through the array:
+  for(var i = 0; i < sentArr.length; i++){
+    var word = sentArr[i];
+    // console.log(word);
+  //iterate through the element itself:
+  // for(var j = 0; j < word.length; j++)
+
+  //reverse forloop, start from the back of string:
+  // j >=0, you want to get to index 0 by iterating
+  //from largest index position to lowest.
+    for(var j = word.length - 1; j >= 0; j--){
+        // console.log(word[j]);
+        if(vowels.indexOf(word[j]) !== -1){
+            // console.log(word[j]);
+            // word.replace(word.substring(j, j+1), "");
+            sentArr[i] = word.slice(0, j) + word.slice(j+1);
+            console.log(word);
+            break;
+        }
+    }
+
+  }
+ return sentArr.join(' ');
+}
+hipsterfy("turtle cheeseburger fries");
+hipsterfy("runner anaconda");
+
+
+
+
+
+
 var str = "Hello, hello, I think I like you. hello, Hello"
 
 console.log(str.replace(/hello/g, "Goodbye"));
 console.log(str.replace(/hello/gi, "Goodbye"));
 console.log(str.replace("hello", "Goodbye"));
+
+
+
+
+
 
 
 /*.map, .filter, .reduce

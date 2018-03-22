@@ -188,28 +188,28 @@ function longWordCount(string){
 
   for(var i = 0; i < newString.length; i++){
     // console.log(newString[i]);
-    if(count > stringChar){
-      return count++ ; // not sure how to incorporate count in if-statement.
+//if length of the element in array(string) is larger
+//than stringChar, then increment count by 1.
+    if(stringChar < newString[i].length){
+        count++;
     }
   }
-  return "String is too short.";
+  return count;
 }
 longWordCount("allwordword longwordword wordswordword");
 longWordCount("two reallylong words inthisstring");
 
 
 /* Least Common Multiple
-Write a function lcm(num1, num2) that returns the lowest number which is a multiple of both inputs. */
+Write a function lcm(num1, num2) that returns the lowest number which
+is a multiple of both inputs. */
 // lcm(2, 3); //6
 // lcm(6, 10); //30
 // lcm(24, 26); //312
 
 function lcm(num1, num2){
-//Using Math.min() returns the lowest number:
-  if(num1 !== 0 && num2 !== 0){
-    // console.log(Math.min(num1, num2));
-    return Math.min(num1, num2)
-  }
+
+ 
 }
 lcm(24, 26);
 lcm(2, 3);
@@ -240,16 +240,71 @@ Remove the last vowel from each word. 'y' is not a vowel. */
 
 
 function hipsterfy(sentence){
-  for(var i = 0; i < sentence.length; i++){
-    if(sentence.indexOf('a', 'e', 'i', 'o', 'u')){
-      // console.log(sentence[i])
+
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  var sentArr = sentence.split(' ');
+//iterate through the array:
+  for(var i = 0; i < sentArr.length; i++){
+    var word = sentArr[i];
+    // console.log(word);
+  //iterate through the element itself:
+  // for(var j = 0; j < word.length; j++)
+
+  //reverse forloop, start from the back of string:
+  // j >=0, you want to get to index 0 by iterating
+  //from largest index position to lowest.
+    for(var j = word.length - 1; j >= 0; j--){
+        // console.log(word[j]);
+        if(vowels.indexOf(word[j]) !== -1){
+            // console.log(word[j]);
+            // word.replace(word.substring(j, j+1), "");
+            sentArr[i] = word.slice(0, j) + word.slice(j+1);
+            console.log(word);
+            break;
+        }
     }
-    return sentence[i];
+
   }
-  return -1;
+ return sentArr.join(' ');
 }
 hipsterfy("turtle cheeseburger fries");
 hipsterfy("runner anaconda");
+
+//Alternative Answers:
+
+//ES6
+function hipsterfy(sentence){
+  return sentence.split(" ").map((el) => el.split("").reverse().join("").replace(/[aeiou]/, "").split("").reverse().join("")).join(" ");
+}
+
+
+//ES5
+function hipsterfy(sentence){
+  var sentenceArr = sentence.split(" ");
+  var newSentence = sentenceArr.map(function(el) {
+    return el.split("").reverse().join("").replace(/[aeiou]/, "").split("").reverse().join("");
+  });
+  return newSentence.join(" ");
+}
+
+
+hipsterfy("proper"); //"propr"
+hipsterfy("proper tonic panther"); //"propr tonc panthr"
+hipsterfy("towel flicker banana"); //"towl flickr banan"
+hipsterfy("runner anaconda"); //"runnr anacond"
+hipsterfy("turtle cheeseburger fries"); //"turtl cheeseburgr fris"
+
+
+
+
+
+
+var str = "Hello, hello, I think I like you. hello, Hello"
+
+console.log(str.replace(/hello/g, "Goodbye"));
+console.log(str.replace(/hello/gi, "Goodbye"));
+console.log(str.replace("hello", "Goodbye"));
 
 
 

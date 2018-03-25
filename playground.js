@@ -1,3 +1,25 @@
+/* Least Common Multiple
+Write a function lcm(num1, num2) that returns the lowest number which is a multiple of both inputs.
+
+>lcm(2, 3)
+6
+>lcm(6, 10)
+30
+>lcm(24, 26)
+312 */
+
+function lcm(num1, num2) {
+  if ((num1 === 2 || num2 === 2) || (num1 === 1 || num2 === 1)) return num1 * num2;
+
+  if (num1 % 2 === 0) return (num1 / 2) * num2;
+
+  if (num2 % 2 === 0) return (num2 / 2) * num1;
+
+  if (num1 % 2 !== 0 && num2 % 2 !== 0) return num1 * num2;
+}
+
+
+
 /* Hipsterfy
 Write a function hipsterfy(sentence) that takes a string containing several words as input.
 Remove the last vowel from each word. 'y' is not a vowel. */

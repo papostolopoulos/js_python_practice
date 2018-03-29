@@ -4,7 +4,7 @@
 
 /******************************************************************************
 ** Write a function #divisibleByFivePairSum(array), that takes an array of numbers.
-** It should return an array of all the pairs of indices whose sum is a multiple of five.
+** It should return an array of all the pairs of indices whose element sum is a multiple of five.
 
 ** Examples:
 ** divisibleByFivePairSum([1, 5, 2, 0, 4]) => [ [0, 4], [1, 3] ]
@@ -13,17 +13,22 @@
 
 
 function divisibleByFivePairSum(array){
+//create a variable for empty array.
 	var result = [];
-
 //looping thru to compare elements in array:
 	for(var i = 0; i < array.length; i++){
-		for(var j = 0; j < array.length; j++){
-			console.log(i, j);
-		}
-		if(i % 5 === 0 && j % 5 === 0){
-			return result.push(i, j);
+//comparing the elements, but you must increase by 1:
+		for(var j = i + 1; j < array.length; j++){
+			// console.log(array[i], array[j]);
+		//the sum of the pair of indices that is a multiple of 5:
+				if((array[i] + array[j]) % 5 === 0){
+					//console.log("in the if statement")
+				result.push([i, j]);
+			}
 		}
 	}
+	return result;
+}
 divisibleByFivePairSum([1, 5, 2, 0, 4]);
 divisibleByFivePairSum([13, 22, 8, -3, 12]);
 
@@ -39,14 +44,13 @@ divisibleByFivePairSum([13, 22, 8, -3, 12]);
 */
 
 function myIndexOf(array, ele){
-	var resultIndex = [];
-
-	for(var i = 0; i < array.length; i++){
-		if()
-	}
-
+//Use .indexOf() method returns the index within the calling String object.
+//Returns -1 if the value is not found.
+	return array.indexOf(ele);
 }
-myIndexOf([1, 2, 3, 4, 5], 5)
+myIndexOf(["a", "b", "c"], "d");
+myIndexOf(["a", "b", "c"], "a");
+myIndexOf([1, 2, 3, 4, 5], 5);
 
 /******************************************************************************
 ** Write a function `minMaxDifference(array)` that returns the difference between the
@@ -58,3 +62,10 @@ myIndexOf([1, 2, 3, 4, 5], 5)
 ** minMaxDifference([5,4,3,2,1]) => 4
 ** minMaxDifference([4,2,5,1,-5]) => 10
 */
+
+
+function minMaxDifference(array){
+//Use spread operator(...) and find difference using Math.max and Math.min:
+	return Math.max(...array) - Math.min(...array);
+}
+minMaxDifference([1,2,3,4,5]);

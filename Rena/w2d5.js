@@ -12,6 +12,21 @@
 */
 
 
+function divisibleByFivePairSum(array){
+	var result = [];
+
+//looping thru to compare elements in array:
+	for(var i = 0; i < array.length; i++){
+		for(var j = 0; j < array.length; j++){
+			console.log(i, j);
+		}
+		if(i % 5 === 0 && j % 5 === 0){
+			return result.push(i, j);
+		}
+	}
+divisibleByFivePairSum([1, 5, 2, 0, 4]);
+divisibleByFivePairSum([13, 22, 8, -3, 12]);
+
 /******************************************************************************
 ** Write a function #myIndexOf(array, ele) that takes an array and an element.
 ** Return the index of the element in the array, or -1 if it doesn't exist. Assume
@@ -23,6 +38,15 @@
 ** myIndexOf(["a", "b", "c"], "d") => -1
 */
 
+function myIndexOf(array, ele){
+	var resultIndex = [];
+
+	for(var i = 0; i < array.length; i++){
+		if()
+	}
+
+}
+myIndexOf([1, 2, 3, 4, 5], 5)
 
 /******************************************************************************
 ** Write a function `minMaxDifference(array)` that returns the difference between the

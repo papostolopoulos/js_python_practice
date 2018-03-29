@@ -208,15 +208,6 @@ is a multiple of both inputs. */
 // lcm(24, 26); //312
 
 function lcm(num1, num2){
-
- 
-}
-lcm(24, 26);
-lcm(2, 3);
-
-
-
-function lcm(num1, num2){
  var sumNum = num1 * num2;
 //  console.log(sumNum);
   //Using Math.min() returns the lowest number:
@@ -228,6 +219,19 @@ function lcm(num1, num2){
   lcm(24, 26);
   lcm(2, 3);
 
+
+//Answer provided by Paris:
+  function lcm(num1, num2) {
+  if ((num1 === 2 || num2 === 2) || (num1 === 1 || num2 === 1)) return num1 * num2;
+
+  if (num1 % 2 === 0) return (num1 / 2) * num2;
+
+  if (num2 % 2 === 0) return (num2 / 2) * num1;
+
+  if (num1 % 2 !== 0 && num2 % 2 !== 0) return num1 * num2;
+}
+ lcm(24, 26);
+  lcm(2, 3);
 
 /* Hipsterfy
 Write a function hipsterfy(sentence) that takes a string containing several words as input.

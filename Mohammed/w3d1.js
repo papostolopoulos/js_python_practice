@@ -14,6 +14,13 @@
 ** myIndexOf(["a", "b", "c"], "a") => 0
 ** myIndexOf(["a", "b", "c"], "d") => -1
 */
+function myIndexOf(array, ele) {
+
+  if (array.indexOf(ele) === -1){
+      return -1
+}
+      return array.indexOf(ele);
+}
 
 
 /******************************************************************************
@@ -26,7 +33,12 @@
 ** minMaxProduct([5,4,3,2,1]) => 5
 ** minMaxProduct([4,2,5,1,-5]) => -25
 */
+function minMaxProduct(array){
 
+var min = Math.min(...array);
+var max = Math.max(...array);
+  return max * min;
+}
 
 
 /******************************************************************************
@@ -38,6 +50,14 @@
 ** leastCommonMultiple(6, 10) => 30
 ** leastCommonMultiple(24, 26) => 312
 */
+
+function leastCommonMultiple(num1, num2) {
+  for (var i = 1; true; i++) {
+    if (i % num1 === 0 && i % num2 === 0) {
+      return i;
+    }
+  }
+}
 
 
 /******************************************************************************
@@ -52,7 +72,23 @@
 ** hipsterfy("turtle cheeseburger fries") => "turtl cheeseburgr fris"
 */
 
+function hipsterfy(sentence){
+  var arr = [];
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var words = sentence.split('');
 
+  for (var i = 0; i < words.length; i++) {
+    for (var j = 0; i < vowels.length; i++)
+     if (words[i] === vowels[j]) {
+       delete
+     }
+
+  }
+
+  var results = arr.join("");
+  return results;
+}
+I gave up :(
 
 
 /******************************************************************************

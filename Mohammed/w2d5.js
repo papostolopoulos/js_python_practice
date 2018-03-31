@@ -11,7 +11,7 @@
 ** divisibleByFivePairSum([13, 22, 8, -3, 12]) => [[0, 1], [0, 3], [0, 4], [1, 2], [2, 3], [2, 4]]
 */
 
-
+ //I didn't understand this question (:
 /******************************************************************************
 ** Write a function #myIndexOf(array, ele) that takes an array and an element.
 ** Return the index of the element in the array, or -1 if it doesn't exist. Assume
@@ -22,7 +22,13 @@
 ** myIndexOf(["a", "b", "c"], "a") => 0
 ** myIndexOf(["a", "b", "c"], "d") => -1
 */
+function myIndexOf(array, ele) {
 
+  if (array.indexOf(ele) === -1){
+      return -1
+}
+      return array.indexOf(ele);
+}
 
 /******************************************************************************
 ** Write a function `minMaxDifference(array)` that returns the difference between the
@@ -34,3 +40,10 @@
 ** minMaxDifference([5,4,3,2,1]) => 4
 ** minMaxDifference([4,2,5,1,-5]) => 10
 */
+
+function minMaxDifference(array){
+
+var min = Math.min(...array);
+var max = Math.max(...array);
+  return max - min;
+}

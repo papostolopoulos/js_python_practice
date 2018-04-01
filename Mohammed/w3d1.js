@@ -101,3 +101,23 @@ I gave up :(
 ** magicCipher("where are you?" , { v : "l", '?' : "!"}) => "where are you!"
 ** magicCipher("twmce" , { m : "n", t : "d", w : "a"}) => "dance"
 */
+
+
+/*Comments from Paris
+myIndexOf: DO NOT USE Array.prototype.indexOf - that is what the problem says
+Good work finding the solution with indexOf() but you should try another solution too.
+
+leastCommonMultiple: The problem does not ask you to return 'i' but the least common
+multiple between two numbers. Can you find online what the least common multiple is
+in arithmetic?
+
+minMaxProduct: CORRECT! good job.
+
+hipsterfy:
+Try the following:
+Create a new function (start fresh)
+Do the split like before
+After you split, can you console.log the letters of each word backwards?
+For example, for the word "panther", can you log r e h t n a p?
+Do that and then we can talk again
+*/

@@ -1,3 +1,16 @@
+function myIndexOf(array, ele){
+    for(var i = 0; i < array.length; i++){
+      return array.findIndex(function (el) {
+        return el === ele
+      });
+    }
+}
+myIndexOf([1,2,3,4,5], 5);
+
+
+
+
+
 /* Least Common Multiple
 Write a function lcm(num1, num2) that returns the lowest number which is a multiple of both inputs.
 

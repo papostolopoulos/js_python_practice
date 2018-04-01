@@ -19,7 +19,7 @@
 function myIndexOf(array, ele){
     for(var i = 0; i < array.length; i++){
         if(array[i] === ele){
-            return array.findIndex(ele);     
+            return array.findIndex(ele);
         }
     }
 }
@@ -97,7 +97,7 @@ function magicCiper(sentence, cipher){
 
 
 }
-magicCipher("add me on facebook" , { a : "c", d : "q"}) 
+magicCipher("add me on facebook" , { a : "c", d : "q"})
 
 
 /* NOTES: from Rena
@@ -105,14 +105,21 @@ magicCipher("add me on facebook" , { a : "c", d : "q"})
 1) For function #myIndexOf(array, ele): I understand that I cannot use indexOf() method.  However, I found
 findIndex() method instead. I think my forloop and if-statement are correct, but my return statement using
 findIndex() seems off??  I read the description of findIndex(), but it's stating 'ele' is not a function (type-error).
+Asnwer: If you are going to use findIndex, this does not need a for loop or an if statement.
+It needs a callback function. Can you figure it out? Play with findIndex separately and see what you get.
+See if you can add it later to the function you are building.
 
 2) For function `minMaxProduct(array):  I think I am reading the requirement correctly?? - it's wants the
 product of .max and .min of array.  My answers do not match examples.
+Answer: Product, not sum. See online what "product" stands for
 
 3) For leastCommonMultiple(num1, num2):  I used Math.min() method to find lowest after my forloop.
+Answer: this is the same problem like the lcm one.
 
 4) I think this is a duplicate, correct?
+-Correct but you need to work on it from scratch. See if you can solve it
 
 5) I am not sure what it's asking for. The requirement is confusing, can you explain?
-
+Answer: for the sentence: "add me on facebook" and the object { a : "c", d : "q"}),
+you have to replace "a" with "c" and "d" with "q" in the sentence.
 */

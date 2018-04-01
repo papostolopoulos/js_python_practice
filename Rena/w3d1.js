@@ -17,9 +17,16 @@
 
 
 function myIndexOf(array, ele){
-
+    for(var i = 0; i < array.length; i++){
+        if(array[i] === ele){
+            return array.findIndex(ele);     
+        }
+    }
 }
+myIndexOf([1,2,3,4,5], 5);
 myIndexOf(["a", "b", "c"], "d");
+myIndexOf(["a", "b", "c"], "a");
+
 
 /******************************************************************************
 ** Write a function `minMaxProduct(array)` that returns the product between the
@@ -33,9 +40,9 @@ myIndexOf(["a", "b", "c"], "d");
 */
 
 function minMaxProduct(array){
-
+    return Math.max(...array) + Math.min(...array);
 }
-minMaxProduct([4,2,5,1,-5]); 
+minMaxProduct([5,4,3,2,1]);
 
 /******************************************************************************
 ** Write a function `leastCommonMultiple(num1, num2)` that returns the
@@ -47,6 +54,17 @@ minMaxProduct([4,2,5,1,-5]);
 ** leastCommonMultiple(24, 26) => 312
 */
 
+function lcm(num1, num2){
+    var newSum = num1 * num2;
+   //  console.log(sumNum);
+     //Using Math.min() returns the lowest number:
+       if(newSum % num1 !== 0 && newSum % num2 !== 0){
+         // console.log(Math.min(num1, num2));
+         return Math.min(newSum);
+       }
+     }
+     lcm(24, 26);
+     leastCommonMultiple(2, 3);
 
 /******************************************************************************
 ** Write a function `hipsterfy(sentence)` that takes takes a string containing
@@ -60,7 +78,7 @@ minMaxProduct([4,2,5,1,-5]);
 ** hipsterfy("turtle cheeseburger fries") => "turtl cheeseburgr fris"
 */
 
-
+//I think we did this one before.  Is this a duplicate?
 
 
 /******************************************************************************
@@ -72,4 +90,29 @@ minMaxProduct([4,2,5,1,-5]);
 ** magicCipher("add me on facebook" , { a : "c", d : "q"}) => "cqq me on fccebook"
 ** magicCipher("where are you?" , { v : "l", '?' : "!"}) => "where are you!"
 ** magicCipher("twmce" , { m : "n", t : "d", w : "a"}) => "dance"
+*/
+
+function magicCiper(sentence, cipher){
+
+
+
+}
+magicCipher("add me on facebook" , { a : "c", d : "q"}) 
+
+
+/* NOTES: from Rena
+
+1) For function #myIndexOf(array, ele): I understand that I cannot use indexOf() method.  However, I found
+findIndex() method instead. I think my forloop and if-statement are correct, but my return statement using
+findIndex() seems off??  I read the description of findIndex(), but it's stating 'ele' is not a function (type-error).
+
+2) For function `minMaxProduct(array):  I think I am reading the requirement correctly?? - it's wants the
+product of .max and .min of array.  My answers do not match examples.
+
+3) For leastCommonMultiple(num1, num2):  I used Math.min() method to find lowest after my forloop.
+
+4) I think this is a duplicate, correct?
+
+5) I am not sure what it's asking for. The requirement is confusing, can you explain?
+
 */

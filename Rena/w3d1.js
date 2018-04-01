@@ -16,6 +16,11 @@
 */
 
 
+function myIndexOf(array, ele){
+
+}
+myIndexOf(["a", "b", "c"], "d");
+
 /******************************************************************************
 ** Write a function `minMaxProduct(array)` that returns the product between the
 ** largest value and the smallest value in the array. Assume `array` is an array of
@@ -27,7 +32,10 @@
 ** minMaxProduct([4,2,5,1,-5]) => -25
 */
 
+function minMaxProduct(array){
 
+}
+minMaxProduct([4,2,5,1,-5]); 
 
 /******************************************************************************
 ** Write a function `leastCommonMultiple(num1, num2)` that returns the

@@ -32,6 +32,30 @@ function divisibleByFivePairSum(array){
 divisibleByFivePairSum([1, 5, 2, 0, 4]);
 divisibleByFivePairSum([13, 22, 8, -3, 12]);
 
+
+
+
+//Alternative code to solve exercise: ES06
+	var numArray = [1, 5, 2, 0, 4];
+
+	numArray.map((x, i, a) => a.map((y,j) =>{
+		if (i < j){
+			if((x+y) % 5 === 0){
+				console.log(i, j);
+			}
+		}
+	}))
+	
+
+
+var numArray = [13, 22, 8, -3, 12];
+
+	numArray.map((x, i, a) => a.map((y,j) =>{
+		if((i<j) && ((x + y) % 5 === 0)){
+			console.log(i, j);
+		}
+	}))
+
 /******************************************************************************
 ** Write a function #myIndexOf(array, ele) that takes an array and an element.
 ** Return the index of the element in the array, or -1 if it doesn't exist. Assume

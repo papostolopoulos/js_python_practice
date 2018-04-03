@@ -1,3 +1,6 @@
+
+// myIndexOf
+
 function myIndexOf(array, ele){
     for(var i = 0; i < array.length; i++){
       return array.findIndex(function (el) {
@@ -29,6 +32,15 @@ function lcm(num1, num2) {
   if (num2 % 2 === 0) return (num2 / 2) * num1;
 
   if (num1 % 2 !== 0 && num2 % 2 !== 0) return num1 * num2;
+}
+
+
+function lcm(num1, num2) {
+  var leastMultiple = num1 * num2;
+  while(leastMultiple % num1 === 0 && leastMultiple % num2 === 0){
+    leastMultiple /= 2;
+  }
+  return leastMultiple * 2;
 }
 
 

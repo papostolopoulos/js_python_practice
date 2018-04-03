@@ -19,9 +19,10 @@
 function myIndexOf(array, ele){
     for(var i = 0; i < array.length; i++){
         if(array[i] === ele){
-            return array.findIndex(ele);
+            return i;
         }
     }
+    return -1;
 }
 myIndexOf([1,2,3,4,5], 5);
 myIndexOf(["a", "b", "c"], "d");
@@ -40,9 +41,10 @@ myIndexOf(["a", "b", "c"], "a");
 */
 
 function minMaxProduct(array){
-    return Math.max(...array) + Math.min(...array);
+    return Math.max(...array) * Math.min(...array);
 }
 minMaxProduct([5,4,3,2,1]);
+minMaxProduct([4,2,5,1,-5]);
 
 /******************************************************************************
 ** Write a function `leastCommonMultiple(num1, num2)` that returns the
@@ -54,17 +56,27 @@ minMaxProduct([5,4,3,2,1]);
 ** leastCommonMultiple(24, 26) => 312
 */
 
-function lcm(num1, num2){
-    var newSum = num1 * num2;
-   //  console.log(sumNum);
-     //Using Math.min() returns the lowest number:
-       if(newSum % num1 !== 0 && newSum % num2 !== 0){
-         // console.log(Math.min(num1, num2));
-         return Math.min(newSum);
-       }
-     }
-     lcm(24, 26);
-     leastCommonMultiple(2, 3);
+// function lcm(num1, num2){
+//     var newSum = num1 * num2;
+//    //  console.log(sumNum);
+//      //Using Math.min() returns the lowest number:
+//        if(newSum % num1 !== 0 && newSum % num2 !== 0){
+//          // console.log(Math.min(num1, num2));
+//          return Math.min(newSum);
+//        }
+//      }
+//      lcm(24, 26);
+//      leastCommonMultiple(2, 3);
+
+//Using while loop to solve this!
+function leastCommonMultiple(num1, num2) {
+    var leastMultiple = num1 * num2;
+    while(leastMultiple % num1 === 0 && leastMultiple % num2 === 0){
+      leastMultiple /= 2;
+    }
+    return leastMultiple * 2;
+  }
+  leastCommonMultiple(24, 26);
 
 /******************************************************************************
 ** Write a function `hipsterfy(sentence)` that takes takes a string containing
@@ -78,8 +90,15 @@ function lcm(num1, num2){
 ** hipsterfy("turtle cheeseburger fries") => "turtl cheeseburgr fris"
 */
 
-//I think we did this one before.  Is this a duplicate?
+function hipsterfy(sentence){
+    //create new variable and split the string:
+    var arraySentence = sentence.split("");
+//create new variable and use .map() method:
+    var newSentence = arraySentence.map(function(word){
 
+    })
+}
+hipsterfy("runner anaconda");
 
 /******************************************************************************
 ** Write a function #magicCipher(sentence, cipher) that takes in an string(sentence)
@@ -93,7 +112,7 @@ function lcm(num1, num2){
 */
 
 function magicCiper(sentence, cipher){
-
+    
 
 
 }
@@ -102,22 +121,14 @@ magicCipher("add me on facebook" , { a : "c", d : "q"})
 
 /* NOTES: from Rena
 
-1) For function #myIndexOf(array, ele): I understand that I cannot use indexOf() method.  However, I found
-findIndex() method instead. I think my forloop and if-statement are correct, but my return statement using
-findIndex() seems off??  I read the description of findIndex(), but it's stating 'ele' is not a function (type-error).
-Asnwer: If you are going to use findIndex, this does not need a for loop or an if statement.
-It needs a callback function. Can you figure it out? Play with findIndex separately and see what you get.
-See if you can add it later to the function you are building.
+1) For function #myIndexOf(array, ele): DONE.
 
-2) For function `minMaxProduct(array):  I think I am reading the requirement correctly?? - it's wants the
-product of .max and .min of array.  My answers do not match examples.
-Answer: Product, not sum. See online what "product" stands for
+2) For function `minMaxProduct(array):  Done.
 
 3) For leastCommonMultiple(num1, num2):  I used Math.min() method to find lowest after my forloop.
 Answer: this is the same problem like the lcm one.
 
-4) I think this is a duplicate, correct?
--Correct but you need to work on it from scratch. See if you can solve it
+4) Still working on this!
 
 5) I am not sure what it's asking for. The requirement is confusing, can you explain?
 Answer: for the sentence: "add me on facebook" and the object { a : "c", d : "q"}),

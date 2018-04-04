@@ -33,3 +33,24 @@ function lcm(num1, num2) {
   }
   return leastMultiple * 2;
 }
+
+
+
+
+var vowels = 'aeiou';
+var name = 'Paris';
+var result = name;
+
+for (var j = name.length -1; j >= 0; j--){
+	for (var i = 0; i < vowels.length; i ++){
+		if(vowels[i] === name[j]){
+			result = name.substring(0, j) + name.substring(j + 1);
+			console.log("Result: ", result);
+			break;
+		}
+	}
+	if (result !== name) {
+		console.log("inside second if statement", result, name)
+		break;
+	}
+}

@@ -29,6 +29,18 @@ myIndexOf(["a", "b", "c"], "d");
 myIndexOf(["a", "b", "c"], "a");
 
 
+
+//Alternative answer:
+function myIndexOf(array, num){
+//Use .findIndex() method to find the index/position.
+// Note that 'el' referes to the element in array.
+//Need to use a call-back function:
+    array.findIndex(function(el){
+        return el ==== num;
+    })
+}
+myIndexOf([1,2,3,4,5], 5);
+
 /******************************************************************************
 ** Write a function `minMaxProduct(array)` that returns the product between the
 ** largest value and the smallest value in the array. Assume `array` is an array of
@@ -56,24 +68,15 @@ minMaxProduct([4,2,5,1,-5]);
 ** leastCommonMultiple(24, 26) => 312
 */
 
-// function lcm(num1, num2){
-//     var newSum = num1 * num2;
-//    //  console.log(sumNum);
-//      //Using Math.min() returns the lowest number:
-//        if(newSum % num1 !== 0 && newSum % num2 !== 0){
-//          // console.log(Math.min(num1, num2));
-//          return Math.min(newSum);
-//        }
-//      }
-//      lcm(24, 26);
-//      leastCommonMultiple(2, 3);
 
 //Using while loop to solve this!
 function leastCommonMultiple(num1, num2) {
     var leastMultiple = num1 * num2;
+    //while loop must be true all the time:
     while(leastMultiple % num1 === 0 && leastMultiple % num2 === 0){
       leastMultiple /= 2;
     }
+    //when it's false, it exists the loop:
     return leastMultiple * 2;
   }
   leastCommonMultiple(24, 26);
@@ -89,6 +92,14 @@ function leastCommonMultiple(num1, num2) {
 ** hipsterfy("runner anaconda") => "runnr anacond"
 ** hipsterfy("turtle cheeseburger fries") => "turtl cheeseburgr fris"
 */
+
+array = [1, 2, 3, 4];
+
+array.map(function(x){
+    return x * 10;
+})
+
+
 
 function hipsterfy(sentence){
     //create new variable and split the string:
@@ -125,8 +136,7 @@ magicCipher("add me on facebook" , { a : "c", d : "q"})
 
 2) For function `minMaxProduct(array):  Done.
 
-3) For leastCommonMultiple(num1, num2):  I used Math.min() method to find lowest after my forloop.
-Answer: this is the same problem like the lcm one.
+3) For leastCommonMultiple(num1, num2):  DONE.
 
 4) Still working on this!
 

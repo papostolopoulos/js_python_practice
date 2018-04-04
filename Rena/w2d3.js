@@ -43,6 +43,7 @@ var punctuation = [";", "!", ".", "?", ",", "-"];
 // titleize("i LOVE; lover of mine", ["love", "of"]); //"I love; Lover of Mine"
 // titleize("shall we dance?", ["dance"]); //"Shall We dance?"
 
+
 function containsPunctuation(word){
     var punctuation = [";", "!", ".", "?", ",", "-"];
 //create new variable and assign it the last character in sentence.

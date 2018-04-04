@@ -93,11 +93,6 @@ function leastCommonMultiple(num1, num2) {
 ** hipsterfy("turtle cheeseburger fries") => "turtl cheeseburgr fris"
 */
 
-array = [1, 2, 3, 4];
-
-array.map(function(x){
-    return x * 10;
-})
 
 
 
@@ -106,10 +101,20 @@ function hipsterfy(sentence){
     var arraySentence = sentence.split("");
 //create new variable and use .map() method:
     var newSentence = arraySentence.map(function(word){
+        var result = "";
+        var vowels = 'aeiou';
 
+        for(var i = 0; i < word.length; i++){
+            // console.log(word[i]);
+            if(word[i] === vowels){ //Do I need a nested forloop to get vowels[i]?
+                return word.split(' ').replace(vowels[i]); // this line needs work! May
+                //want to replace with .substr() method?
+            }
+        }
     })
 }
 hipsterfy("runner anaconda");
+
 
 /******************************************************************************
 ** Write a function #magicCipher(sentence, cipher) that takes in an string(sentence)
@@ -125,7 +130,6 @@ hipsterfy("runner anaconda");
 function magicCiper(sentence, cipher){
     
 
-
 }
 magicCipher("add me on facebook" , { a : "c", d : "q"})
 
@@ -138,9 +142,14 @@ magicCipher("add me on facebook" , { a : "c", d : "q"})
 
 3) For leastCommonMultiple(num1, num2):  DONE.
 
-4) Still working on this!
+4) For function hipsterfy(sentence):  Do I need a nested forloop?  I do not think I should use
+a reverse forloop, correct?  I am also trying to incorporate .replace(), but I think I would need a RegEx, correct?
+I may have to use .substr() method instead..???
 
-5) I am not sure what it's asking for. The requirement is confusing, can you explain?
-Answer: for the sentence: "add me on facebook" and the object { a : "c", d : "q"}),
+5) I Googled potential solutions to try and incorporate into my answer. I am not great with RegEx and
+most of my searches keep using .replace() method.  I think I might have to do this the long way
+and try to use .split(), .join(), etc. to try and resolve this, correct?
+
+Paris' Answer: for the sentence: "add me on facebook" and the object { a : "c", d : "q"}),
 you have to replace "a" with "c" and "d" with "q" in the sentence.
 */

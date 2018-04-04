@@ -24,7 +24,7 @@ var paris = new Person();
 
 
 
-//Array Methods:Map, Filter, Join and Reduce: produce ES5 and ES6 versions
+//EXAMPLES of Array Methods:Map, Filter, Join and Reduce: produce ES5 and ES6 versions
 //Use the provided arrays for exercises:
 const arr1 = [0, 6, 2, 0, -2, 7];
 const arr2 = ['I', 'wish', 'I', 'was', 'concatenated.'];

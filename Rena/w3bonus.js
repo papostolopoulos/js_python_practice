@@ -36,7 +36,7 @@ function lcm(num1, num2) {
 
 
 
-
+//Another example of Reverse for loop, plus .substring() method:
 var vowels = 'aeiou';
 var name = 'Paris';
 var result = name;
@@ -54,3 +54,11 @@ for (var j = name.length -1; j >= 0; j--){
 		break;
 	}
 }
+
+
+//Example of how to use .map():
+array = [1, 2, 3, 4];
+
+array.map(function(x){
+    return x * 10;
+})

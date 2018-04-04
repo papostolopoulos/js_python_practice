@@ -47,7 +47,7 @@ divisibleByFivePairSum([13, 22, 8, -3, 12]);
 	}))
 	
 
-
+//ES06 version:
 var numArray = [13, 22, 8, -3, 12];
 
 	numArray.map((x, i, a) => a.map((y,j) =>{

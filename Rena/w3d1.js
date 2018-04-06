@@ -94,24 +94,63 @@ function leastCommonMultiple(num1, num2) {
 */
 
 
-
-
 function hipsterfy(sentence){
     //create new variable and split the string:
-    var arraySentence = sentence.split("");
+    var arraySentence = sentence.split(" ");
 //create new variable and use .map() method:
     var newSentence = arraySentence.map(function(word){
-        var result = "";
-        var vowels = 'aeiou';
+        //console.log(word)
+        //console.log(word.length);
 
-        for(var i = 0; i < word.length; i++){
-            // console.log(word[i]);
-            if(word[i] === vowels){ //Do I need a nested forloop to get vowels[i]?
-                return word.split(' ').replace(vowels[i]); // this line needs work! May
-                //want to replace with .substr() method?
+        var vowels = 'aeiou';
+    //reverse forloop: 
+        for(var i = word.length - 1; i >= 0; i--){
+            //console.log(vowels.indexOf(word[i]));
+            if(vowels.indexOf(word[i]) !== -1){
+                //console.log("in the if for " + i + " " + word[i])
+                //.replace() method starts from beginning:
+                // 1. if you have a RegEx with global, /someregex/g then
+                //     it will look and replace everything
+                // 2. if you have a RegEx with global and i /someregex/gi then 
+                // it will replace everything regardless of capitalization
+                // 3. if you have a plain regex /someregex/ or a plain text string "someString", 
+                // then it will replace it only once
+                return word.split("").reverse().join("").replace(word[i], "").split("").reverse().join("");
             }
         }
+        // return word;
     })
+    return newSentence.join(' ');
+}
+hipsterfy("runner anaconda");
+
+
+
+//Alternative option:
+function hipsterfy(sentence){
+    //create new variable and split the string:
+    var arraySentence = sentence.split(" ");
+//create new variable and use .map() method:
+    var newSentence = arraySentence.map(function(word){
+        //console.log(word)
+        //console.log(word.length);
+
+        var vowels = 'aeiou';
+    //reverse forloop: 
+        for(var i = word.length - 1; i >= 0; i--){
+            //console.log(vowels.indexOf(word[i]));
+    //use .indexOf() method returns the position of the first 
+    //occurrence of a specified value in a string. Otherwise, it
+    //returns -1 if value is not found.
+            if(vowels.indexOf(word[i]) !== -1){
+            // using 'i + 1', means you are 
+            //starting from the current index position plus 1.
+                return word.substr(0, i) + word.substr(i + 1);
+            }
+        }
+        // return word;
+    })
+    return newSentence.join(' ');
 }
 hipsterfy("runner anaconda");
 
@@ -127,11 +166,22 @@ hipsterfy("runner anaconda");
 ** magicCipher("twmce" , { m : "n", t : "d", w : "a"}) => "dance"
 */
 
-function magicCiper(sentence, cipher){
-    
+function magicCipher(sentence, cipher){
 
+    for(var i = 0; i < sentence.length; i++){
+       // console.log(sentence[i]);
+        if(Object.keys(cipher).indexOf(sentence[i]) !== -1){
+            //sentence[i] represents the elements in string. Use the .replace()
+            //method to have cipher[sentence[i]] replace the elements. The
+            //cipher[sentence[i]] represents the elements in cipher object.
+            sentence = sentence.replace(sentence[i], cipher[sentence[i]]);
+        }
+    }
+    return sentence;
 }
-magicCipher("add me on facebook" , { a : "c", d : "q"})
+magicCipher("add me on facebook", { a : "c", d : "q"});
+
+
 
 
 /* NOTES: from Rena

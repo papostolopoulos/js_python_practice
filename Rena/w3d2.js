@@ -32,20 +32,20 @@ If clock.totalSeconds = 13, clock.getSeconds() will evaluate to "13"
 If clock.totalSeconds = 60, clock.getSeconds() will evaluate to "00"
 If clock.totalSeconds = 1342, clock.getSeconds() will evaluate to "22" */
 
-
-
-function getSeconds(){
-  var clock = {
-    totalSeconds: 0;
+var clock = {
+ totalSeconds: 0,
+ getSeconds: function(){
+//Note that 'this' refers to 'clock' object.
+//clock number must be single digit:
+  if(this.totalSeconds < 10){
+    return '0' + this.totalSeconds;
   }
-
-  if(totalSeconds < 60){
-    //trying to use .getSeconds() method - not sure if appropriate?
-    var totalTime = clock.getSeconds();
+//else, return clock number that is double digit number:
+  else{
+    return (this.totalSeconds % 60).toString();
   }
-  console.log(totalTime);
+ }
 }
-
 
 
 /* Write a method getMinutes that will return the minute count of our clock.
@@ -70,7 +70,29 @@ If clock.totalSeconds = 134, clock.getMinutes() will evaluate to "02"
 If clock.totalSeconds = 4342, clock.getMinutes() will evaluate to "12" */
 
 var clock = {
-  //copy your code from above and continue with new property
+ totalSeconds: 40,
+ getSeconds: function(){
+  if(this.totalSeconds < 10){
+    return '0' + this.totalSeconds;
+  }
+  else{
+    return (this.totalSeconds % 60).toString();
+  }
+ },
+ getMinutes: function(){
+  /*
+    If totalSeconds / 60 is less than 10,  
+    then my minutes should he 0 + totalSeconds / 60 (rounded)
+    Otherwise
+    my minutes should be totalSeconds / 60 (rounded)
+  */
+  if(this.totalSeconds / 60 < 10){
+    return '0' + Math.floor(this.totalSeconds / 60); 
+  }
+  else{
+    return Math.floor(this.totalSeconds / 60).toString();
+  }
+ }
 }
 
 clock.getMinutes();
@@ -93,7 +115,7 @@ clock.getHours();
 
 /*
 Write a method printTime that logs the time in clock format.
-Use getHours, getMinutes, and getSeconds
+Use getHours, getMinutes, and getSeconds 
 You will need to do some concatenation
 
 If clock.totalSeconds = 0, clock.printTime() will log "00:00:00"

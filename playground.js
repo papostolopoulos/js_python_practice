@@ -1,4 +1,34 @@
-//loops vs recursion 
+function addSomething(num1){
+  console.log("num1 is", num1);
+  return function(num2){
+    console.log("num2 is", num2);
+    return num1 + num2;
+  }
+}
+
+var addMe = addSomething(10);
+
+function sayHi(name) {
+  return "Hello there " + name;
+}
+
+function closures(num3) {
+  console.log("num3 is", num3);
+  return num3;
+}
+
+
+function addSomethingGood(){
+  var num1 = 10;
+  console.log("num1 is", num1);
+  return function(num2){
+    console.log("num2 is", num2);
+    return num1 + num2;
+  }
+}
+
+
+//loops vs recursion
 function addTwoFewTimes(num, counter) {
   while (counter > 0) {
     num += 2

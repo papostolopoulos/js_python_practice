@@ -126,12 +126,12 @@ var clock = {
     }
   },
     getHours: function(){
-      //24 hrs in a day:
-    if(this.totalSeconds / 24 < 10){
-      return '0' + Math.round(this.totalSeconds / 24);
+//use Number() method to convert string result to integer.
+    if(Number(this.getMinutes()) / 60 < 10){
+      return '0' + Math.floor(this.getMinutes() / 60);
     }
     else{
-      return Math.round(this.totalSeconds / 24).toString();
+      return Math.floor(this.totalSeconds / 60).toString();
     }
  }
 }

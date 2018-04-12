@@ -62,3 +62,5 @@ array = [1, 2, 3, 4];
 array.map(function(x){
     return x * 10;
 })
+
+

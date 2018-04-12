@@ -80,7 +80,7 @@ var clock = {
   }
  },
  getMinutes: function(){
-  /*
+  /* NOTES:
     If totalSeconds / 60 is less than 10,  
     then my minutes should he 0 + totalSeconds / 60 (rounded)
     Otherwise
@@ -108,7 +108,32 @@ If clock.totalSeconds = 20000, clock.getHours() will evaluate to "05"
 If clock.totalSeconds = 900000, clock.getHours() will evaluate to "250" */
 
 var clock = {
-  //copy your code from above and continue with new property
+ totalSeconds: 4342,
+ getSeconds: function(){
+  if(this.totalSeconds < 10){
+    return '0' + this.totalSeconds;
+  }
+  else{
+    return (this.totalSeconds % 60).toString();
+  }
+ },
+ getMinutes: function(){
+  if(this.totalSeconds / 60 < 10){
+    return '0' + Math.floor(this.totalSeconds / 60); 
+  }
+  else{
+    return Math.floor(this.totalSeconds / 60).toString();
+    }
+  },
+    getHours: function(){
+      //24 hrs in a day:
+    if(this.totalSeconds / 24 < 10){
+      return '0' + Math.round(this.totalSeconds / 24);
+    }
+    else{
+      return Math.round(this.totalSeconds / 24).toString();
+    }
+ }
 }
 
 clock.getHours();

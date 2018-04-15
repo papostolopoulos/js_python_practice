@@ -138,6 +138,7 @@ var clock = {
 
 clock.getHours();
 
+
 /*
 Write a method printTime that logs the time in clock format.
 Use getHours, getMinutes, and getSeconds 
@@ -148,8 +149,35 @@ If clock.totalSeconds = 200, clock.printTime() will log "00:03:20"
 If clock.totalSeconds = 3871, clock.printTime() will log "01:04:31" */
 
 var clock = {
-  //copy your code from above and continue with new property
-}
+  totalSeconds: 3872,
+  getSeconds: function(){
+   if(this.totalSeconds < 10){
+     return '0' + this.totalSeconds;
+   }
+   else{
+     return (this.totalSeconds % 60).toString();
+   }
+  },
+  getMinutes: function(){
+   if(this.totalSeconds / 60 < 10){
+     return '0' + Math.floor(this.totalSeconds / 60); 
+   }
+   else{
+     return Math.floor(this.totalSeconds / 60).toString();
+     }
+   },
+     getHours: function(){
+     if(this.totalSeconds / 3600 < 10){
+       return '0' + Math.floor(this.totalSeconds / 3600);
+     }
+     else{
+       return Math.floor(this.totalSeconds / 3600).toString();
+     }
+  },
+  printTime: function(){
+    return `${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`;
+  }
+ }
 
 
 
@@ -167,6 +195,47 @@ Test is out. When you're done, you'll have a clock that prints out a new time ev
 Bonus: Try writing tick using both setTimeout and setInterval! I called my methods
 intervalTick and timeoutTick. */
 
+
 var clock = {
-  //copy your code from above and continue with new property
-}
+  totalSeconds: 0,
+  getSeconds: function(){
+   if(this.totalSeconds < 10){
+     return '0' + this.totalSeconds;
+   }
+   else{
+     return (this.totalSeconds % 60).toString();
+   }
+  },
+  getMinutes: function(){
+    if(this.totalSeconds / 60 < 10){
+      return '0' + Math.floor(this.totalSeconds / 60); 
+    }
+    else{
+      return Math.floor(this.totalSeconds / 60).toString();
+     }
+   },
+  getHours: function(){
+    if(this.totalSeconds / 3600 < 10){
+      return '0' + Math.floor(this.totalSeconds / 3600);
+    }
+    else{
+      return Math.floor(this.totalSeconds / 3600).toString();
+    }
+  },
+  printTime: function(){
+    return `${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`;
+  },
+  tick: function(startSecond){
+  //using const to set 'that' to 'this';
+    const that = this;
+    startSecond = startSecond || this.totalSeconds;
+    this.totalSeconds++;
+//In general, 'this' breaks when it is listed one function down. It will
+//lose the 'this binding'.
+  //I can refer 'that' to explicitly pass a reference to current object:
+    console.log(that.printTime());
+  }
+};
+// Need to use clock.tick since we are in the global
+//execution context:
+setInterval(clock.tick, 1000);

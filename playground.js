@@ -31,16 +31,16 @@ function addSomethingGood(){
 //loops vs recursion
 function addTwoFewTimes(num, counter) {
   while (counter > 0) {
-    num += 2
-    counter -= 1
+    num += 2;
+    counter -= 1;
   }
   return num;
 }
 
 
 function addTwoFewTimes(num, counter){
-  num += 2
-  counter -= 1
+  num += 2;
+  counter -= 1;
   if (counter === 0) {
     return num;
   }
@@ -54,7 +54,7 @@ function addTwoFewTimes(num, counter){
 function myIndexOf(array, ele){
     for(var i = 0; i < array.length; i++){
       return array.findIndex(function (el) {
-        return el === ele
+        return el === ele;
       });
     }
 }

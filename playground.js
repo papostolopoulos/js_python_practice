@@ -210,41 +210,4 @@ console.log(str.replace("hello", "Goodbye"));
   arr.reduce(function(start, el) {
     return start += el
   }, 0);
-
-
-
 */
-
-{
-  name: "Rena",
-  sayHi: function() {
-
-  },
-  myPrototype:
-}
-
-
-function Person(name, address){
-  this.name = name;
-  this.address = address;
-
-}
-
-Person.prototype.sayHi = function() {
-  return "Hello, my name is " + this.name + " and I live at " + this.address;
-}
-
-
-Person.prototype.myAddress = function(){
-  return "My address is " + this.address;
-}
-
-Person.prototype.somethingFunny = function(){
-  return this.name + " ate a banana and turned yellow";
-}
-
-
-
-
-var rena = new Person("Rena", "111 Main St");
-var mohamed = new Person("Mohammed", "200 Market St");

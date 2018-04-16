@@ -34,10 +34,10 @@ If clock.totalSeconds = 1342, clock.getSeconds() will evaluate to "22" */
 
 var clock = {
  totalSeconds: 0,
- getSeconds: function () {
-   var seconds = this.totalSeconds > 60 ? this.totalSeconds % 60 : this.totalSeconds
-   return seconds < 10 ? "0" + seconds : seconds.toString();
-  }
+ getSeconds: function() {
+  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
+  (this.totalSeconds % 60).toString();
+ }
 }
 
 
@@ -65,10 +65,14 @@ If clock.totalSeconds = 4342, clock.getMinutes() will evaluate to "12" */
 var clock = {
  totalSeconds: 0,
  getSeconds: function() {
-  return this.totalSeconds < 10 ? "0" + this.totalSeconds : (this.totalSeconds % 60).toString();
+  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
+  (this.totalSeconds % 60).toString();
  },
  getMinutes: function() {
-   return this.totalSeconds < 60 ? "00" : this.totalSeconds / 60 < 10 ? "0" + Math.floor(this.totalSeconds / 60) : Math.floor(this.totalSeconds / 60).toString();
+   return this.totalSeconds < 60 ? "00" :
+   this.totalSeconds >= 60 && this.totalSeconds < 600 ? "0" + Math.floor(this.totalSeconds / 60) :
+   (this.totalSeconds / 60) % 60 < 10 ? "0" + Math.floor((this.totalSeconds / 60) % 60) :
+   Math.floor((this.totalSeconds / 60) % 60).toString();
  }
 }
 
@@ -85,14 +89,19 @@ If clock.totalSeconds = 900000, clock.getHours() will evaluate to "250" */
 var clock = {
  totalSeconds: 0,
  getSeconds: function() {
-  return this.totalSeconds < 10 ? "0" + this.totalSeconds : (this.totalSeconds % 60).toString();
+  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
+  (this.totalSeconds % 60).toString();
  },
  getMinutes: function() {
-   return this.totalSeconds < 60 ? "00" : this.totalSeconds / 60 < 10 ? "0" + Math.floor(this.totalSeconds / 60) : Math.floor(this.totalSeconds / 60).toString();
+   return this.totalSeconds < 60 ? "00" :
+   this.totalSeconds >= 60 && this.totalSeconds < 600 ? "0" + Math.floor(this.totalSeconds / 60) :
+   (this.totalSeconds / 60) % 60 < 10 ? "0" + Math.floor((this.totalSeconds / 60) % 60) :
+   Math.floor((this.totalSeconds / 60) % 60).toString();
  },
  getHours: function() {
-   var minutesNum = Number(this.getMinutes());
-   return minutesNum < 60 ? "00" : minutesNum / 60 < 10 ? "0" + Math.floor(minutesNum / 60) : Math.floor(minutesNum / 60).toString();
+   return this.totalSeconds < 3600 ? "00" :
+   this.totalSeconds >= 3600 && this.totalSeconds < 36000 ? "0" + Math.floor(this.totalSeconds / 3600).toString() :
+   Math.floor(this.totalSeconds / 3600).toString();ko
  }
 }
 
@@ -106,31 +115,44 @@ If clock.totalSeconds = 0, clock.printTime() will log "00:00:00"
 If clock.totalSeconds = 200, clock.printTime() will log "00:03:20"
 If clock.totalSeconds = 3871, clock.printTime() will log "01:04:31" */
 
+/*
+seconds less than 10
+seconds between 10 and 59
+seconds more than 60 - Not necessary because we use modulo
+
+seconds less than 60 (00)
+minutes less than 10 (60sec to 600sec)
+minutes between 10 and 59 (600sec to 3600 sec)
+minutes more than 60 but the modulo remainder is less than 10 (3600 secs or more and 3600 % 60 < 10)
+minutes more than 60 (3600 secs or more)
+
+seconds less than 3600
+hours less than 10 (3600sec to 36000sec)
+hours more than 10
+*/
+
 var clock = {
  totalSeconds: 0,
  getSeconds: function() {
-  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60: (this.totalSeconds % 60).toString();
+  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
+  (this.totalSeconds % 60).toString();
  },
  getMinutes: function() {
+
    return this.totalSeconds < 60 ? "00" :
    this.totalSeconds >= 60 && this.totalSeconds < 600 ? "0" + Math.floor(this.totalSeconds / 60) :
-   this.totalSeconds >= 600 && this.totalSeconds < 3600 ? Math.floor(this.totalSeconds / 60).toString() :
-   this.totalSeconds >= 3600 && this.totalSeconds < 3660 ? "00" :
-   this.totalSeconds >= 3660 && this.totalSeconds < 36000 ? "0" + Math.floor(this.totalSeconds / 3600).toString():
-   Math.floor(this.totalSeconds / 3600).toString();
+   (this.totalSeconds / 60) % 60 < 10 ? "0" + Math.floor((this.totalSeconds / 60) % 60) :
+   Math.floor((this.totalSeconds / 60) % 60).toString();
  },
  getHours: function() {
    return this.totalSeconds < 3600 ? "00" :
    this.totalSeconds >= 3600 && this.totalSeconds < 36000 ? "0" + Math.floor(this.totalSeconds / 3600).toString() :
-   Math.floor((this.totalSeconds / 60) / 60).toString()
+   Math.floor(this.totalSeconds / 3600).toString();ko
  },
  printTime: function() {
-   console.log(this.getMinutes());
-   return `${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`
+   console.log(`${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`);
  }
 }
-
-(15 * 60 *60)
 
 /* Write a method tick(startSecond). What this method should do is outlined below:
 If startSecond was passed in (we'll make it optional), set totalSeconds to be equal to it.
@@ -140,53 +162,37 @@ Using either setTimeout or setInterval, make this behavior repeat itself every s
 Remember, arguments in Javascript are optional, so no need to worry about constantly
 setting the startSecond parameter.
 
-
-
 Test is out. When you're done, you'll have a clock that prints out a new time every second!
 Bonus: Try writing tick using both setTimeout and setInterval! I called my methods
 intervalTick and timeoutTick. */
 
-
 var clock = {
-  totalSeconds: 0,
-  getSeconds: function(){
-   if(this.totalSeconds < 10){
-     return '0' + this.totalSeconds;
-   }
-   else{
-     return (this.totalSeconds % 60).toString();
-   }
-  },
-  getMinutes: function(){
-    if(this.totalSeconds / 60 < 10){
-      return '0' + Math.floor(this.totalSeconds / 60);
-    }
-    else{
-      return Math.floor(this.totalSeconds / 60).toString();
-     }
-   },
-  getHours: function(){
-    if(this.totalSeconds / 3600 < 10){
-      return '0' + Math.floor(this.totalSeconds / 3600);
-    }
-    else{
-      return Math.floor(this.totalSeconds / 3600).toString();
-    }
-  },
-  printTime: function(){
-    return `${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`;
-  },
-  tick: function(startSecond){
-  //using const to set 'that' to 'this';
-    const that = this;
-    startSecond = startSecond || this.totalSeconds;
-    this.totalSeconds++;
-//In general, 'this' breaks when it is listed one function down. It will
-//lose the 'this binding'.
-  //I can refer 'that' to explicitly pass a reference to current object:
-    console.log(that.printTime());
-  }
-};
-// Need to use clock.tick since we are in the global
-//execution context:
-setInterval(clock.tick, 1000);
+ totalSeconds: 0,
+ getSeconds: function() {
+  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
+  (this.totalSeconds % 60).toString();
+ },
+ getMinutes: function() {
+
+   return this.totalSeconds < 60 ? "00" :
+   this.totalSeconds >= 60 && this.totalSeconds < 600 ? "0" + Math.floor(this.totalSeconds / 60) :
+   (this.totalSeconds / 60) % 60 < 10 ? "0" + Math.floor((this.totalSeconds / 60) % 60) :
+   Math.floor((this.totalSeconds / 60) % 60).toString();
+ },
+ getHours: function() {
+   return this.totalSeconds < 3600 ? "00" :
+   this.totalSeconds >= 3600 && this.totalSeconds < 36000 ? "0" + Math.floor(this.totalSeconds / 3600).toString() :
+   Math.floor(this.totalSeconds / 3600).toString();ko
+ },
+ printTime: function() {
+   console.log(`${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`);
+ },
+ tick: function(startSecond) {
+   var self = this;
+   startSecond === undefined ? this.totalSeconds = 0 : this.totalSeconds = startSecond;
+   setInterval(function() {
+     self.printTime();
+     self.totalSeconds += 1;
+   }, 1000);
+ }
+}

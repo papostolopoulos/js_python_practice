@@ -15,12 +15,12 @@ is irrelevant.
  3 is at position 2 in array [1,2,3] */
 
 function eachEl(el, idx, ary){
-  console.log(`${el} is at position ${idx} in array ${ary}`);
+  return(`${el} is at position ${idx} in array ${ary}`);
 }
 
  function myForEach(arr, cb){
   for (var i = 0; i < arr.length; i++) {
-    cb(arr[i], i, arr);
+    console.log(cb(arr[i], i, arr));
   }
  }
 
@@ -28,8 +28,10 @@ function eachEl(el, idx, ary){
 
 
 /* Write a function mySelect(arr, cb) that accepts an array and a callback.
-It should pass each element, its corresponding index, and the array itself to the callback.
-It should return a new array of all the elements in the input array arr where the callback cb returns true.
+It should pass each element, its corresponding index, and the array itself to
+the callback.
+It should return a new array of all the elements in the input array arr
+where the callback cb returns true.
 */
 
 function conditionEachEl(el, idx, ary){
@@ -49,18 +51,33 @@ function mySelect(arr, cb) {
 mySelect([1,2,3,4,5,6], conditionEachEl);
 
 /* Write a function myReject(arr, cb) that accepts an array and a callback.
-It should pass each element, its corresponding index, and the array itself to the callback.
-It should return a new array of all the elements in the input array arr where the callback cb returns false.
-
+It should pass each element, its corresponding index, and the array itself to
+the callback.
+It should return a new array of all the elements in the input array arr
+where the callback cb returns false.
  */
 
-function myReject(arr, cb) {
-  //enter your code here
+function rejectCondition(el, idx, ary){
+ return el % 2 === 0;
 }
 
- myReject([1,2,3,4,5,6], /*run your callback function here*/); // [1,3,5]
+function rejectCondition2(el, idx, ary){
+ return el % 2 !== 0;
+}
 
- myReject([1,2,3,4,5,6], /*Run your callback function here*/); // [2,4,6]
+function myReject(arr, cb) {
+  var finalArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (!cb(arr[i])) {
+      finalArr.push(arr[i]);
+    }
+  }
+  return finalArr;
+}
+
+ myReject([1,2,3,4,5,6], rejectCondition); // [1,3,5]
+
+ myReject([1,2,3,4,5,6], rejectCondition2); // [2,4,6]
 
 
 /* Write a function myMap(arr, cb) that accepts an array and a callback.
@@ -70,13 +87,28 @@ It should return an array where each element is the return value of the callback
 given the element in the corresponding position.
 See the examples if this is confusing.*/
 
-function myMap(arr, cb) {
-  // enter your code here
+function mapIt1(el, idx, ary) {
+  for (var i = 0; i < ary.length; i++) {
+    el = el * 2;
+  }
 }
 
-myMap([1,2,3], /*run your callback here*/); //[2, 4, 6]
-myMap([1,2,3], /*run your callback here*/); // [1, 3, 5]
-myMap(["A", "B", "C"], /*run your callback here*/); // ["A0", "B1", "C2"]
+function myMap(arr, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = cb(arr[i], i, arr);
+  }
+  return arr;
+}
+
+myMap([1,2,3], function(el, idx, arr) {
+  return el * 2;
+}); //[2, 4, 6]
+myMap([1,2,3], function(el, idx, arr){
+  return el + idx;
+}); // [1, 3, 5]
+myMap(["A", "B", "C"], function(el, idx, ary) {
+  return el + idx;
+}); // ["A0", "B1", "C2"]
 
 
 
@@ -85,7 +117,9 @@ It returns a function which will raise its input to the power specified by num
 and returns the value. -- TIP: THINK OF CLOSURES*/
 
 function createExpFunc(num) {
-
+  return function(num2){
+    return Math.pow(num2, num);
+  }
 }
 
 powerTwo(2); // 4

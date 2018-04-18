@@ -18,10 +18,6 @@ undefined //return value
 ******************************************************************************/
 
 
-// 5 is at position 0 in array [5,12,-3]
-// 12 is at position 1 in array [5,12,-3]
-// -3 is at position 2 in array [5,12,-3]
-// undefined //return value
 
 
 

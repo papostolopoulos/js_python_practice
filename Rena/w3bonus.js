@@ -64,3 +64,24 @@ array.map(function(x){
 })
 
 
+//Examples of callback functions:
+//What is a call-back?  A function that can be called/invoked 
+//inside another function.
+
+function lookFine(){
+	return "You are looking fine today.";
+}
+
+function lookBad(){
+	return "You are looking bad today.";
+}
+
+
+function lookLike(name, cb){
+	//cb() to invoke the callback function itself:
+	return "Hello" + name + ', ' + cb();
+}
+
+lookLike("Paris", lookFine);
+lookLike("Paris", lookBad);
+

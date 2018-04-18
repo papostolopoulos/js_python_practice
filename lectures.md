@@ -1,3 +1,9 @@
+###Tuesday, April 17, 2018
+
+What is a call-back?  A function that can be called/invoked inside another function.
+
+
+
 ###Tuesday March 20th
 * .map, .filter, .reduce
 * Functions are objects

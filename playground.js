@@ -1,3 +1,4 @@
+// Closures example 1
 function addSomething(num1){
   console.log("num1 is", num1);
   return function(num2){
@@ -8,6 +9,8 @@ function addSomething(num1){
 
 var addMe = addSomething(10);
 
+
+// Closures example 2
 function sayHi(name) {
   return "Hello there " + name;
 }

@@ -33,10 +33,9 @@ the callback.
 It should return a new array of all the elements in the input array arr
 where the callback cb returns true.
 */
-
 function conditionEachEl(el, idx, ary){
   if (el % 2 !== 0) {
-    ary.splice(idx, 1);
+    return ary.splice(idx, 1);
   }
 }
 
@@ -46,6 +45,23 @@ function mySelect(arr, cb) {
     cb(arr[i], i, arr);
   }
   return arr;
+}
+
+mySelect([1,2,3,4,5,6], conditionEachEl);
+
+//Alternative solution
+function conditionEachEl(el, idx, ary){
+  return el;
+}
+
+function mySelect(arr, cb) {
+  var endArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      endArr.push(cb(arr[i], i, arr));
+    }
+  }
+  return endArr;
 }
 
 mySelect([1,2,3,4,5,6], conditionEachEl);

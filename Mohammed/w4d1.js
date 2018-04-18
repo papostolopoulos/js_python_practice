@@ -3,29 +3,6 @@
 //------------------------------------//
 
 /******************************************************************************
-Write a function myForEach(array, cb) that accepts an array and a callback. This
-should behave just like Array#forEach. Passing the callback every element, its
-corresponding index, and the array itself. It should return undefined.
-
-DO NOT USE THE BUILT IN ARRAY#FOREACH METHOD
-
-Example:
-> myForEach([5,12,-3], function(ele, i, arr){
-..  console.log(ele + " is at position " + i + " in array " + arr);
-..})
-5 is at position 0 in array [5,12,-3]
-12 is at position 1 in array [5,12,-3]
--3 is at position 2 in array [5,12,-3]
-undefined //return value
-******************************************************************************/
-
-
-// 5 is at position 0 in array [5,12,-3]
-// 12 is at position 1 in array [5,12,-3]
-// -3 is at position 2 in array [5,12,-3]
-// undefined //return value
-
-/******************************************************************************
 Write a function myMap(array, cb) that accepts an array and a callback.
 It should pass the callback every element, its corresponding index, and the array
 itself. It should return a new array where each element in the new array is the

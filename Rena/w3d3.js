@@ -69,14 +69,27 @@ cb returns false.
 
  */
 
+//The callback function is located in global scope:
+//el represents array[i]
+//z represents i
+//array represents array
+
  function myEven(el, z, array){
- 	if(el % 2 === 0){
+ //the el represents even number; you are splicing
+ //on the odd number and returning even numbers.
+ 	if(el % 2 !== 0){
  		return array.splice(z, 1);
  	}
  }
 
+//The callback function is located in global scope:
+//el represents array[i]
+//y represents i
+//array represents array
  function myOdd(el, y, array){
- 	if(el % 2 === 1){
+ //the el represents odd number; you are splicing
+ //on the even number and returning odd numbers.
+ 	if(el % 2 === 0){
  		return array.splice(y, 1);
  	}
  }
@@ -97,14 +110,31 @@ function myReject(arr, cb) {
 
 
 /* Write a function myMap(arr, cb) that accepts an array and a callback.
-It should pass each element, its corresponding index, and the array itself to the callback.
+It should pass each element, its corresponding index, and the array 
+itself to the callback.
 Do not use the built in Array.prototype.map method.
-It should return an array where each element is the return value of the callback
-given the element in the corresponding position.
+It should return an array where each element is the return value of 
+the callback given the element in the corresponding position.
 See the examples if this is confusing.*/
 
+function isOdd(el, k, arr2){
+	// if(el % 2 === 0){
+	// 	return arr2.splice(k, 1);
+	// }
+}
+
+function isEven(el, h, array){
+	// if(el % 2 !== 0){
+	// 	return array.splice(h, 1);
+	// }
+}
+
+
 function myMap(arr, cb) {
-  // enter your code here
+  for(var i = 0; i < arr.length; i++){
+  	cb(arr[i], i, arr);
+  }
+  return arr;
 }
 
 myMap([1,2,3], /*run your callback here*/); //[2, 4, 6]

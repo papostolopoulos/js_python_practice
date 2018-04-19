@@ -101,12 +101,10 @@ function myReject(arr, cb) {
 	return arr;
 }
 
- myReject([1,2,3,4,5,6], myOdd);
- myReject([1,2,3,4,5,6], myEven);
 
- //myReject([1,2,3,4,5,6], /*run your callback function here*/); // [1,3,5]
+ myReject([1,2,3,4,5,6], myOdd/*run your callback function here*/); // [1,3,5]
 
- //myReject([1,2,3,4,5,6], /*Run your callback function here*/); // [2,4,6]
+ myReject([1,2,3,4,5,6], myEven /*Run your callback function here*/); // [2,4,6]
 
 
 /* Write a function myMap(arr, cb) that accepts an array and a callback.
@@ -117,29 +115,31 @@ It should return an array where each element is the return value of
 the callback given the element in the corresponding position.
 See the examples if this is confusing.*/
 
-function isOdd(el, k, arr2){
-	// if(el % 2 === 0){
-	// 	return arr2.splice(k, 1);
-	// }
+function timesTwo(el){
+//multiply each element in array by 2
+	return el * 2;
 }
 
-function isEven(el, h, array){
-	// if(el % 2 !== 0){
-	// 	return array.splice(h, 1);
-	// }
+function addIndex(el, i){
+	return el + i;
+}
+
+function alphabet(el, i){
+	 return el + i;
 }
 
 
 function myMap(arr, cb) {
+  var newArr = [];
   for(var i = 0; i < arr.length; i++){
-  	cb(arr[i], i, arr);
+  	newArr.push(cb(arr[i], i, arr));
   }
-  return arr;
+  return newArr;
 }
 
-myMap([1,2,3], /*run your callback here*/); //[2, 4, 6]
-myMap([1,2,3], /*run your callback here*/); // [1, 3, 5]
-myMap(["A", "B", "C"], /*run your callback here*/); // ["A0", "B1", "C2"]
+myMap([1,2,3], timesTwo/*run your callback here*/); //[2, 4, 6]
+myMap([1,2,3], addIndex/*run your callback here*/); // [1, 3, 5]
+myMap(["A", "B", "C"], alphabet /*run your callback here*/); // ["A0", "B1", "C2"]
 
 
 

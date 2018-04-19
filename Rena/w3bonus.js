@@ -85,3 +85,34 @@ function lookLike(name, cb){
 lookLike("Paris", lookFine);
 lookLike("Paris", lookBad);
 
+
+//Ternary Operator: Examples
+
+function writeSomthing(num){
+	if(num > 5 && num < 10){
+		return ("I am Mohamed.");
+	}
+	else if(num === 10){
+		return ("I am Rena.");
+		}
+		else{
+			return ("I am Paris.");
+		}	
+	}
+}
+
+
+
+//This is a Ternary Operator:
+function writeSomething(num){
+			//if           			//then        	//else if 		//then		//else
+var result = num > 5 && num < 10 ? "I am Mohamed.": num === 10 ? "I am Rena.":"I am Paris."
+
+return result;
+}
+
+writeSomething(10);
+
+
+
+

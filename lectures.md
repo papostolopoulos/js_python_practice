@@ -1,7 +1,10 @@
 ###Tuesday, April 17, 2018
+* What is a call-back?  A function that can be called/invoked inside another function.
 
-What is a call-back?  A function that can be called/invoked inside another function.
 
+###Tuesday, April 10, 2018
+* Closures: inner function that has access to the variables of the outer function, even after the outer function is returned.
+* Closures store references to the outer function’s variables. They do not store the variables.
 
 
 ###Tuesday March 20th

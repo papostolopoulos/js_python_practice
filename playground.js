@@ -1,3 +1,18 @@
+// Ternary operators
+var writeSomething = (num) => num > 5 && num < 10 ? "I am Mohammed" : num === 10 ? "I am Rena" : "I am Paris";
+
+if (this.totalSeconds < 10) {
+
+}
+else if (this.totalSeconds > 10 && this.totalSeconds < 60) {
+
+}
+else {
+
+}
+
+
+
 // Closures example 1
 function addSomething(num1){
   console.log("num1 is", num1);

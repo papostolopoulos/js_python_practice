@@ -32,14 +32,43 @@ If clock.totalSeconds = 13, clock.getSeconds() will evaluate to "13"
 If clock.totalSeconds = 60, clock.getSeconds() will evaluate to "00"
 If clock.totalSeconds = 1342, clock.getSeconds() will evaluate to "22" */
 
+
+// seconds less than 10
+// seconds between 10 and 59
+// seconds more than 60 - Not necessary because we use modulo
+
 var clock = {
  totalSeconds: 0,
  getSeconds: function() {
-  return this.totalSeconds % 60 < 10 ? "0" + this.totalSeconds % 60:
-  (this.totalSeconds % 60).toString();
+   if (this.totalSeconds < 10) {
+     return "0" + this.totalSeconds;
+   }
+   else if (this.totalSeconds < 59) {
+     return this.totalSeconds.toString();
+   }
+   else {
+     if ((this.totalSeconds % 60).toString().length === 1) {
+       return "0" + (this.totalSeconds % 60);
+     }
+     else {
+       return (this.totalSeconds % 60).toString();
+     }
+   }
  }
+
 }
 
+
+
+// seconds less than 60 (00)
+// minutes less than 10 (60sec to 600sec)
+// minutes between 10 and 59 (600sec to 3600 sec)
+// minutes more than 60 but the modulo remainder is less than 10 (3600 secs or more and 3600 % 60 < 10)
+// minutes more than 60 (3600 secs or more)
+//
+// seconds less than 3600
+// hours less than 10 (3600sec to 36000sec)
+// hours more than 10
 
 /* Write a method getMinutes that will return the minute count of our clock.
 It should return a value from 00 to 59, just like a normal clock.

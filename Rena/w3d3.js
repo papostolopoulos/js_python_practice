@@ -147,43 +147,36 @@ myMap(["A", "B", "C"], alphabet /*run your callback here*/); // ["A0", "B1", "C2
 It returns a function which will raise its input to the power specified by num
 and returns the value. -- TIP: THINK OF CLOSURES*/
 
-
+// closures: you are returning a function
+//within a function
 function createExpFunc(num) {
-	function powerTwo(num){
-		return Math.pow(num, 2);
+	return function(num2){
+		return Math.pow(num2, num);
 	}
-return powerTwo(6);
 }
-createExpFunc();
+
+var powerTwo = createExpFunc(2);
+powerTwo(2);
+
+var powerTen = createExpFunc(10);
+powerTen(6);
+
+var powerThree = createExpFunc(3);
+powerThree(2);
+
+
+// example of function expression:
+var powerTen = function(num2, num){
+		return Math.pow(num2, num);
+	}
 
 
 powerTwo(2); // 4
 powerTwo(6); // 36
 
 
-
-function createExpFunc(num) {
-	function powerThree(num){
-		return Math.pow(num, 3);
-	}
-return powerThree(2);
-}
-createExpFunc();
-
-
 powerThree(2); // 8
 powerThree(6); // 216
-
-
-
-function createExpFunc(num) {
-	function powerTen(num){
-		return Math.pow(num, 10);
-	}
-return powerTen(6);
-}
-createExpFunc();
-
 
 powerTen(2); // 1024
 powerTen(6); // 60466176

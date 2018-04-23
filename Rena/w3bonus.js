@@ -103,15 +103,124 @@ function writeSomthing(num){
 
 
 
-//This is a Ternary Operator:
+//This is a Ternary Operator: an expression instead of a statement.
+//expressions always returns values; it's a true or false statement
+//that always results to a value.
 function writeSomething(num){
 			//if           			//then        	//else if 		//then		//else
 var result = num > 5 && num < 10 ? "I am Mohamed.": num === 10 ? "I am Rena.":"I am Paris."
 
 return result;
 }
-
 writeSomething(10);
+
+
+//EXAMPLES:
+//Closure: it's a function being defined inside another function. The
+//function returns another function.  You must store the value returned
+//from closure so you can invoke it. The returned value cannot be accessed
+//any other way except thru the closure.
+
+
+var j = 1;
+function add(){
+	let i = 0;
+	return (function(){i++; j++; console.log(i, j)});
+}
+
+let myClosure = add();
+myClosure();
+
+
+//EXAMPLES:
+function jQuery(){
+//_user and _pasword are empty let statements:
+	let _user, _password;
+
+//user and password are parameters:
+	function _login(user, password){
+		_user = user;
+		_password = password;
+
+		//can do the rest of login work here...
+	}
+	const publicAPI = {login: _login}
+	return publicAPI;
+}
+jQuery();
+
+//EXAMPLES:
+//Recursion is self-similarity, when a subproblem looks like 
+//the whole problem. If you don't want to use a for-loop, then
+//you can use recursion as replacement. The value is not stored
+//in a variable anywhere.
+
+function fact(n){
+	//goes down the chain until it reaches the condition, 
+	//and then goes back up the chain.
+	return (n === 1) ? 1 : n * fact(n-1);
+}
+fact(6);
+
+
+
+//Using .reduce(): EXAMPLE
+const square = x => x*x;
+
+const myMapp = (arr, fn) => arr.reduce((prev, curr) => {prev.push(fn(curr)); return prev},[]);
+
+myMapp([1, 2, 3], square);
+
+
+// This is an interpretation of map without using .map() method. 
+
+//The reduce() method applies a function against an 
+//accumulator and each element in the array (from left to right) to reduce 
+//it to a single value. The concat() method is used to merge two or more arrays. 
+//This method does not change the existing arrays, but instead returns 
+//a new array.
+
+const square = x => x*x;
+
+const myMap = (arr, fn) => arr.reduce((prev, curr) => prev.concat(fn(curr)),[]);
+//square is being passed as parameter = fn.
+myMap([1, 2, 3], square);
+
+
+//This is an interpretation of filter without using .filter() method.
+//predicate represents true or false.
+const myFilter = (arr, predicate) => arr.reduce((prev, curr) => {
+	if (predicate(curr)) prev.push(curr);
+	return prev;
+},[]);
+
+myFilter([1, 2, 3, 4], (x => ((x % 2) === 0)));
+
+
+// Using && symbol:
+const myEvery = (arr, predicate) => arr.reduce((prev, curr) => prev && predicate(curr), true);
+
+myEvery([2, 3, 4, 5], x => x < 1);
+myEvery([2, 3, 4, 5], x => x > 2);
+
+
+
+// This is an interpretation of includes without using .includes() method. Incorporating
+//the OR symbol:
+const myIncludes = (arr, val) => arr.reduce((prev, curr) => prev || (val === curr), false);
+
+myIncludes([1, 3, "Amy"], 3); //true
+myIncludes([1, 3, "Amy"], "Beth"); //false
+
+
+// This is an interpretation of 'does not apply' or none:
+const doesApply = (arr, predicate) => arr.reduce((prev, curr) => prev || predicate(curr), false);
+
+let doesNotApply = !(doesApply);
+
+doesApply([1], x => (x < 1));
+doesApply([1], x => (x > 0));
+
 
 
 

@@ -15,7 +15,9 @@ is irrelevant.
  3 is at position 2 in array [1,2,3] */
 
 
-//The callback function is located in global scope:
+//The callback function is located in global scope: It's a
+//function that is passed to another function as a parameter.
+
 //el represents array[i]
 //x represents i
 //arr represents array
@@ -29,13 +31,16 @@ function myResult(el, x, arr){
  		console.log(cb(array[i], i, array))
  	}
  }
-
+//passing the myResult() function as one of the parameters
+//when invoking myForEach()function.
  myForEach([1,2,3], myResult);
 
 
 /* Write a function mySelect(arr, cb) that accepts an array and a callback.
-It should pass each element, its corresponding index, and the array itself to the callback.
-It should return a new array of all the elements in the input array arr where the callback cb returns true.
+It should pass each element, its corresponding index, and the array itself 
+to the callback.
+It should return a new array of all the elements in the input array where the 
+callback  returns true.
 */
 
 
@@ -50,17 +55,19 @@ return array;
 //el represents array[i]
 //y represents i
 //arr2 represents array
+
 function myTrue(el, y, arr2){
-//if el is not true, then .splice() arr2:
+//if el is NOT true, then .splice() arr2.
+//The splice() method changes the contents of an array 
+//by removing existing elements and/or adding new elements.
 	if(el % 2 !== 0){
 		return arr2.splice(y, 1);
 	}
 }
 
+//passing the myTrue() function as one of the parameters
+//when invoking mySelect()function.
 mySelect([0, 2, 5, 6, 8], myTrue);
-
-
-
 
 /* Write a function myReject(arr, cb) that accepts an array and a callback.
 It should pass each element, its corresponding index, and the array itself to the callback.
@@ -121,13 +128,14 @@ function timesTwo(el){
 }
 
 function addIndex(el, i){
+//the element plus index.
 	return el + i;
 }
 
 function alphabet(el, i){
+//the element plus index.
 	 return el + i;
 }
-
 
 function myMap(arr, cb) {
   var newArr = [];
@@ -142,13 +150,27 @@ myMap([1,2,3], addIndex/*run your callback here*/); // [1, 3, 5]
 myMap(["A", "B", "C"], alphabet /*run your callback here*/); // ["A0", "B1", "C2"]
 
 
+//Another example of call-back:
+
+function myMapp(arr, fn){
+//creating an new empty array:
+	const retArray = [];
+	for(let i = 0; i < arr.length; i++){
+		retArray.push(fn(arr[i]));
+	}
+	return retArray;
+}
+//pass the function itself as a parameter when
+//invoking myMapp():
+console.log(myMapp([1,2,3], (x => x*x)));
+
 
 /* Write a function createExpFunc(num) that accepts a positive integer.
-It returns a function which will raise its input to the power specified by num
-and returns the value. -- TIP: THINK OF CLOSURES*/
+It returns a function which will raise its input to the power specified
+by num and returns the value. -- TIP: THINK OF CLOSURES*/
 
-// closures: you are returning a function
-//within a function
+// Closures: you are returning a function within a function.
+
 function createExpFunc(num) {
 	return function(num2){
 		return Math.pow(num2, num);
@@ -157,13 +179,15 @@ function createExpFunc(num) {
 
 var powerTwo = createExpFunc(2);
 powerTwo(2);
+powerTwo(6);
 
 var powerTen = createExpFunc(10);
+powerTen(2);
 powerTen(6);
 
 var powerThree = createExpFunc(3);
 powerThree(2);
-
+powerThree(6);
 
 // example of function expression:
 var powerTen = function(num2, num){
@@ -180,3 +204,16 @@ powerThree(6); // 216
 
 powerTen(2); // 1024
 powerTen(6); // 60466176
+
+
+//Another example with strings and Closure method:
+var name = 'Jennifer';
+
+function createNewString(str) {
+	return function(words){
+		return name.concat(str, words);
+	}
+}
+
+var newString = createNewString(', hello! ');
+newString('How was your day?');

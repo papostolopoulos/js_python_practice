@@ -17,7 +17,17 @@ Example
 undefined //return value
 ******************************************************************************/
 
+function myForEachCb(el, idx, ary) {
+  return `${el} is at position ${idx} in array [${ary}]`
+}
 
+function myForEach(arr, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    console.log(cb(arr[i], i, arr));
+  }
+}
+
+myForEach([5,12,-3], myForEachCb);
 
 
 
@@ -38,6 +48,20 @@ Example
 [5, -22] //return value
 ******************************************************************************/
 
+function mySelect(arr, cb) {
+  var endArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (cb(arr[i], i, arr)) {
+      endArr.push(arr[i]);
+    }
+
+  }
+  return endArr;
+}
+
+mySelect([5,12,-22,-3], function(ele, i, arr){
+  return Math.abs(ele * 2) > 10;
+});
 
 /******************************************************************************
 Write a function inPigLatin(sentence) that translates a sentence into its pig

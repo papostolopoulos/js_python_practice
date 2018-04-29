@@ -94,7 +94,6 @@ function inPigLatin(str) {
   var firstUpper = false;
   var strArray = str.split(" ");
 
-
   for (let i = 0; i < strArray.length; i++) {
     var word = strArray[i];
     console.log(word);
@@ -105,10 +104,8 @@ function inPigLatin(str) {
     }
 
     firstUpper = word[0] !== word[0].toLowerCase() ? true:false;
-    console.log("firstUpper", firstUpper);
 
     for (let j = 0; j < word.length; j++) {
-      console.log("second for loop for word", word);
       if (vowels.includes(word[j].toLowerCase())){
         strArray[i] =
         firstUpper === true ?
@@ -121,7 +118,36 @@ function inPigLatin(str) {
   return strArray.join(" ");
 }
 
+
+//Second solution
+function inPigLatin(str) {
+  var vowels = "aeiou";
+  var firstLetterUpper, firstLetterVowel, word;
+  var strArray = str.split(" ");
+
+  for (var i = 0; i < strArray.length; i++) {
+    word = strArray[i];
+    firstLetterUpper = word.search(/[A-Z]/) === 0 ? true : false;
+    firstLetterVowel = word.search(/[aeiou]/i) === 0 ? true : false;
+    firstVowelPosition = word.search(/[aeiou]/i);
+    if (firstLetterVowel /*First letter is vowel*/){
+      strArray[i] = word + "yay";
+      continue;
+    }
+
+    strArray[i] = firstLetterUpper ?
+    word.slice(firstVowelPosition, firstVowelPosition + 1).toUpperCase() +
+    word.slice(firstVowelPosition + 1) + word.slice(0, firstVowelPosition).toLowerCase() + "ay" :
+    word.slice(firstVowelPosition) + word.slice(0, firstVowelPosition) + "ay";
+  }
+
+  return strArray.join(" ");
+}
+
 inPigLatin("pig");
 inPigLatin("omelet");
 inPigLatin("Dog");
 inPigLatin("Algae");
+inPigLatin("Shmanthony is the best teacher") //Anthonyshmay isyay ethay estbay eachertay
+inPigLatin("let us Dance") //etlay usyay Anceday
+inPigLatin("this is the time of my life") //isthay isyay ethay imetay ofyay myay ifelay

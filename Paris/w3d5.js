@@ -1,4 +1,4 @@
-i//------------------------------------//
+//------------------------------------//
 //            Week 3 Day 5            //
 //------------------------------------//
 
@@ -96,7 +96,6 @@ function inPigLatin(str) {
 
   for (let i = 0; i < strArray.length; i++) {
     var word = strArray[i];
-    console.log(word);
 
     if (vowels.includes(word[0].toLowerCase())){
       strArray[i] = word + "yay";

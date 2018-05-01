@@ -55,6 +55,35 @@ for (var j = name.length -1; j >= 0; j--){
 	}
 }
 
+//ES6 version of removing vowels: using functional programming
+function removeLetters(word, letters){
+	return word.split('').filter(x =>!(letters.includes(x))).join("");
+}
+removeLetters('alphabets', 'aeiou');
+
+
+
+//ES6 veriosn of removing 1st vowel found in string:
+function removeFirst(word, letters = 'aeiou'){
+	const wordArray = word.split("");
+	return wordArray.splice(wordArray.findIndex(x => letters.includes(x)), 1).join("");
+}
+removeFirst('Paris');
+
+
+//Notes: Reverse For-Loop info from Stack Overflow
+// It's not that i-- is faster than i++. Actually, they're both equally fast.
+
+// What takes time in ascending loops is evaluating, for each i, the size of your array. In this loop:
+
+// for(var i = array.length; i--;)
+// You evaluate .length only once, when you declare i, whereas for this loop
+
+// for(var i = 1; i <= array.length; i++)
+// you evaluate .length each time you increment i, when you check if i <= array.length.
+
+// In most cases you shouldn't even worry about this kind of optimization.
+
 
 //Example of how to use .map():
 array = [1, 2, 3, 4];
@@ -221,6 +250,18 @@ let doesNotApply = !(doesApply);
 doesApply([1], x => (x < 1));
 doesApply([1], x => (x > 0));
 
+
+//Examples of recursion: It's considered the functional programmer's 'for-loop' or
+// some cases, the program will only use recursion.
+
+//Fibonocci sequence: the sum of the two numbers before it.
+function fib(num){
+//the base case is 0 and 1:
+	if(num === 0) return 0;
+	if(num === 1) return 1;
+	return fib(num - 1) + fib(num - 2);
+}
+fib(8);
 
 
 

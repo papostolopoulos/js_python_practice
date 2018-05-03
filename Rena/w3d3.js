@@ -206,7 +206,7 @@ powerTen(2); // 1024
 powerTen(6); // 60466176
 
 
-//Another example with strings and Closure method:
+//Another example with strings and Closure method: using var name in global scope.
 var name = 'Jennifer';
 
 function createNewString(str) {
@@ -217,3 +217,16 @@ function createNewString(str) {
 
 var newString = createNewString(', hello! ');
 newString('How was your day?');
+
+
+
+//Another example with strings and Closure method: passing name as parameter
+function createNewString(str, name) {
+	return function(words){
+		return str + name + words;
+	}
+}
+
+var newString = createNewString('Hello!', ' Jennifer,');
+newString(' how have you been?');
+

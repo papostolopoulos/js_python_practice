@@ -53,7 +53,7 @@ console.log(bar(5)); //What is bar() on this line? --->Answer is 70. Again, the 
 
 //-------------------------------------------
 
-var foo = "Happy"; //Q: Is the for-loop taking
+var foo = "Happy Days"; //Q: Is the for-loop taking
 //the string length of 'Happy' as 5?  Why not
 //list 'foo.length < 5' below?
 // Paris: read my comments above. Same name of variable but different variable and with a different scope.

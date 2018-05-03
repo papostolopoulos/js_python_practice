@@ -17,6 +17,10 @@ Example
 undefined //return value
 ******************************************************************************/
 
+function myForEach(arr, cb){
+
+
+}
 
 
 
@@ -64,3 +68,12 @@ etlay usyay Anceday
 > inPigLatin("this is the time of my life")
 isthay isyay ethay imetay ofyay myay ifelay
 *******************************************************************************/
+
+
+function inPigLatin(sentence){
+	var sentenceSplit = sentence.split('');
+
+	if(sentenceSplit === )
+}
+
+inPigLatin("this is the time of my life")

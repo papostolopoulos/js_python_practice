@@ -1,4 +1,4 @@
-// Notes:
+// MORE Notes:
 
 
 /*.map, .filter, .reduce
@@ -76,3 +76,167 @@ function response(input){
 	alert('You did it!');
 }
 response(userInput);
+
+// **********************************************************************************************
+//Other BONUS Exercises to Solve:
+//1) Using a for loop, log the numbers 0 through 100 to the console.
+
+for(var i = 0; i <=100; i++){
+  console.log(i);
+}
+
+//2) Using a for loop, log the numbers 1 through 100 to the console (note: NOT INCLUDING ZERO).
+
+for(var i = 1; i <= 100; i++){
+  console.log(i);
+}
+
+//3) Using a for loop, log only even numbers between 0 and 100 to the console.
+
+for(var i = 0; i <= 100; i++){
+  if(i%2 === 0){
+    console.log(i);
+  }
+}
+
+//4) Using a for loop, log only odd numbers between 0 and 100 to the console.
+
+for(var i = 0; i <=100; i++){
+  if(i%2 !== 0){
+    console.log(i);
+  }
+}
+
+//5) Using a for loop, log only numbers which are evenly divisible by 5 to the console.
+
+for(var i = 0; i <= 100; i++){
+  if(i % 5 === 0){
+    console.log(i);
+  }
+}
+
+
+//6) Using a for loop, log all the characters of the following: var myString = "hello world!"
+
+var myString = "hello world!";
+for(var i = 0; i < myString.length; i++){
+  console.log(myString[i]);
+}
+
+//7) Using a for loop, log every other character of the following: var myString = "hello world!"
+
+var myString = "hello world!";
+for(var i = 0; i < myString.length; i +=2){
+  console.log(myString[i]);
+}
+
+
+//8) Using a for loop, log only the vowels in the following: var myString = "hello world!"
+
+var myString = "hello world!";
+var vowels = "aeiou";
+
+for(var i = 0; i < myString.length; i++){
+  if(vowels.includes(myString[i])){
+    console.log(myString[i]);
+  }
+}
+
+
+//9) Using a for loop, log only the consonants in the following: var myString = "hello world!"
+//STILL CANNOT RESOLVE - Working on it!
+var myString = "hello world!";
+var vowels = "aeiou";
+
+for(var i = 0; i < myString.length; i++){
+  if(myString[i].includes(vowels[i])){
+    console.log(myString[i]);
+  }
+}
+
+
+//10) Write a function which takes one number as a parameter, and returns (not logs!) double that number.
+
+function timesTwo(num){
+  return num * 2;
+}
+timesTwo(6);
+
+//ES6 verion:
+const timesTwo = num => num * 2;
+timesTwo(8);
+
+//11) Write a function which takes two numbers as parameters, and returns the sum of these two numbers.
+
+function sumTwo(num, num2){
+  return num + num2;
+}
+sumTwo(2, 8);
+
+//ES6 version:
+const sumTwo = (num, num2) => num + num2;
+sumTwo(10, 12);
+
+
+//12) Write a function which takes two numbers as parameters, and checks if one number is evenly divisible by the other. If so, the function returns true. If not, the function returns false.
+
+function checkTwo(num, num2){
+  if(num % num2 === 0){
+    return true;
+  }
+  return false;
+}
+checkTwo(12, 6); //Answer: true
+checkTwo(20, 10); //Answer: false
+
+//ES6 version:
+const checkTwo = (num, num2) => num % num2 === 0 ? true : false;
+checkTwo(12, 6); //Answer: true
+checkTwo(20, 10); //Answer: false
+
+//13) Write a function which takes one string as a parameter, and returns the length of that string.
+
+function strLength (string){
+  var newStrLength = string.length;
+  return newStrLength;
+}
+strLength("Happy Birthday!");
+//Answer: 15
+
+//ES6 version:
+const strLength = (string) => string.length;
+strLength("Happy Birthday!"); //Answer: 15
+
+//14) Write a function which takes one string as a parameter, and returns the first and last letters of this string.
+
+function strFirstAndLast(string){
+  //WHY IS THIS VERSION (using spread operator) NOT WORKING? Is it because
+  //I did not turn the string into an Array first?
+  //return [...string][0][string.length-1];
+
+  //This version works!
+  return "first character: " + string[0] + ", and " + "last character: " + string.charAt(string.length-1)
+}
+strFirstAndLast('apple seed');
+
+//ES6 version:
+const strFirstAndLast = (string) => (`first character: `+ string[0] + `, and ` + `last character: `+ string.charAt(string.length-1))
+strFirstAndLast('apple seed');
+
+//15) Write a function which takes one string as a parameter, then uses a for loop to return the number of vowels contained in the string.
+//Why does this only return 'a'? I tried to use .split() on var vowels to allow me to compare
+//strings.
+var vowels = 'aeiou'.split('');
+
+function findVowels(string){
+  for(var i = 0; i < string.length; i++){
+    if(vowels[i].includes(string[i])){
+    }
+    return string[i];
+  }
+}
+findVowels("achoo humbug!");
+
+
+//16) Write a function which takes two numbers as parameters, then uses a for loop to log every number BETWEEN those two numbers to the console.
+// I am stuck...do not know what it's really asking me!!

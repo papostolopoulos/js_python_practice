@@ -22,9 +22,6 @@ function myForEach(arr, cb){
 
 }
 
-
-
-
 /******************************************************************************
 Write a function mySelect(arr, cb) that accepts an array and a callback.
 It should pass the callback every element, its corresponding index, and the array
@@ -69,11 +66,72 @@ etlay usyay Anceday
 isthay isyay ethay imetay ofyay myay ifelay
 *******************************************************************************/
 
+//ES5 version:
+function inPigLatin(sentence) {
+  var wordsArr = sentence.split(" ");
 
-function inPigLatin(sentence){
-	var sentenceSplit = sentence.split('');
+  for (var j = 0; j < wordsArr.length; j++) {
+    var word = wordsArr[j];
+    // console.log("Iteration we are going through:", j);
+    // console.log("wordsArr[j] (word):", word);
 
-	if(sentenceSplit === )
+    for (var i = 0; i < word.length; i++) {
+      //CHECK IF THE FIRST LETTER IS A VOWELN AND PUT YAY AT END
+      if ("aeiou".indexOf(word[0].toLowerCase()) !== -1) {
+        wordsArr[j] = word + "yay";
+        break;
+      }
+
+      // FIND THE VOWEL INSIDE THE WORD AND SLICE THERE. PUT 'AY; AT THE END
+      // THE FIRST LETTER IS NOT AN UPPERCASE
+      if ("aeiou".includes(word[i])) {
+        if (word[0] !== word[0].toLowerCase()) {
+          //THE FIRST LETTER IS AN UPPERCASE
+          //I need to make the first letter an upperCase after
+          //I move letters arround
+          wordsArr[j] = word.slice(i, i+1).toUpperCase() + word.slice(i+1) + word.slice(0, i).toLowerCase() + "ay";
+          break;
+        }
+        else {
+          wordsArr[j] = word.slice(i) + word.slice(0, i) + "ay";
+          // console.log("wordsArr[j] is", wordsArr[j]);
+          // console.log("word is", word);
+          break;
+        }
+      }
+
+    }
+
+  }
+  console.log(wordsArr.join(" "));
+  return wordsArr.join(" ");
 }
 
-inPigLatin("this is the time of my life")
+// inPigLatin("chapter pig Apple"); // --> apterchay igpay
+inPigLatin("Shmanthony is the best teacher")
+
+
+
+//ES6 version: using RegEx.
+
+//finds one or more vowels followed by 0 or more letters. It grabs the whole word.
+const regOne = /\b([aeiou]+\w*)\b/;
+
+//finds one or more consenants, followed by one or more words:
+const regTwo = /\b([^aeiou])+(\w+)\b/;
+
+const inPigLatin = (sentence) => sentence.split(' ').map(
+                    word => 'aeiou'.includes(word[0]) 
+                    ? word.replace(regOne, '$1ay') 
+                    : word.replace(regTwo, '$2$1ay')).join(' ');
+
+inPigLatin('Hello World');
+
+
+//ES6: shorter version: 
+//In RegEx, note that 'i' is a modifier (modifies the search to be case-insensitive).
+// In this code version, the ternary was removed and only used one RegEx.
+
+const inPigLatin = sent => sent.split(" ").map(word => word.replace(/\b([^aeiou]*)(\w+)\b/i, "$2$1ay")).join(" ");
+//console.log(inPigLatin("Hello world!"))
+inPigLatin("chapter pig Apple");

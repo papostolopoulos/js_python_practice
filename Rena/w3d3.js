@@ -156,6 +156,7 @@ function myMapp(arr, fn){
 //creating an new empty array:
 	const retArray = [];
 	for(let i = 0; i < arr.length; i++){
+		// use .push to 'push' the function itself:
 		retArray.push(fn(arr[i]));
 	}
 	return retArray;

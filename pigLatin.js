@@ -23,7 +23,7 @@ etlay usyay Anceday
 > inPigLatin("this is the time of my life")
 isthay isyay ethay imetay ofyay myay ifelay
 *******************************************************************************/
-
+//ES5 version:
 function inPigLatin(sentence) {
   var wordsArr = sentence.split(" ");
 
@@ -66,3 +66,20 @@ function inPigLatin(sentence) {
 
 // inPigLatin("chapter pig Apple"); // --> apterchay igpay
 inPigLatin("Shmanthony is the best teacher")
+
+
+
+//ES6 version: using RegEx.
+
+//finds one or more vowels followed by 0 or more letters. It grabs the whole word.
+const regOne = /\b([aeiou]+\w*)\b/;
+
+//finds one or more consenants, followed by one or more words:
+const regTwo = /\b([^aeiou])+(\w+)\b/;
+
+const inPigLatin = (sentence) => sentence.split(' ').map(
+                    word => 'aeiou'.includes(word[0]) 
+                    ? word.replace(regOne, '$1ay') 
+                    : word.replace(regTwo, '$2$1ay')).join(' ');
+
+inPigLatin('Hello World');

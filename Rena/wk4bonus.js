@@ -85,6 +85,8 @@ for(var i = 0; i <=100; i++){
   console.log(i);
 }
 
+//ES6 version:
+
 //2) Using a for loop, log the numbers 1 through 100 to the console (note: NOT INCLUDING ZERO).
 
 for(var i = 1; i <= 100; i++){
@@ -144,12 +146,26 @@ for(var i = 0; i < myString.length; i++){
 
 
 //9) Using a for loop, log only the consonants in the following: var myString = "hello world!"
-//STILL CANNOT RESOLVE - Working on it!
+
 var myString = "hello world!";
 var vowels = "aeiou";
+//Use the '!' in the if-statement. If the string character is '!'(not) included in
+//vowels, then return remaining characters.
+for(var i = 0; i < myString.length; i++){
+  if(!myString[i].includes(vowels[i])){
+    console.log(myString[i]);
+  }
+}
+
+//Another option to solve the code: Use indexOf() method equal to -1.
+var myString = "hello world!";
+var vowels = "aeiouAEIOU";
 
 for(var i = 0; i < myString.length; i++){
-  if(myString[i].includes(vowels[i])){
+//The indexOf() method returns the position of the first occurrence of a specified value in a string.
+//This method returns -1 if the value to search for never occurs. The indexOf() is
+//case sensitive.
+  if(myString[i].indexOf(vowels[i]) === -1){
     console.log(myString[i]);
   }
 }
@@ -187,7 +203,14 @@ function checkTwo(num, num2){
   return false;
 }
 checkTwo(12, 6); //Answer: true
-checkTwo(20, 10); //Answer: false
+checkTwo(20, 10); //Answer: true
+
+
+function checkTwo(num, num2){
+  return num % num2 === 0
+}
+checkTwo(12, 6);
+checkTwo(22, 11); //false
 
 //ES6 version:
 const checkTwo = (num, num2) => num % num2 === 0 ? true : false;
@@ -197,8 +220,7 @@ checkTwo(20, 10); //Answer: false
 //13) Write a function which takes one string as a parameter, and returns the length of that string.
 
 function strLength (string){
-  var newStrLength = string.length;
-  return newStrLength;
+  return string.length;
 }
 strLength("Happy Birthday!");
 //Answer: 15
@@ -224,13 +246,14 @@ const strFirstAndLast = (string) => (`first character: `+ string[0] + `, and ` +
 strFirstAndLast('apple seed');
 
 //15) Write a function which takes one string as a parameter, then uses a for loop to return the number of vowels contained in the string.
-//Why does this only return 'a'? I tried to use .split() on var vowels to allow me to compare
-//strings.
-var vowels = 'aeiou'.split('');
+//Why does this only return 'a'? My if-statement ran just fine in previous code that required the vowels
+//to be returned?
+
 
 function findVowels(string){
+  var vowels = 'aeiou';
   for(var i = 0; i < string.length; i++){
-    if(vowels[i].includes(string[i])){
+    if(vowels.includes(string[i])){
     }
     return string[i];
   }

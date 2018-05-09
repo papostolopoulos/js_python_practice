@@ -229,37 +229,69 @@ strLength("Happy Birthday!");
 const strLength = (string) => string.length;
 strLength("Happy Birthday!"); //Answer: 15
 
+
+
 //14) Write a function which takes one string as a parameter, and returns the first and last letters of this string.
 
 function strFirstAndLast(string){
-  //WHY IS THIS VERSION (using spread operator) NOT WORKING? Is it because
-  //I did not turn the string into an Array first?
-  //return [...string][0][string.length-1];
+  return string[0] + " " + string[string.length-1]; 
 
-  //This version works!
+  //This other version works too!
   return "first character: " + string[0] + ", and " + "last character: " + string.charAt(string.length-1)
 }
 strFirstAndLast('apple seed');
 
 //ES6 version:
-const strFirstAndLast = (string) => (`first character: `+ string[0] + `, and ` + `last character: `+ string.charAt(string.length-1))
+const strFirstAndLast = (string) => (`first character: ${string[0]}, and last character: ${string.charAt(string.length-1)}`);
 strFirstAndLast('apple seed');
 
-//15) Write a function which takes one string as a parameter, then uses a for loop to return the number of vowels contained in the string.
-//Why does this only return 'a'? My if-statement ran just fine in previous code that required the vowels
-//to be returned?
 
+//15) Write a function which takes one string as a parameter, then uses a for loop to return the number of vowels contained in the string.
 
 function findVowels(string){
   var vowels = 'aeiou';
+  var count = 0;
+
   for(var i = 0; i < string.length; i++){
     if(vowels.includes(string[i])){
+      count += 1;
     }
-    return string[i];
+  }
+  return count;
+}
+findVowels("achoo humbug!"); //Answer: 5
+
+
+//16) Write a function which takes two numbers as parameters, then uses a for loop to log every number 
+//BETWEEN those two numbers to the console.
+
+
+function logNumbers(num1, num2){
+  //since you want the numbers BETWEEN, start at 2 by 
+  //assigning var i = num1 + 1.
+  for(var i = num1+1; i < num2; i++){
+    console.log(i);
   }
 }
-findVowels("achoo humbug!");
+logNumbers(1, 5);
 
 
-//16) Write a function which takes two numbers as parameters, then uses a for loop to log every number BETWEEN those two numbers to the console.
-// I am stuck...do not know what it's really asking me!!
+//Another example, using a while loop:
+function logNumbers(num1, num2){
+  var i = num1 +1;
+  while(i < num2){
+    console.log(i);
+    i++;
+  }
+}
+logNumbers(3, 11);
+
+
+function logNumbers(num1, num2){
+  var i = num1;
+  while(i < num2-1){
+    i++;
+    console.log(i);
+  }
+}
+logNumbers(2, 9);

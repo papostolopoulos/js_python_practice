@@ -16,6 +16,9 @@ Example
 -3 is at position 2 in array [5,12,-3]
 undefined //return value
 ******************************************************************************/
+function forEach 
+
+
 
 function myForEach(arr, cb){
 
@@ -38,6 +41,8 @@ Example
 ..})
 [5, -22] //return value
 ******************************************************************************/
+
+
 
 
 /******************************************************************************
@@ -99,9 +104,7 @@ function inPigLatin(sentence) {
           break;
         }
       }
-
     }
-
   }
   console.log(wordsArr.join(" "));
   return wordsArr.join(" ");

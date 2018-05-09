@@ -44,7 +44,6 @@ function addTwoFewTimes(num, counter) {
   }
   return num;
 }
-
 addTwoFewTimes(1, 5);
 
 
@@ -62,7 +61,6 @@ function addTwoFewTimes(num, counter){
   // ontop of the 'STACK'.
   addTwoFewTimes(num, counter);
 }
-
 addTwoFewTimes(1, 5);
 
 
@@ -84,8 +82,6 @@ response(userInput);
 for(var i = 0; i <=100; i++){
   console.log(i);
 }
-
-//ES6 version:
 
 //2) Using a for loop, log the numbers 1 through 100 to the console (note: NOT INCLUDING ZERO).
 
@@ -234,12 +230,15 @@ strLength("Happy Birthday!"); //Answer: 15
 //14) Write a function which takes one string as a parameter, and returns the first and last letters of this string.
 
 function strFirstAndLast(string){
-  return string[0] + " " + string[string.length-1]; 
-
-  //This other version works too!
-  return "first character: " + string[0] + ", and " + "last character: " + string.charAt(string.length-1)
+  return string[0] + " " + string[string.length-1];
 }
-strFirstAndLast('apple seed');
+strFirstAndLast('mango shake');
+
+
+function strFirstAndLast(string){
+return "first character: " + string[0] + ", and " + "last character: " + string.charAt(string.length-1);
+}
+strFirstAndLast('when pigs fly');
 
 //ES6 version:
 const strFirstAndLast = (string) => (`first character: ${string[0]}, and last character: ${string.charAt(string.length-1)}`);
@@ -262,12 +261,29 @@ function findVowels(string){
 findVowels("achoo humbug!"); //Answer: 5
 
 
+//Alternative answer using .match() method and RegEx:
+//Notes: Think of .match() method for strings as the equivalent of .filter() for arrays. 
+//You use .filter with a callback function to select particular elements of an array, 
+//assuming that they meet a condition.
+//Similarly, .match() uses the string that you include as a parameter (or regex) to select 
+//particular pieces of the initial string.
+
+function findVowels(string) {
+  //In the RegEx, the '/g' references global.
+  return string.match(/[aeiou]/g).length
+}
+findVowels("achoo humbug!"); //Answer: 5
+
+
 //16) Write a function which takes two numbers as parameters, then uses a for loop to log every number 
 //BETWEEN those two numbers to the console.
 
+//ES6 version:
+const logNumbers = (num1, num2) => num1.filter(num2) : 
+
 
 function logNumbers(num1, num2){
-  //since you want the numbers BETWEEN, start at 2 by 
+  //since you want the numbers in BETWEEN, start at 2 by 
   //assigning var i = num1 + 1.
   for(var i = num1+1; i < num2; i++){
     console.log(i);
@@ -276,7 +292,7 @@ function logNumbers(num1, num2){
 logNumbers(1, 5);
 
 
-//Another example, using a while loop:
+//Other examples, using a while loop:
 function logNumbers(num1, num2){
   var i = num1 +1;
   while(i < num2){

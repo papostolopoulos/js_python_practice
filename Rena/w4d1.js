@@ -63,7 +63,7 @@ function avg(num1, num2, num3){
 
 
 
-//Another alternative solution:
+//Another alternative solution: ES06
 
 function passingStudents(students){
   var endArr = [];
@@ -80,6 +80,16 @@ function passingStudents(students){
   return endArr;
 }
 passingStudents(students);
+
+
+// Other ES06 alternative solutions:
+
+function passingStudents(array){
+  return array.filter(el=>(el.grades[0].score+el.grades[1].score+el.grades[2].score)/3 >= 70).map(ele=>ele.name);
+}
+
+
+const passingStudents = array =>array.filter(el=>(el.grades[0].score+el.grades[1].score+el.grades[2].score)/3 >= 70).map(ele=>ele.name);
 
 /******************************************************************************
 Write a function laligatSequence(base, n)

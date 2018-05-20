@@ -117,6 +117,10 @@ inPigLatin("Shmanthony is the best teacher")
 
 //ES6 version: using RegEx.
 
+function findVowels(string) {
+  return string.match(/[aeiou]/g).length
+}
+
 //finds one or more vowels followed by 0 or more letters. It grabs the whole word.
 const regOne = /\b([aeiou]+\w*)\b/;
 

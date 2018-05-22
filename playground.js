@@ -1,3 +1,25 @@
+//15) Write a function which takes one string as a parameter, then uses a for loop to
+//return the number of vowels contained in the string.
+​
+function findVowels(string){
+  var counter = 0;
+  var vowels = 'aeiou';
+  for(var i = 0; i < string.length; i++){
+    if(vowels[i].includes(string[i])){
+  }
+  counter += 1;
+ }
+ return counter;
+}
+findVowels("achoo humbug!");
+
+function findVowels(string) {
+  return string.match(/[aeiou]/g).length;
+}
+
+findVowels("achoo humbug!");
+
+
 // Ternary operators
 var writeSomething = (num) => num > 5 && num < 10 ? "I am Mohammed" : num === 10 ? "I am Rena" : "I am Paris";
 

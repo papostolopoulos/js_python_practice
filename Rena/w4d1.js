@@ -41,7 +41,6 @@ var students = [
   }];
 
 
-
 /******************************************************************************
 Write a function laligatSequence(base, n)
 A number's laligat sum is the sum of all the prime numbers less than or equal

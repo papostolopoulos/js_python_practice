@@ -16,7 +16,7 @@ Example
 -3 is at position 2 in array [5,12,-3]
 undefined //return value
 ******************************************************************************/
-function forEach 
+function forEach
 
 
 
@@ -117,6 +117,10 @@ inPigLatin("Shmanthony is the best teacher")
 
 //ES6 version: using RegEx.
 
+function findVowels(string) {
+  return string.match(/[aeiou]/g).length
+}
+
 //finds one or more vowels followed by 0 or more letters. It grabs the whole word.
 const regOne = /\b([aeiou]+\w*)\b/;
 
@@ -124,14 +128,14 @@ const regOne = /\b([aeiou]+\w*)\b/;
 const regTwo = /\b([^aeiou])+(\w+)\b/;
 
 const inPigLatin = (sentence) => sentence.split(' ').map(
-                    word => 'aeiou'.includes(word[0]) 
-                    ? word.replace(regOne, '$1ay') 
+                    word => 'aeiou'.includes(word[0])
+                    ? word.replace(regOne, '$1ay')
                     : word.replace(regTwo, '$2$1ay')).join(' ');
 
 inPigLatin('Hello World');
 
 
-//ES6: shorter version: 
+//ES6: shorter version:
 //In RegEx, note that 'i' is a modifier (modifies the search to be case-insensitive).
 // In this code version, the ternary was removed and only used one RegEx.
 

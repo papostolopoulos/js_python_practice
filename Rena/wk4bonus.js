@@ -75,6 +75,25 @@ function response(input){
 }
 response(userInput);
 
+//Other examples:
+
+const strFirstAndLast = (string) => (`first character: ${string[0]}, and last character: ${string.charAt(string.length-1)}`);
+
+
+function forEachCallback(el, idx, arr) {
+  return `${el} is at position ${idx} in array ${arr}`;
+}
+
+
+//Using a call-back:
+function myForEach(arr, cb){
+  for (var i = 0; i < arr.length; i++) {
+    console.log(cb(arr[i], i, arr));
+    console.log(arr[i] + " is at position " + i + " in array " + arr);
+  }
+}
+
+myForEach([4,6,8,10], forEachCallback);
 // **********************************************************************************************
 //Other BONUS Exercises to Solve:
 //1) Using a for loop, log the numbers 0 through 100 to the console.
@@ -82,6 +101,11 @@ response(userInput);
 for(var i = 0; i <=100; i++){
   console.log(i);
 }
+
+//ES6 version:???
+const countNum = (num) => [...num]
+countNum([100]);
+
 
 //2) Using a for loop, log the numbers 1 through 100 to the console (note: NOT INCLUDING ZERO).
 

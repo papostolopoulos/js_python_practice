@@ -16,8 +16,10 @@ Examples:  // ["This element is 1", "This element is 2", "This element is 3"] //
 
 
 /******************************************************************************
-Write a function passingStudents(array) that accepts an array of student objects.
-It should iterate through the list of students and return an array of the names
+1) Write a function passingStudents(array)
+2) that accepts an array of student objects.
+3) It should iterate through the list of students and
+4) return an array of the names
 of all the students who have an average grade of at least 70.
 
 Use only Array.prototype.forEach to iterate through any array!
@@ -40,6 +42,54 @@ var students = [
     "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 60}, {"id": 2, "score": 65}]
   }];
 
+// console.log(students[1].grades[2].score);
+
+function passingStudents(array) {
+  var newArray = [];
+
+  for (var i = 0; i < array.length; i++){
+    console.log(array[i].grades);
+    if (avg(array[i].grades[0].score, array[i].grades[1].score, array[i].grades[2].score) >= 70) {
+      newArray.push(students[i].name);
+    }
+  }
+}
+passingStudents(students);
+
+
+function avg(num1, num2, num3){
+  return (num1+num2+num3)/3;
+}
+
+
+
+//Another alternative solution: ES06
+
+function passingStudents(students){
+  var endArr = [];
+
+  students.forEach((el, idx, arr) =>{
+    var scores = 0;
+    for(var i = 0; i < el.grades.length; i++){
+      scores += el.grades[i].score;
+    }
+    if(scores/3 >= 70){
+      endArr.push(el.name);
+    }
+  });
+  return endArr;
+}
+passingStudents(students);
+
+
+// Other ES06 alternative solutions:
+
+function passingStudents(array){
+  return array.filter(el=>(el.grades[0].score+el.grades[1].score+el.grades[2].score)/3 >= 70).map(ele=>ele.name);
+}
+
+
+const passingStudents = array =>array.filter(el=>(el.grades[0].score+el.grades[1].score+el.grades[2].score)/3 >= 70).map(ele=>ele.name);
 
 /******************************************************************************
 Write a function laligatSequence(base, n)

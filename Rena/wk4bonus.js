@@ -335,3 +335,53 @@ function logNumbers(num1, num2){
   }
 }
 logNumbers(2, 9);
+
+
+
+//Win Lottery Game:
+
+function winLottery(){
+  var userAnswer = prompt("Did you win the Lottery ticket?");
+
+  while(userAnswer.toLowerCase() !== "yes"){
+    alert("Sorry, you have to keep on studying how to write code, or win the lottery.");
+    winLottery();
+  }
+  alert("Congratulations! You won the lottery so you can live in prosperity. Remember your good friend Paris and give him something.");
+}
+
+winLottery();
+
+string.replace("Paris", "Yoko");
+print("Happy Birthday!");
+
+
+
+//Examples of "instance":
+let a = 1;
+let b = a;
+b = b + 1;
+console.log("a: ", a);
+console.log("b: ", b);
+
+let c = [1];
+let d = c;
+d.push(2);
+console.log("c: ", c);
+console.log("d: ", d);
+
+/* Notes for examples of "instance" (above):
+If I assign 1 to a, then a to b, then change b, a is unaffected. This is because 
+a is a primitive value.
+
+If I assign an object to c, I am really just giving it a reference to the object. If I assign that 
+same reference to another object d, then use that reference to change the object, then 
+c will refer to that changed object.
+
+The whole instance language really isn't native to JavaScript and indicates wrong thinking.
+The whole `instance` language comes from other OOP languages and refers to the fact that a class 
+is not actually an object in other languages but rather a template for creating instances of 
+the class. In JavaScript all non-primitive values are objects and hence `instances` in some 
+sense but they are not really instances of classes in most cases. No variable actually holds a 
+non-primitive value, variables only ever hold primitive values or references to objects.
+*/

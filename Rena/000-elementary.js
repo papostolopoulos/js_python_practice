@@ -130,11 +130,11 @@ firstWord("today, is sunny.");
 // another example:
 function firstWord(string){
 
-	str5 = "";
+	str5 = ""; //removes spaces.
 
 	for(var i = 0; i < string.length; i++){
 		if(string[i] === "." || string[i] === ","){
-			str5 += " "
+			str5 += " ";
 		}
 		else{
 			str5 += string[i];

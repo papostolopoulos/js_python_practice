@@ -65,7 +65,7 @@ var rickyBobbyJr = function(num) {
   }
 };
 
-rickyBobbyJr(10);
+rickyBobbyJr(22);
 rickyBobbyJr(-8);
 rickyBobbyJr(0);
 
